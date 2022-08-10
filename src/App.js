@@ -1,5 +1,6 @@
 // @ts-nocheck
-import './App.css';
+import "./App.css";
+import Loader from "./components/loader/Loader";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <h2>Mustang written by Zokirkhon</h2>
       <h3>Mustang</h3>
       <p>Lorem ipsum dolor sit amet.</p>
+      <Loader />
     </div>
   );
 }
