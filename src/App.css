@@ -1,0 +1,6 @@
+.title {
+    transition: all 0.4s ease-in-out;
+}
+.title:hover {
+    transform: scale(1.1);
+}
