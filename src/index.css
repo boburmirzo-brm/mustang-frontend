@@ -13,6 +13,23 @@
   font-family: "ubuntu-regular";
 }
 :root{
-  --bg-py: #2d2d2d;
+  --bg-py: #72493F;
+  --bg-dark: #2d2d2d;
   --bg-light: #f7f7f7;
+  --bg-gold: #FBC100;
+  --font-lg: 48px;
+  --font-md: 18px;
 }
+@media screen and (max-width:990px) {
+  :root{
+    --font-lg: 32px;
+    --font-md: 16px;
+  }
+}
+@media screen and (max-width:600px) {
+  :root{
+    --font-lg: 28px;
+    --font-md: 14px;
+  }
+}
+
