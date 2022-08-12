@@ -1,6 +1,4 @@
 // @ts-nocheck
-import "./App.css";
-import Loader from "./components/loader/Loader";
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Home from './router/home/Home';
