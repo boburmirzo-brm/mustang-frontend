@@ -3,7 +3,11 @@ import s from "./Navbar.module.css"
 
 function Navbar() {
   return (
-    <div className={s.navbar}>Navbar</div>
+    <div className={s.navbar}>
+      <h2>navbar</h2>
+      {/* <SubHeader/>
+      <Header/> */}
+    </div>
   )
 }
 

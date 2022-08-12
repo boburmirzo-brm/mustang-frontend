@@ -1,15 +1,26 @@
 // @ts-nocheck
 import "./App.css";
 import Loader from "./components/loader/Loader";
+import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import Home from './router/home/Home';
+import Login from './router/login/Login';
+import SinglePage from './router/single-page/SinglePage';
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
     <div className="App">
-      <h1>Mustang</h1>
-      <h2>Mustang written by Zokirkhon</h2>
-      <h3>Mustang</h3>
-      <p>Lorem ipsum dolor sit amet.</p>
-      <Loader />
+      <Router>
+        <Navbar/>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/product/:id" component={SinglePage}/>
+        </Switch>
+        <Footer/>
+      </Router>
     </div>
   );
 }
