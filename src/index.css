@@ -17,6 +17,7 @@
   --bg-dark: #2d2d2d;
   --bg-light: #f7f7f7;
   --bg-gold: #FBC100;
+  --border-color:#828282;
   --font-lg: 48px;
   --font-md: 18px;
 }
@@ -33,3 +34,11 @@
   }
 }
 
+
+
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}

@@ -1,0 +1,31 @@
+.footer{
+    width: 100%;
+    height: 200px;
+    background-color:var(--bg-dark);
+    display: flex;
+    align-items: center;
+}
+
+.footer_collection{
+    display: flex;
+    color: #fff;
+    margin-left: 80px; 
+    flex: 1;
+}
+.footer_collection li{
+    margin: 20px;
+}
+
+.footer_items{
+    display: flex;
+    margin: 0px 100px;
+    align-items: center;
+}
+.footer_items svg{
+    margin: 14px;
+    font-size: 20px;
+    color: #fff;
+}
+.footer_items li{
+    color: #fff;
+}
