@@ -2,8 +2,9 @@
 .filter {
   width: 400px;
   height: 650px;
-  border: 2px solid var(--bg-py);
+  background: var(--bg-light);
 }
+
 /* Core End */
 
 /* Filter Navbar Start */

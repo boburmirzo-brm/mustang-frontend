@@ -69,7 +69,13 @@ function FilterProduct() {
       </div>
       {/* Filter Body End */}
 
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+
+
+      {/* Zokirxon mana shu  code bir ko'rinda */}
+
+      {/* commentdan ciqaraib */}
+
+      {/* <div style={{ display: "flex", flexWrap: "wrap" }}>
         {filterData?.type.map((title, inx) => (
           <button
             key={inx}
@@ -98,7 +104,7 @@ function FilterProduct() {
             {title}
           </button>
         ))}
-      </div>
+      </div> */}
     </main>
   );
 }
