@@ -7,7 +7,6 @@ function Login() {
     username: "",
     password: ""
   })
-
   // console.log(user);
   return (
     <div className={s.login}>
