@@ -1,0 +1,50 @@
+.subheader{
+    width: 100%;
+    height: 40px;
+    background-color: var(--bg-dark);
+    color: #fff;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.subheader p{
+    display: flex;
+    align-items: center;
+    font-size: var(--font-md);
+    position: absolute;
+    right: 100px;
+}
+
+.subheader p svg{
+    font-size: 20px;
+    margin:0px 10px;
+}
+
+.language_wrapper{
+    width: 60px;
+    height: 40px;
+    position: absolute;
+    right: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.language_box{
+    width: 25px;
+    height: 25px;
+    background-color: var(--bg-light);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.language_box img{
+    width: 100%;
+    height: 100%;
+}
+.language_box:first-child{
+    box-shadow: 0px 0px 5px;
+}
+.language_box:last-child{
+    opacity: 0.7;
+}
