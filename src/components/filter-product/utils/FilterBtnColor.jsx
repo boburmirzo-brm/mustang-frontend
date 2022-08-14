@@ -1,13 +1,13 @@
 // @ts-nocheck
 import React, { useState } from "react";
-import data from "../../../static/static";
+import {PRODUCTS} from "../../../static/static";
 import { objForColors, handleClickChangeActiveColorAndFilter } from "../utils";
 import s from "../FilterProduct.module.css";
 
 const FilterBtnColor = () => {
   const [arr, setArr] = useState([]);
 
-  data.forEach(({ color }) => {
+  PRODUCTS.forEach(({ color }) => {
     if (!arr.includes(color)) setArr([...arr, color]);
   });
 

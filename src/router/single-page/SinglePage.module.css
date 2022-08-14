@@ -1,0 +1,255 @@
+.singlePro_Main{
+    width: 100%;
+    background: var(--bg-light);
+    padding: 55px 0;
+
+}
+.SinglePage{
+    width: 80%;
+    min-height: 100vh;
+    margin: auto;
+}
+.singleProMain{
+    width: 100%;
+    min-height: 85vh;
+    display: flex;
+    justify-content: space-between;
+
+}
+.imgs_container{
+    width: 45%;
+    height: 75vh;
+
+}
+.info_container {
+    width: 45%;
+    height: 75vh;
+
+}
+.main_img_container{
+    width: 100%;
+    height: 80%;
+
+}
+.main_img_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.all_imgs_container{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201, 201, 201, 0.133);
+}
+.one_img_container{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto 10px;
+
+}
+.one_img_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.checked_img_border{
+    border: 2px solid #0E87F6;
+}
+
+
+
+/* 
+
+        >>>>>>>>>>>>>>>>>>>>      info       >>>>>>>>>>>>>
+
+*/
+.info_title{
+    width: 95%;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+.info_title h1{
+    font-size: var(--font-lg);
+    color: var(--bg-py);
+}
+.brand{
+    padding: 10px 15px;
+    background: var(--bg-dark);
+}
+.brand h3{
+    font-size: 28px;
+    color: #fff;
+}
+.stars{
+    width: 80px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+.stars img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.pro_desk{
+    font-size: var(--font-md);
+}
+.pro_states{
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+.pro_states svg{
+    font-size: var(--font-md);
+    color: dodgerblue;
+    margin-right: 4px;
+}
+.pro_states h3{
+    font-size: var(--font-md);
+    color: dodgerblue;
+}
+
+.sizes{
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--bg-dark);
+    margin: 10px 0;
+
+}
+.sizes h3{
+    font-size: var(--font-md);
+    color: #fff;
+    font-weight: 100;
+}
+.btns_container{
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+
+}
+.add_to_card{
+    width: 150px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-dark);
+    margin-right: 25px;
+}
+.add_to_card svg{
+    color: #fff !important;
+    font-size: var(--font-md);
+    margin-right: 10px;
+}
+.add_to_card h3{
+    color: #fff;
+    font-size: var(--font-md);
+    font-weight: 200;
+}
+.like{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 45px;
+    border: 1px solid var(--bg-dark);
+
+}
+.like svg{
+    margin-right: 10px;
+    font-size: var(--font-md);
+}
+.like h3{
+    font-size: var(--font-md);
+    font-weight: 200;
+}
+
+
+/* 
+    >>>>>>>>>>>>>>>>  look like this pro
+*/
+.singlePro_extra_pro{
+    width: 100%;
+    min-height: 60vh;
+}
+.looklike_pro{
+    font-size: var(--font-lg);
+    color: var(--bg-dark);
+    margin: 15px 0;
+    margin-left: 29px;
+}
+.looklike_products{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.all_pro_card{
+    width: 320px;
+    height: 440px;
+    margin: 10px 29px;
+    box-shadow: 5px 5px  10px 0px #0002;
+    padding: 0 5px;
+}
+.pro_card_main_img{
+    width: 100%;
+    height: 68%;
+}
+.pro_card_main_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.all_pro_card h1{
+    font-size: var(--font-md);
+    margin: 5px 0;
+}
+.looklike_products_buttons{
+    display: flex;
+    align-items: center;
+}
+.looklike_pro_like{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--bg-dark);
+    border-radius: 50%;
+    margin-right: 50px;
+}
+.looklike_pro_like svg{
+    font-size: 25px;
+}
+.views svg{
+    display: block;
+    font-size: 25px;
+}
+.views span{
+    margin-left: 2px;
+}
+
+.price_container{
+    width: 65%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.price_container h1{
+    font-size: 24px;
+    font-weight: 300;
+
+}

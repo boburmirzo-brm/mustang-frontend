@@ -1,5 +1,4 @@
-
-let PRODUCTS = [
+export const PRODUCTS = [
   {
     _id: 1,
     title: "Cabani shoes",
@@ -92,10 +91,9 @@ let PRODUCTS = [
   },
 ];
 
-export default PRODUCTS
-
 
 export const filterData = {
   season: ["barchasi","bahor", "yoz", "kuz","qish"],
   type: ["barchasi","makasina", "classic", "krasofka"],
 }
+

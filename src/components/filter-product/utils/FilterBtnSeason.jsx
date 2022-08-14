@@ -3,12 +3,12 @@
 import React, { useState } from "react";
 import s from "../FilterProduct.module.css";
 import { handleClickChangeActiveColorAndFilter } from "../utils";
-import data from "../../../static/static";
+import {PRODUCTS} from "../../../static/static";
 
 const FilterBtnSeason = () => {
   const [arr, setArr] = useState([]);
 
-  data.forEach(({ season }) => {
+  PRODUCTS.forEach(({ season }) => {
     if (!arr.includes(season)) setArr([...arr, season]);
   });
 

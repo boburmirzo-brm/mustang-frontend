@@ -3,12 +3,12 @@
 import React, { useState } from "react";
 import s from "../FilterProduct.module.css";
 import { handleClickChangeActiveColorAndFilter } from "../utils";
-import data from "../../../static/static";
+import {PRODUCTS} from "../../../static/static";
 
 const FilterBtnType = () => {
   const [arr, setArr] = useState([]);
 
-  data.forEach(({ type }) => {
+  PRODUCTS.forEach(({ type }) => {
     if (!arr.includes(type)) setArr([...arr, type]);
   });
 
