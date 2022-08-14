@@ -4,15 +4,13 @@
     background-color:var(--bg-light);
     display: flex;
     align-items: center;
-}
-
-.logo{
-    margin-left: 100px;
+    padding: 0 10%;
 }
 
 .header_collection{
     display: flex;
     margin-left: 60px;
+    flex: 1;
 }
 
 .header_collection li{
@@ -31,7 +29,6 @@
     background-color: #fff;
     display: flex;
     align-items: center;
-    margin-left: 350px;
 }
 .searchbar input{
     width: 90%;

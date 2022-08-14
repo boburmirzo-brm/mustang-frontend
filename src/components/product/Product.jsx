@@ -5,7 +5,6 @@ import {MdOutlineShoppingCart} from "react-icons/md"
 import {Link} from "react-router-dom"
 
 function Product({data}) {
-    console.log(data);
   return (
     <div className={s.product}>
         <Link to={`/product/${data._id}`}>
@@ -19,8 +18,8 @@ function Product({data}) {
             </p>
             <h3 className={s.product_price}>{data.price.brm()} so'm</h3>
             <div className={s.product_stars}> 
-                {new Array(data.stars).fill(<AiFillStar/>)} 
-                {new Array(5 - data.stars).fill(<AiOutlineStar/>)}
+                {new Array(data.stars).fill("").map((_, inx)=><AiFillStar key={inx}/>)} 
+                {new Array(5 - data.stars).fill("").map((_,inx)=><AiOutlineStar key={inx}/>)}
             </div>
             <div className={s.product_btns}>
                 <button className={s.btn_shopping}><MdOutlineShoppingCart/>Add to Cart</button>
