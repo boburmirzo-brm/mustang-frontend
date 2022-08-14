@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+.login
+{
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-left: 185px;
+    background: url('../../assets/1.png') no-repeat center/cover;
+}
+
+.card
+{
+    width: 440px;
+    height: 500px;
+    background: #fff;
+    padding: 23px 25px;
+}
+
+.title
+{
+    font-size: 32px;
+    color: var(--bg-dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.modal
+{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.modal.err
+{
+    background: #FF6464;
+}
+
+.modal.suc
+{
+    background: #64ff64;
+}
+
+.modal_text
+{
+    color: var(--bg-light);
+    font-size: var(--font-md);
+}
+
+.form
+{
+    width: 100%;
+}
+
+.input_text
+{
+    display: block;
+    font-family: '';
+    font-size: var(--font-md);
+    color: var(--bg-dark);
+    font-family: 'Ubuntu';
+}
+
+.inp
+{
+    width: 100%;
+    height: 40px;
+    margin: 15px 0;
+    background: none;
+    outline: none;
+    border: 1px solid #666666;
+    font-size: 16px;
+    padding: 0 12px;
+}
+
+.submit_btn
+{
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    font-size: var(--font-md);
+    color: var(--bg-light);
+    border: none;
+    user-select: none;
+    background: var(--bg-py);
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+.border
+{
+    width: 100%;
+    height: 1px;
+    background: #666;
+    margin: 25px 0;
+}
+
+.backhome_btn
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    font-size: var(--font-md);
+    color: var(--bg-py);
+    border: none;
+    user-select: none;
+    border: 2px solid var(--bg-py);
+    cursor: pointer;
+}
