@@ -1,4 +1,4 @@
-let PRODUCTS = [
+export let PRODUCTS = [
     {
         _id: 1,
         title: "Cabani shoes",
@@ -30,7 +30,7 @@ let PRODUCTS = [
         brand: "Mustang"
     },
     {
-        _id: 2,
+        _id: 3,
         title: "Cabani shoes",
         price: 180000,
         desc: "lorem ipsum dolor",
@@ -45,7 +45,7 @@ let PRODUCTS = [
         brand: "Mustang"
     },
     {
-        _id: 3,
+        _id: 4,
         title: "Cabani shoes",
         price: 180000,
         desc: "lorem ipsum dolor",
