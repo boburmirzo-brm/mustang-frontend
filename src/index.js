@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import "number-brm"
 import {BrowserRouter} from "react-router-dom"
 
 import rootReducer from "./context/reducer"

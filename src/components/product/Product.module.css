@@ -1,0 +1,90 @@
+.product{
+    width: 320px;
+    height: 420px;
+    box-shadow: 0 0 10px #2222;
+    margin: 8px;
+    transition: .3s;
+}
+.product:hover{
+    box-shadow: 0 0 20px #3333;
+}
+.product_body{
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 250px);
+}
+.product img{
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+}
+.product_title{
+    font-size: var(--font-md);
+}
+.product_price{
+    padding: 8px 0;
+    color:  var(--bg-py);
+}
+.product_stars{
+    color: var(--bg-gold);
+    flex-grow: 1;
+}
+.product_btns{
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+}
+.btn_shopping{
+    height: 40px;
+    padding: 8px 16px;
+    background: var(--bg-py);
+    color: #fff;
+    border: 1px solid var(--bg-py);
+    display: flex;
+    align-items: center;
+    transition: background .3s;
+    margin-right: 12px;
+    font-size: 16px;
+}
+.btn_shopping svg{
+    margin-right: 4px;
+}
+.btn_shopping:hover{
+    background: #fff;
+    color: var(--bg-py);
+    cursor: pointer;
+}
+.heart_con{
+    flex: 1;
+}
+.heart{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid var(--bg-py);
+    display: grid;
+    place-items: center;
+    color:  var(--bg-py);
+    transition: background .3s;
+}
+.heart svg{
+    font-size: 24px;
+}
+.heart:hover{
+    background-color:var(--bg-py);
+    color:  #fff;
+    cursor: pointer;
+}
+.view {
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color:  var(--bg-py);
+}
+.view p{
+    font-size: 12px;
+}

@@ -1,5 +1,7 @@
 .product_wrapper{
     width: calc(100% - 400px);
-    height: 900px;
-    border: 2px solid blue;
+}
+.product_container{
+    display: flex;
+    flex-wrap: wrap;
 }

@@ -1,4 +1,4 @@
-let PRODUCTS = [
+export let PRODUCTS = [
     {
         _id: 1,
         title: "Cabani shoes",
