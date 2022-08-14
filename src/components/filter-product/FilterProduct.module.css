@@ -1,5 +1,123 @@
-.filter{
-    width: 400px;
-    height: 650px;
-    border: 2px solid red;
+/* Core Start */
+.filter {
+  width: 400px;
+  height: 650px;
+  border: 2px solid var(--bg-py);
 }
+/* Core End */
+
+/* Filter Navbar Start */
+.filterNavbar,
+.filterNavbar div {
+  display: flex;
+  align-items: center;
+}
+.filterNavbar {
+  padding-left: 0.625rem;
+  height: 3.125rem;
+  background: #734a3f3b;
+  color: var(--bg-py);
+}
+.filterNavbar div span {
+  padding: 0 0.312rem;
+}
+.filterNavbar div {
+  height: 2.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.24s ease-in-out;
+  border-radius: 0.5rem;
+}
+.filterNavbar div:hover {
+  background: rgba(115, 75, 64, 0.753);
+  color: #fff;
+}
+.filterNavbar svg {
+  fill: #fff;
+}
+/* Filter Navbar End */
+
+/* Filter Body Start */
+.filterBody {
+  padding: 1.562rem;
+}
+.filterBodyRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.625rem;
+}
+.filterBodyRow p {
+  color: var(--bg-py);
+  font-size: var(--font-md);
+  font-weight: 600;
+}
+.filterBodyButtonsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+.filterBodyButtonsRowBtn {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--bg-py);
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+  color: var(--bg-py);
+  background: var(--bg-light);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.filterBodyButtonsRowBtn:hover {
+  color: var(--bg-light);
+  background: rgba(115, 75, 64, 0.88);
+}
+.active {
+  color: var(--bg-light);
+  background: var(--bg-py);
+}
+.filterBtnColor {
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+  margin-right: 5px;
+  padding: 1rem;
+}
+
+.onlyForBtnColor {
+  padding: 0.2rem 0.5rem 0.2rem 0.2rem;
+}
+
+.filterInput {
+  width: 60%;
+  height: 2.5rem;
+  border: 1px solid var(--bg-py);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  color: var(--bg-py);
+}
+.filterInput::placeholder {
+  color: var(--bg-py);
+}
+.filterInput:focus {
+  outline: none;
+}
+
+.black {
+  background: var(--bg-dark);
+}
+.white {
+  background: var(--bg-light);
+}
+.red {
+  background: red;
+}
+.blue {
+  background: blue;
+}
+.brown {
+  background: rgb(159, 82, 37);
+}
+/* Filter Body End */
