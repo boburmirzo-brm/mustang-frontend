@@ -16,8 +16,8 @@ function FilterProduct() {
     type: "barchasi",
     price: {
       from: 0,
-      to: 0
-    }
+      to: 0,
+    },
   });
   return (
     <main className={s.filter}>
@@ -35,7 +35,14 @@ function FilterProduct() {
         <div className={s.filterBodyRow}>
           <p>Turi</p>
           <div className={s.filterBodyButtonsRow}>
-            <FilterBtnType />
+            {filterData?.type.map((title, idx) => (
+              <FilterBtnType
+                key={idx}
+                title={title}
+                setFilter={setFilter}
+                filter={filter}
+              />
+            ))}
           </div>
         </div>
         {/* Type End */}
@@ -44,8 +51,18 @@ function FilterProduct() {
         <div className={s.filterBodyRow}>
           <p>Mavsumiyligi</p>
           <div className={s.filterBodyButtonsRow}>
-            <FilterBtnSeason />
+            {filterData?.season.map((title, idx) => (
+              <FilterBtnSeason
+                key={idx}
+                title={title}
+                setFilter={setFilter}
+                filter={filter}
+              />
+            ))}
           </div>
+          {/* <div className={s.filterBodyButtonsRow}>
+            <FilterBtnSeason />
+          </div> */}
         </div>
         {/* Season End */}
 
@@ -53,7 +70,7 @@ function FilterProduct() {
         <div className={s.filterBodyRow}>
           <p>Narxi</p>
           <div className={s.filterBodyButtonsRow}>
-            <FilterBtnPrice />
+            <FilterBtnPrice setFilter={setFilter} filter={filter} />
           </div>
         </div>
         {/* Price End */}
@@ -62,49 +79,19 @@ function FilterProduct() {
         <div className={s.filterBodyRow}>
           <p>Rang</p>
           <div className={s.filterBodyButtonsRow}>
-            <FilterBtnColor />
+            {filterData?.color.map((title, idx) => (
+              <FilterBtnColor
+                key={idx}
+                title={title}
+                filter={filter}
+                setFilter={setFilter}
+              />
+            ))}
           </div>
         </div>
         {/* Color End */}
       </div>
       {/* Filter Body End */}
-
-
-
-      {/* Zokirxon mana shu  code bir ko'rinda */}
-
-      {/* commentdan ciqaraib */}
-
-      {/* <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {filterData?.type.map((title, inx) => (
-          <button
-            key={inx}
-            onClick={() => setFilter({ ...filter, type: title })}
-            className={
-              filter.type === title
-                ? [s.filterBodyButtonsRowBtn, s.active].join(" ")
-                : s.filterBodyButtonsRowBtn
-            }
-          >
-            {title}
-          </button>
-        ))}
-      </div>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {filterData?.season.map((title, inx) => (
-          <button
-            key={inx}
-            onClick={() => setFilter({ ...filter, season: title })}
-            className={
-              filter.season === title
-                ? [s.filterBodyButtonsRowBtn, s.active].join(" ")
-                : s.filterBodyButtonsRowBtn
-            }
-          >
-            {title}
-          </button>
-        ))}
-      </div> */}
     </main>
   );
 }

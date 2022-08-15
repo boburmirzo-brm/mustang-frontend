@@ -1,41 +1,21 @@
 // @ts-nocheck
-import React, { useState } from "react";
-import {PRODUCTS} from "../../../static/static";
-import { objForColors, handleClickChangeActiveColorAndFilter } from "../utils";
+import React from "react";
 import s from "../FilterProduct.module.css";
+import { objForColors } from "../utils";
 
-const FilterBtnColor = () => {
-  const [arr, setArr] = useState([]);
-
-  PRODUCTS.forEach(({ color }) => {
-    if (!arr.includes(color)) setArr([...arr, color]);
-  });
-
+const FilterBtnColor = ({ title, filter, setFilter }) => {
   return (
     <>
       <button
-        onClick={handleClickChangeActiveColorAndFilter}
-        className={`${s.filterBodyButtonsRowBtn} ${s.active}`}
-      >
-        All
-      </button>
-      {arr?.map((color, idx) => {
-        if (objForColors[color]) {
-          return (
-            <button
-              onClick={handleClickChangeActiveColorAndFilter}
-              key={idx}
-              className={`${s.filterBodyButtonsRowBtn} ${s.onlyForBtnColor} `}
-            >
-              <span
-                className={`${s.filterBtnColor} ${s[objForColors[color]]}`}
-              ></span>
-              {color}
-            </button>
-          );
+        onClick={() => setFilter({ ...filter, color: title })}
+        className={
+          filter.color === title
+            ? [s.filterBodyButtonsRowBtn, s.active].join(" ")
+            : [s.filterBodyButtonsRowBtn, s[objForColors[title]]].join(" ")
         }
-        return "";
-      })}
+      >
+        {title}
+      </button>
     </>
   );
 };

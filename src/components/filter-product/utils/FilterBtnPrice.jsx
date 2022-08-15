@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // @ts-nocheck
 import React, { useState, useEffect } from "react";
 import s from "../FilterProduct.module.css";
-import { prices } from "../utils";
+import { filterData } from "../../../static/static";
 
-
-const FilterBtnPrice = () => {
+const FilterBtnPrice = ({ setFilter, filter }) => {
+  const { price: prices } = filterData;
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(prices[prices.length - 1]);
 
@@ -13,6 +14,10 @@ const FilterBtnPrice = () => {
       setMinPrice(+maxPrice);
       setMaxPrice(+minPrice);
     }
+  }, [minPrice, maxPrice]);
+
+  useEffect(() => {
+    setFilter({ ...filter, price: { from: minPrice, to: maxPrice } });
   }, [minPrice, maxPrice]);
 
   const handleSubmit = (e) => {

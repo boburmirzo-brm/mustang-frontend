@@ -2,7 +2,8 @@
 .filter {
   width: 400px;
   height: 650px;
-  background: var(--bg-light);
+  background: #fff;
+  box-shadow: 0px 0px 4px 1px #00000021;
 }
 
 /* Core End */
@@ -79,18 +80,6 @@
   color: var(--bg-light);
   background: var(--bg-py);
 }
-.filterBtnColor {
-  display: inline-block;
-  height: 2rem;
-  width: 2rem;
-  margin-right: 5px;
-  padding: 1rem;
-}
-
-.onlyForBtnColor {
-  padding: 0.2rem 0.5rem 0.2rem 0.2rem;
-}
-
 .filterInput {
   width: 60%;
   height: 2.5rem;
@@ -106,19 +95,41 @@
   outline: none;
 }
 
+.white,
+.all,
+.other,
 .black {
-  background: var(--bg-dark);
-}
-.white {
-  background: var(--bg-light);
+  color: var(--bg-light);
 }
 .red {
-  background: red;
+  color: red;
 }
 .blue {
-  background: blue;
+  color: blue;
 }
 .brown {
-  background: rgb(159, 82, 37);
+  color: #543028;
 }
+.pink {
+  color: rgb(219, 69, 194);
+}
+.green {
+  color: rgb(23, 170, 9);
+}
+.yellow {
+  color: yellow;
+}
+.white,
+.all,
+.other,
+.black,
+.red,
+.blue,
+.brown,
+.pink,
+.green,
+.yellow {
+  text-shadow: 0px 0px 4px var(--bg-py);
+}
+
 /* Filter Body End */

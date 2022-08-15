@@ -92,8 +92,13 @@ export const PRODUCTS = [
 ];
 
 
+
+
+
 export const filterData = {
   season: ["barchasi","bahor", "yoz", "kuz","qish"],
   type: ["barchasi","makasina", "classic", "krasofka"],
+  color: ["barchasi", "oq", "qora", "qizil", "ko'k", "jigarrang", "pushti", "yashil", "sariq", "boshqa"],
+  price: PRODUCTS?.map(({price})=> price).sort((a,b)=> a-b)
 }
 

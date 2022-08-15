@@ -1,34 +1,21 @@
 /* eslint-disable no-unused-expressions */
 // @ts-nocheck
-import React, { useState } from "react";
+import React from "react";
 import s from "../FilterProduct.module.css";
-import { handleClickChangeActiveColorAndFilter } from "../utils";
-import {PRODUCTS} from "../../../static/static";
 
-const FilterBtnType = () => {
-  const [arr, setArr] = useState([]);
-
-  PRODUCTS.forEach(({ type }) => {
-    if (!arr.includes(type)) setArr([...arr, type]);
-  });
-
+const FilterBtnType = ({ title, filter, setFilter }) => {
   return (
     <>
       <button
-        onClick={handleClickChangeActiveColorAndFilter}
-        className={`${s.filterBodyButtonsRowBtn} ${s.active}`}
+        onClick={() => setFilter({ ...filter, type: title })}
+        className={
+          filter.type === title
+            ? [s.filterBodyButtonsRowBtn, s.active].join(" ")
+            : s.filterBodyButtonsRowBtn
+        }
       >
-        All
+        {title}
       </button>
-      {arr?.map((el, idx) => (
-        <button
-          onClick={handleClickChangeActiveColorAndFilter}
-          key={idx}
-          className={`${s.filterBodyButtonsRowBtn}`}
-        >
-          {el}
-        </button>
-      ))}
     </>
   );
 };
