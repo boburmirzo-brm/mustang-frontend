@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Home from './router/home/Home';
 import Login from './router/login/Login';
 import SinglePage from './router/single-page/SinglePage';
+import Cart from './router/cart/Cart';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/login" component={Login}/>
+          <Route path="/cart" component={Cart}/>
           <Route path="/product/:id" component={SinglePage}/>
         </Switch>
         <Footer/>

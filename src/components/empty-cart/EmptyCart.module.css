@@ -1,0 +1,16 @@
+.empty_cart
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty_cart > img
+{
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+}
