@@ -1,0 +1,137 @@
+.like_container{
+    width: 100%;
+    min-height: 100vh;
+}
+.like_content{
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+.like_product{
+    width: 100%;
+    height: 350px;
+    margin: 25px auto;
+    padding: 10px 25px;
+    border-radius: 25px;
+    box-shadow: 0 0 5px #002;
+    display: flex;
+    position: relative;
+}
+.delete{
+    position: absolute;
+    top: -10px;
+    right: -40px;
+    font-size: 34px;
+}
+.delete svg{
+    font-size: 34px;
+    color: rgba(0, 0, 0, 0.5);
+    transition: .2s;
+}
+.delete svg:hover{
+    cursor: pointer;
+    color: rgba(255, 0, 0, 0.781);
+}
+.imgs_container{
+    width: 300px;
+    height: 320px;
+
+}
+.main_img_container{
+    width: 100%;
+    height: 75%;
+
+}
+.main_img_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.all_imgs_container{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+
+}
+.all_imgs_child{
+    width: 60px;
+    height: 60px;
+    margin: auto 7px;
+
+}
+.all_imgs_child img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.all_imgs_child img:hover{
+    cursor: pointer;
+}
+.info{
+    width: calc(100% - 300px);
+}
+.info .title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 15px;
+}
+.info .title h1{
+    font-size: var(--font-lg);
+    color: var(--bg-py);
+}
+.price{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 25px;
+}
+.price h1{
+    font-size: 35px;
+    color: #516A60;
+    padding: 5px 12px;
+    display: inline-block;
+}
+.info_desc{
+    width: 100%;
+    min-height: 195px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0px 20px;
+}
+.desc{
+    width: 100%;
+    padding: 0 10px;
+    flex-grow: 1;
+}
+.desc p{
+    text-align: start;
+}
+.btns{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btns button{
+    padding: 8px 35px;
+    background: var(--bg-py);
+    border: none;
+    color: #fff;
+    font-size: var( --font-md);
+    transition: .2s;
+    border-radius: 4px;
+}
+.btns button:hover{
+    background: #fff;
+    color: var(--bg-py);
+    border: 2px solid var(--bg-py);
+}
+.img_border{
+    border: 1px solid dodgerblue;
+}
