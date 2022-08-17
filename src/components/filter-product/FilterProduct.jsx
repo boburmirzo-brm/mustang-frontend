@@ -30,31 +30,24 @@ function FilterProduct() {
 
       {/* Filter Body Start */}
       <div className={s.filterBody}>
-        {Object.keys(filter).map((el, inx) => (
+        {Object.keys(filter).map((key, inx) => (
           <div key={inx} className={s.filterBodyRow}>
-            {el === "price" ? (
-              <>
-                <p>{types[el]}</p>
-                <div className={s.filterBodyButtonsRow}>
-                  <FilterBtnPrice setFilter={setFilter} filter={filter} />
-                </div>
-              </>
-            ) : (
-              <>
-                <p>{types[el]}</p>
-                <div className={s.filterBodyButtonsRow}>
-                  {filterData[el].map((title, idx) => (
-                    <FilterBtnColorSeasonType
-                      key={idx}
-                      title={title}
-                      setFilter={setFilter}
-                      filter={filter}
-                      type={el}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
+            <p>{types[key]}</p>
+            <div className={s.filterBodyButtonsRow}>
+              {key === "price" ? (
+                <FilterBtnPrice setFilter={setFilter} filter={filter} />
+              ) : (
+                filterData[key].map((title, idx) => (
+                  <FilterBtnColorSeasonType
+                    key={idx}
+                    title={title}
+                    setFilter={setFilter}
+                    filter={filter}
+                    type={key}
+                  />
+                ))
+              )}
+            </div>
           </div>
         ))}
       </div>

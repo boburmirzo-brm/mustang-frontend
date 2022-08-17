@@ -5,9 +5,10 @@ import s from "../FilterProduct.module.css";
 import { filterData } from "../../../static/static";
 
 const FilterBtnPrice = ({ setFilter, filter }) => {
-  const { price: prices } = filterData;
+  const { prices } = filterData;
+  let len = prices.length;
   const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(prices[prices.length - 2] || 0);
+  const [maxPrice, setMaxPrice] = useState(prices[len - 2] || 0);
   const [isMaxPriceInput] = useState(true);
 
   useEffect(() => {

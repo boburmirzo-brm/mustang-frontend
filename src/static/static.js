@@ -106,7 +106,7 @@ export const filterData = {
     "sariq",
     "boshqa",
   ],
-  price: [
+  prices: [
     50000,
     100000,
     150000,
