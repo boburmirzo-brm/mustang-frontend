@@ -8,16 +8,16 @@ import { filterData } from "../../static/static";
 import FilterBtnColorSeasonType from "./utils/FilterBtnColorSeasonType";
 
 function FilterProduct() {
+  const { types } = filterData;
   const [filter, setFilter] = useState({
-    season: "barchasi",
-    color: "barchasi",
     type: "barchasi",
+    season: "barchasi",
     price: {
       from: 0,
       to: 0,
     },
+    color: "barchasi",
   });
-  console.log(filter)
   return (
     <main className={s.filter}>
       {/* Filter Navbar Start */}
@@ -30,65 +30,33 @@ function FilterProduct() {
 
       {/* Filter Body Start */}
       <div className={s.filterBody}>
-        {/* Type Start */}
-        <div className={s.filterBodyRow}>
-          <p>Turi</p>
-          <div className={s.filterBodyButtonsRow}>
-            {filterData?.type.map((title, idx) => (
-              <FilterBtnColorSeasonType
-                key={idx}
-                title={title}
-                setFilter={setFilter}
-                filter={filter}
-                type='type'
-              />
-            ))}
+        {Object.keys(filter).map((el, inx) => (
+          <div key={inx} className={s.filterBodyRow}>
+            {el === "price" ? (
+              <>
+                <p>{types[el]}</p>
+                <div className={s.filterBodyButtonsRow}>
+                  <FilterBtnPrice setFilter={setFilter} filter={filter} />
+                </div>
+              </>
+            ) : (
+              <>
+                <p>{types[el]}</p>
+                <div className={s.filterBodyButtonsRow}>
+                  {filterData[el].map((title, idx) => (
+                    <FilterBtnColorSeasonType
+                      key={idx}
+                      title={title}
+                      setFilter={setFilter}
+                      filter={filter}
+                      type={el}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
-        </div>
-        {/* Type End */}
-
-        {/* Season Start */}
-        <div className={s.filterBodyRow}>
-          <p>Mavsumiyligi</p>
-          <div className={s.filterBodyButtonsRow}>
-            {filterData?.season.map((title, idx) => (
-              <FilterBtnColorSeasonType
-              key={idx}
-              title={title}
-              setFilter={setFilter}
-              filter={filter}
-              type='season'
-            />
-            ))}
-          </div>
-        </div>
-        {/* Season End */}
-
-        {/* Price Start */}
-        <div className={s.filterBodyRow}>
-          <p>Narxi</p>
-          <div className={s.filterBodyButtonsRow}>
-            <FilterBtnPrice setFilter={setFilter} filter={filter} />
-          </div>
-        </div>
-        {/* Price End */}
-
-        {/* Color Start */}
-        <div className={s.filterBodyRow}>
-          <p>Rang</p>
-          <div className={s.filterBodyButtonsRow}>
-            {filterData?.color.map((title, idx) => (
-              <FilterBtnColorSeasonType
-              key={idx}
-              title={title}
-              setFilter={setFilter}
-              filter={filter}
-              type='color'
-            />
-            ))}
-          </div>
-        </div>
-        {/* Color End */}
+        ))}
       </div>
       {/* Filter Body End */}
     </main>

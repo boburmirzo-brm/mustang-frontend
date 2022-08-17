@@ -11,9 +11,9 @@ const FilterBtnPrice = ({ setFilter, filter }) => {
   const [isMaxPriceInput] = useState(true);
 
   useEffect(() => {
-    if (+minPrice > +maxPrice) {
-      setMinPrice(+maxPrice);
-      setMaxPrice(+minPrice);
+    if (minPrice > maxPrice) {
+      setMinPrice(maxPrice);
+      setMaxPrice(minPrice);
     }
   }, [minPrice, maxPrice]);
 

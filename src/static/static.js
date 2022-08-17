@@ -124,4 +124,10 @@ export const filterData = {
     1000000,
     "undan yuqori",
   ],
+  types: {
+    type: 'turi',
+    season: 'mavsumiyligi',
+    price: 'narxi',
+    color: 'rangi'
+  }
 };

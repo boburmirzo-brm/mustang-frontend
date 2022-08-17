@@ -53,6 +53,7 @@
   color: var(--bg-py);
   font-size: var(--font-md);
   font-weight: 600;
+  text-transform: capitalize;
 }
 .filterBodyButtonsRow {
   display: flex;
