@@ -4,10 +4,8 @@ import React, { useState } from "react";
 import s from "./FilterProduct.module.css";
 import filterIcon from "./utils/filterIcon";
 import FilterBtnPrice from "./utils/FilterBtnPrice";
-import FilterBtnColor from "./utils/FilterBtnColor";
-import FilterBtnSeason from "./utils/FilterBtnSeason";
-import FilterBtnType from "./utils/FilterBtnType";
 import { filterData } from "../../static/static";
+import FilterBtnColorSeasonType from "./utils/FilterBtnColorSeasonType";
 
 function FilterProduct() {
   const [filter, setFilter] = useState({
@@ -36,11 +34,12 @@ function FilterProduct() {
           <p>Turi</p>
           <div className={s.filterBodyButtonsRow}>
             {filterData?.type.map((title, idx) => (
-              <FilterBtnType
+              <FilterBtnColorSeasonType
                 key={idx}
                 title={title}
                 setFilter={setFilter}
                 filter={filter}
+                type='type'
               />
             ))}
           </div>
@@ -52,17 +51,15 @@ function FilterProduct() {
           <p>Mavsumiyligi</p>
           <div className={s.filterBodyButtonsRow}>
             {filterData?.season.map((title, idx) => (
-              <FilterBtnSeason
-                key={idx}
-                title={title}
-                setFilter={setFilter}
-                filter={filter}
-              />
+              <FilterBtnColorSeasonType
+              key={idx}
+              title={title}
+              setFilter={setFilter}
+              filter={filter}
+              type='season'
+            />
             ))}
           </div>
-          {/* <div className={s.filterBodyButtonsRow}>
-            <FilterBtnSeason />
-          </div> */}
         </div>
         {/* Season End */}
 
@@ -80,12 +77,13 @@ function FilterProduct() {
           <p>Rang</p>
           <div className={s.filterBodyButtonsRow}>
             {filterData?.color.map((title, idx) => (
-              <FilterBtnColor
-                key={idx}
-                title={title}
-                filter={filter}
-                setFilter={setFilter}
-              />
+              <FilterBtnColorSeasonType
+              key={idx}
+              title={title}
+              setFilter={setFilter}
+              filter={filter}
+              type='color'
+            />
             ))}
           </div>
         </div>

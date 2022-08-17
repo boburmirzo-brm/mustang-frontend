@@ -1,17 +1,16 @@
-/* eslint-disable no-unused-expressions */
 // @ts-nocheck
 import React from "react";
 import s from "../FilterProduct.module.css";
 
-const FilterBtnType = ({ title, filter, setFilter }) => {
+const FilterBtnColorSeasonType = ({ title, filter, setFilter, type }) => {
   return (
     <>
       <button
-        onClick={() => setFilter({ ...filter, type: title })}
+        onClick={() => setFilter({ ...filter, [type]: title })}
         className={
-          filter.type === title
+          filter[type] === title
             ? [s.filterBodyButtonsRowBtn, s.active].join(" ")
-            : s.filterBodyButtonsRowBtn
+            : [s.filterBodyButtonsRowBtn].join(" ")
         }
       >
         {title}
@@ -20,4 +19,4 @@ const FilterBtnType = ({ title, filter, setFilter }) => {
   );
 };
 
-export default FilterBtnType;
+export default FilterBtnColorSeasonType;

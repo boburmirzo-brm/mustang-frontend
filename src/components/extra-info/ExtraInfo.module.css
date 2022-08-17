@@ -1,0 +1,17 @@
+.ExtraContainer {
+    text-align: center;
+    margin: 9.687rem 4.375rem;
+    border: 1px solid var(--border-color);
+    padding: 2.5rem 5.75rem;
+}
+.items {
+    display: flex;
+    justify-content: space-between;
+
+}
+.item {
+    border-right: 1px solid var(--border-color);
+}
+.item:last-of-type {
+    border-right: none;
+}
