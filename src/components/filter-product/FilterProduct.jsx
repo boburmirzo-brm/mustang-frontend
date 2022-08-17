@@ -17,6 +17,7 @@ function FilterProduct() {
       to: 0,
     },
   });
+  console.log(filter)
   return (
     <main className={s.filter}>
       {/* Filter Navbar Start */}

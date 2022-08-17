@@ -7,7 +7,8 @@ import { filterData } from "../../../static/static";
 const FilterBtnPrice = ({ setFilter, filter }) => {
   const { price: prices } = filterData;
   const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(prices[prices.length - 1]);
+  const [maxPrice, setMaxPrice] = useState(prices[prices.length - 2] || 0);
+  const [isMaxPriceInput] = useState(true);
 
   useEffect(() => {
     if (+minPrice > +maxPrice) {
@@ -23,30 +24,38 @@ const FilterBtnPrice = ({ setFilter, filter }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  const showingPrices = (str, getChange, changedValue) => (
+  const showingPrices = (str, getChange, changedValue, isMax) => (
     <form onSubmit={handleSubmit}>
-      <input
+      <select
         className={s.filterInput}
         onChange={(e) => getChange(e.target.value)}
         value={changedValue}
-        type="number"
-        list="prices"
-        name="price"
-        placeholder={str}
-        id="price"
-      />
+      >
+        {isMax ? (
+          <option value={maxPrice}>{maxPrice}</option>
+        ) : (
+          <option value="0">0</option>
+        )}
+
+        {prices.map((narx, idx) =>
+          narx === "undan yuqori" ? (
+            <option key={idx} value={9999999}>
+              {narx}
+            </option>
+          ) : (
+            <option key={idx} value={narx}>
+              {narx}
+            </option>
+          )
+        )}
+      </select>
       <label> {str} </label>
-      <datalist id="prices">
-        {prices.map((narx, idx) => (
-          <option key={idx} value={narx} />
-        ))}
-      </datalist>
     </form>
   );
   return (
     <>
-      {showingPrices("so'mdan", setMinPrice, minPrice)}
-      {showingPrices("so'mgacha", setMaxPrice, maxPrice)}
+      {showingPrices("so'mdan", setMinPrice, minPrice, !isMaxPriceInput)}
+      {showingPrices("so'mgacha", setMaxPrice, maxPrice, isMaxPriceInput)}
     </>
   );
 };

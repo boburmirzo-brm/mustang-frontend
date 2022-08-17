@@ -91,14 +91,37 @@ export const PRODUCTS = [
   },
 ];
 
-
-
-
-
 export const filterData = {
-  season: ["barchasi","bahor", "yoz", "kuz","qish"],
-  type: ["barchasi","makasina", "classic", "krasofka"],
-  color: ["barchasi", "oq", "qora", "qizil", "ko'k", "jigarrang", "pushti", "yashil", "sariq", "boshqa"],
-  price: PRODUCTS?.map(({price})=> price).sort((a,b)=> a-b)
-}
-
+  season: ["barchasi", "bahor", "yoz", "kuz", "qish"],
+  type: ["barchasi", "makasina", "classic", "krasofka"],
+  color: [
+    "barchasi",
+    "oq",
+    "qora",
+    "qizil",
+    "ko'k",
+    "jigarrang",
+    "pushti",
+    "yashil",
+    "sariq",
+    "boshqa",
+  ],
+  price: [
+    50000,
+    100000,
+    150000,
+    250000,
+    300000,
+    350000,
+    400000,
+    450000,
+    500000,
+    600000,
+    700000,
+    800000,
+    800000,
+    900000,
+    1000000,
+    "undan yuqori",
+  ],
+};
