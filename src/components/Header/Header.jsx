@@ -11,8 +11,12 @@ function Header(props) {
         <div className={s.header}>
            <Link to="/"> <img className={s.logo} src={logo} alt="" /></Link>
             <ul className={s.header_collection}>
+                <Link to="/">
                 <li>Asosiy sahifa</li>
-                <li>Biz haqimizda</li>
+                </Link>
+               <Link to="/about">
+               <li>Biz haqimizda</li>
+               </Link>
                 </ul>
             <div className={s.searchbar}>
                 <input type="text" placeholder='Qidirish...' />
@@ -21,7 +25,10 @@ function Header(props) {
             </div>
             <div className={s.cart_like_box_wrapper}>
             <BsHeart/>
+            <Link className={s.cart_item} to="/cart">
             <AiOutlineShoppingCart/>
+            <span>0</span>
+            </Link>
             </div>
         </div>
     );

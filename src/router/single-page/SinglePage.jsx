@@ -7,9 +7,9 @@ import {AiOutlineHeart,AiOutlineEye } from "react-icons/ai"
 import star3 from "../../assets/star-3.png"
 import star4 from "../../assets/star-4.png"
 import star5 from "../../assets/star-5.png"
-import blackStar3 from "../../assets/black-star-3.png"
-import blackStar4 from "../../assets/black-star-4.png"
-import blackStar5 from "../../assets/black-star-5.png"
+// import blackStar3 from "../../assets/black-star-3.png"
+// import blackStar4 from "../../assets/black-star-4.png"
+// import blackStar5 from "../../assets/black-star-5.png"
 
 function SinglePage({match}) {
   const singlePro = PRODUCTS.filter(pro=> pro._id === +match.params.id)[0]
@@ -78,7 +78,7 @@ function SinglePage({match}) {
            </div>
         </div>
         
-        <div className={s.singlePro_extra_pro}>
+        {/* <div className={s.singlePro_extra_pro}>
           <h1 className={s.looklike_pro}>O'xshash mahsulotlar</h1>
           <div className={s.looklike_products}>
             {
@@ -109,7 +109,8 @@ function SinglePage({match}) {
              </div>)
             }
           </div>
-        </div>
+        </div> */}
+        
       </div>
     </div>
     

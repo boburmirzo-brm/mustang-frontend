@@ -8,15 +8,16 @@
     align-items: center;
 }
 
-.subheader p{
+.subheader a{
     display: flex;
     align-items: center;
     font-size: var(--font-md);
     position: absolute;
     right: 100px;
+    color: var(--bg-light);
 }
 
-.subheader p svg{
+.subheader a svg{
     font-size: 20px;
     margin:0px 10px;
 }

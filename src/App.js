@@ -6,6 +6,7 @@ import Login from './router/login/Login';
 import SinglePage from './router/single-page/SinglePage';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
+import About from './router/about/About';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/" component={Home}/>
           <Route path="/login" component={Login}/>
           <Route path="/product/:id" component={SinglePage}/>
+          <Route path="/about"  component={About}/>
         </Switch>
         <Footer/>
       </Router>

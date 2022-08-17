@@ -17,7 +17,6 @@ function Footer() {
         <li>Biz haqimizda</li>
       </ul>
       <div className={s.footer_items}>
-        <li>Biz bilan bog'laning:</li>
         <FaFacebook/>
         <FaInstagram/>
         <FaTwitter/>
