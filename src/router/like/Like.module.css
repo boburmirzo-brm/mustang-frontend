@@ -1,6 +1,8 @@
 .like_container{
     width: 100%;
     min-height: 100vh;
+    background: var(--bg-light);
+    border: 1px solid transparent;
 }
 .like_content{
     width: 80%;
@@ -9,23 +11,25 @@
 }
 .like_product{
     width: 100%;
-    height: 350px;
+    height: 270px;
     margin: 25px auto;
     padding: 10px 25px;
-    border-radius: 25px;
-    box-shadow: 0 0 5px #002;
+    border-radius: 15px;
+     border: 1px solid var(--border-color);
     display: flex;
     position: relative;
+    background: #fff;
 }
 .delete{
     position: absolute;
-    top: -10px;
-    right: -40px;
+    top: 5px;
+    right: 5px;
     font-size: 34px;
+    font-weight: 200;
 }
 .delete svg{
     font-size: 34px;
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(248, 0, 0, 0.678);
     transition: .2s;
 }
 .delete svg:hover{
@@ -33,105 +37,143 @@
     color: rgba(255, 0, 0, 0.781);
 }
 .imgs_container{
-    width: 300px;
-    height: 320px;
-
+    width: 320px;
+    height: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
 }
 .main_img_container{
     width: 100%;
-    height: 75%;
+    height: 80%;
+    border-radius: 7px;
+    overflow: hidden;
 
 }
 .main_img_container img{
     width: 100%;
     height: 100%;
-    object-fit: contain;
-}
-.all_imgs_container{
-    width: 100%;
-    height: 25%;
-    display: flex;
-    align-items: center;
-
-}
-.all_imgs_child{
-    width: 60px;
-    height: 60px;
-    margin: auto 7px;
-
-}
-.all_imgs_child img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-.all_imgs_child img:hover{
-    cursor: pointer;
+    object-fit: cover;
 }
 .info{
-    width: calc(100% - 300px);
-}
-.info .title{
+    width: calc(100% - 320px);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 7px 15px;
 }
-.info .title h1{
+.info_left{
+    width: 70%;
+    height: 100%;
+}
+.info_right{
+    width: 30%;
+    height: 100%;
+    border-left: 1px solid #0002;
+    padding-left: 10px;
+}
+.title{
     font-size: var(--font-lg);
     color: var(--bg-py);
 }
-.price{
-    width: 100%;
-    display: flex;
+.product_stars{
+    color: var(--bg-gold);
+    margin: 25px 0;
+    font-size: 24px;
+}
+.produc_types{
+    display: flex; 
     align-items: center;
-    justify-content: space-between;
-    padding: 5px 25px;
+    height: 45px;
 }
-.price h1{
-    font-size: 35px;
-    color: #516A60;
-    padding: 5px 12px;
-    display: inline-block;
+.produc_types svg{
+    font-size: var(--font-md);
+     color: dodgerblue;
+     margin-left: 20px;
+     margin-right: 7px;
 }
-.info_desc{
-    width: 100%;
-    min-height: 195px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 0px 20px;
+.produc_types svg:first-child{
+    margin-left: 0;
+    color: var(--border-color);
+}
+.produc_types svg:nth-child(5){
+   font-size: 45px;
+   margin-right: 0;
+}
+.produc_types svg:nth-child(3){
+   color: var(--bg-py);
+}
+.produc_types svg:nth-child(7){
+   color: #002;
 }
 .desc{
-    width: 100%;
-    padding: 0 10px;
-    flex-grow: 1;
+    font-size: var(--font-md);
+    opacity: .9;
+    line-height: 1.3;
+    letter-spacing: 1.5px;
 }
-.desc p{
-    text-align: start;
+.price{
+    font-weight: 200;
+    margin-bottom: 10px;
 }
-.btns{
-    width: 100%;
-    height: 50px;
+.brand{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
 }
-.btns button{
-    padding: 8px 35px;
-    background: var(--bg-py);
-    border: none;
+.brand span {
+    font-size: 15px;
+    margin-right: 20px;
+}
+.brand h1{
+    font-weight: 400;
+    margin-left: 25px;
+}
+
+.btn_view{
+    display: block;
+    padding: 7px 25px ;
+    width: 90%;
+    background: #1266F1;
     color: #fff;
-    font-size: var( --font-md);
+    border-radius: 5px;
+    border: none;
+    font-size: var(--font-md);
+    margin: auto;
+    margin-top: 35px;
+    border: 3px solid transparent;
     transition: .2s;
-    border-radius: 4px;
+    box-shadow: 2px 3px 5px #0002;
 }
-.btns button:hover{
+.btn_view:hover{
+    border: 3px solid #1266F1;
+    box-shadow: 0 0 0 #fff;
+    
+    color: #000;
     background: #fff;
-    color: var(--bg-py);
-    border: 2px solid var(--bg-py);
+    cursor: pointer;
 }
-.img_border{
-    border: 1px solid dodgerblue;
+.btn_add_to_card{
+    display: block;
+    padding: 7px 25px ;
+    width: 90%;
+    border-radius: 5px;
+    font-size: var(--font-md);
+    margin: auto;
+    border: 3px solid #1266F1;
+    margin-top: 15px;
+    color: #000;
+    background: #fff;
+    transition: .2s;
+}
+.btn_add_to_card:hover{
+    background: #1266F1;
+    color: #fff;
+    cursor: pointer;
+}
+.season{
+    display: flex;
+    margin-left: 15px;
+}
+.season img{
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
 }

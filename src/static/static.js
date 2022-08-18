@@ -3,11 +3,11 @@ export const PRODUCTS = [
     _id: 1,
     title: "Cabani shoes",
     price: 18000,
-    desc: "lorem ipsum dolor",
+    desc: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi ad in rerum voluptatibus officiis molestias!  Lorem ipsum, dolor sit amet consectetur adipisicing elit. ",
     season: "yoz",
     type: "classic",
     color: "jigarrang",
-    stars: 3,
+    stars: 4,
     view: 0,
     urls: [
       "https://www.tradeinn.com/f/13753/137536832/sebago-classic-will-shoes.jpg",
