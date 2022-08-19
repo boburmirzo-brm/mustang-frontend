@@ -3,7 +3,7 @@ import s from "./SinglePage.module.css"
 import {PRODUCTS} from "../../static/static"
 import {IoIosArrowForward} from "react-icons/io"
 import { BsCart3 } from "react-icons/bs"
-import {AiOutlineHeart,AiOutlineEye } from "react-icons/ai"
+import {AiOutlineHeart,AiOutlineEye,AiFillStar,AiOutlineStar } from "react-icons/ai"
 import star3 from "../../assets/star-3.png"
 import star4 from "../../assets/star-4.png"
 import star5 from "../../assets/star-5.png"
@@ -11,6 +11,12 @@ import star5 from "../../assets/star-5.png"
 // import blackStar4 from "../../assets/black-star-4.png"
 // import blackStar5 from "../../assets/black-star-5.png"
 
+import blackStar3 from "../../assets/black-star-3.png"
+import blackStar4 from "../../assets/black-star-4.png"
+import blackStar5 from "../../assets/black-star-5.png"
+import season from "../../assets/season.png"
+import colorIcon from "../../assets/color-icon.png"
+import size from "../../assets/size-img.png"
 function SinglePage({match}) {
   const singlePro = PRODUCTS.filter(pro=> pro._id === +match.params.id)[0]
   const  [mainImg,setMainImg] = useState(singlePro.urls[0])
@@ -48,9 +54,10 @@ function SinglePage({match}) {
             </div>
            <div className={s.price_container}>
              <div className={s.stars}>
-               {
-                <img src={singlePro.stars === 5 ? star5 : singlePro ===4 ? star4 : star3 } alt="" />
-               }
+             <div className={s.product_stars}> 
+                {new Array(singlePro.stars).fill("").map((_, inx)=><AiFillStar key={inx}/>)} 
+                {new Array(5 - singlePro.stars).fill("").map((_,inx)=><AiOutlineStar key={inx}/>)}
+            </div>
              </div>
              <h1>{singlePro.price} $</h1>
            </div>
@@ -60,17 +67,19 @@ function SinglePage({match}) {
               <IoIosArrowForward/>  <h3>{  singlePro.type  }  </h3>
             </div>
             <div className={s.pro_states}>
-              <IoIosArrowForward/>  <h3>{  singlePro.season  }  </h3>
-            </div>
-            <div className={s.pro_states}>
-              <IoIosArrowForward/>  <h3>{  singlePro.color  }  </h3>
+                <img src={season} alt="" />   <h3>{  singlePro.season  }  </h3>
             </div>
             <div className={s.pro_states}>
               <IoIosArrowForward />  <h3>{  singlePro.productId  }  </h3>
             </div>
 
-            <div className={s.sizes}><h3>{singlePro.size}</h3></div>
+            <div className={s.pro_states}>
+              <img src={colorIcon} alt="" />  <h3>{  singlePro.color  }  </h3>
+            </div>
+           <div className={s.size_container}>
+           <img className={s.size_img} src={size} alt="" />  <div className={s.sizes}><h3>{singlePro.size}</h3></div>
 
+           </div>
             <div className={s.btns_container}>
               <div className={s.add_to_card}> <BsCart3 /> <h3>Add to Cart</h3> </div>
               <div className={s.like}> <AiOutlineHeart /> <h3>Like</h3> </div>
@@ -89,9 +98,10 @@ function SinglePage({match}) {
                 <h1>{pro.title}</h1>
                 <h1>{pro.price} $</h1>
                 <div className={s.stars}>
-                  {
-                    <img src={pro.stars === 5 ? blackStar5 : singlePro ===4 ? blackStar4 : blackStar3 } alt="" />
-                  }
+                <div className={s.product_stars}> 
+                  {new Array(pro.stars).fill("").map((_, inx)=><AiFillStar key={inx}/>)} 
+                  {new Array(5 - pro.stars).fill("").map((_,inx)=><AiOutlineStar key={inx}/>)}
+                </div>
 
                  </div>
 
@@ -102,7 +112,7 @@ function SinglePage({match}) {
                     </div>
                     <div className={s.views}>
                       <AiOutlineEye/>
-                      <span>74{pro.view}</span>
+                      <span>{pro.view}</span>
                     </div>
                   </div>
               
