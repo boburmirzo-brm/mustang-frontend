@@ -8,6 +8,7 @@ import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import PrivateRoute from './router/private-route/PrivateRoute';
 import Admin from './router/admin/Admin';
+import About from './router/about/About';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <PrivateRoute path="/admin">
             <Admin/>
           </PrivateRoute>
+          <Route path="/about"  component={About}/>
         </Switch>
         <Footer/>
       </Router>

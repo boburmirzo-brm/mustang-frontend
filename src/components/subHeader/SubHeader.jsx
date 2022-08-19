@@ -15,7 +15,7 @@ function SubHeader() {
                 <img src={ru} alt="" />
                 </div>
             </div>
-            <p><BsTelephone/> +998 91 343 0668</p>
+            <a href='tel:+998 91 343 0668'><BsTelephone/> +998 91 343 0668</a>
         </div>  
     );
 }
