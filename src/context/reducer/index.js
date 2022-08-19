@@ -1,10 +1,8 @@
 import { combineReducers } from "redux"
 import auth from "./auth"
-import addToCart from './addToCart'
 
 const rootReducer = combineReducers({
-    auth, 
-    addToCart
+    auth
 })
 
 export default rootReducer
