@@ -18,7 +18,7 @@ const persistConfig = {
   key: 'mustang',
   storage,
   blacklist: [],
-  whitelist: []
+  whitelist: ["auth", "cart", "heart"]
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

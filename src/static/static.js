@@ -1,3 +1,9 @@
+import Order from "../components/order/Order";
+import CreateProduct from "../components/create-product/CreateProduct";
+import EditProduct from "../components/edit-product/EditProduct";
+import CreateAdmin from "../components/create-admin/CreateAdmin";
+import {AiOutlineShoppingCart, AiOutlinePlus, AiOutlineEdit, AiOutlineUsergroupAdd} from "react-icons/ai"
+
 export const PRODUCTS = [
   {
     _id: 1,
@@ -97,3 +103,35 @@ export const filterData = {
   type: ["barchasi","makasina", "classic", "krasofka"],
 }
 
+
+
+export const adminSidebar = [
+  {
+    id: 0,
+    title: "Buyurtmalar",
+    component: <Order/>,
+    icon: <AiOutlineShoppingCart/>,
+    link: "order"
+  },
+  {
+    id: 1,
+    title: "Mahsulot yaratish",
+    component: <CreateProduct/>,
+    icon: <AiOutlinePlus/>,
+    link: "create-product"
+  },
+  {
+    id: 2,
+    title: "Mahsulotlarni boshqarish",
+    component: <EditProduct/>,
+    icon: <AiOutlineEdit/>,
+    link: "edit-product"
+  },
+  {
+    id: 3,
+    title: "Admin qo'shish",
+    component: <CreateAdmin/>,
+    icon: <AiOutlineUsergroupAdd/>,
+    link: "add-admin"
+  }
+]

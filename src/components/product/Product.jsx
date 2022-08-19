@@ -3,8 +3,16 @@ import s from "./Product.module.css"
 import {AiFillStar, AiOutlineStar, AiOutlineHeart, AiOutlineEye} from "react-icons/ai"
 import {MdOutlineShoppingCart} from "react-icons/md"
 import {Link} from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
+import {UseProduct} from "../../hooks/UseProducts"
+import {ADD_TO_CART, ADD_TO_HEART} from "../../context/action/actionTypes"
 
 function Product({data}) {
+    const cart = useSelector(state => state.cart)
+    const heart = useSelector(state => state.heart)
+    const dispatch = useDispatch()
+    // console.log("cart>>", cart);
+    // console.log("heart>>", heart);
   return (
     <div className={s.product}>
         <Link to={`/product/${data._id}`}>
@@ -22,9 +30,9 @@ function Product({data}) {
                 {new Array(5 - data.stars).fill("").map((_,inx)=><AiOutlineStar key={inx}/>)}
             </div>
             <div className={s.product_btns}>
-                <button className={s.btn_shopping}><MdOutlineShoppingCart/>Add to Cart</button>
+                <button onClick={()=>UseProduct(data, ADD_TO_CART,  cart, dispatch)} className={s.btn_shopping}><MdOutlineShoppingCart/>Add to Cart</button>
                 <div className={s.heart_con}>
-                    <button className={s.heart}><AiOutlineHeart/></button>
+                    <button onClick={()=>UseProduct(data, ADD_TO_HEART,  heart, dispatch)} className={s.heart}><AiOutlineHeart/></button>
                 </div>
                 <div className={s.view}>
                     <AiOutlineEye/>

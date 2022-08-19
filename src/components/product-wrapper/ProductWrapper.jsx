@@ -2,6 +2,7 @@ import React from 'react'
 import s from "./ProductWrapper.module.css"
 import {PRODUCTS} from "../../static/static"
 import Product from '../product/Product'
+import Skeleton from '../product/skeleton/Skeleton'
 
 function ProductWrapper() {
   return (
@@ -10,6 +11,8 @@ function ProductWrapper() {
       {
         PRODUCTS?.map((pro, inx)=> <Product data={pro} key={inx}/>)
       }
+      <Skeleton count={5}/>
+
       </div>
     
     </div>
