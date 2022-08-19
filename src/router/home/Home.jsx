@@ -10,6 +10,7 @@ const Home = () => {
   return (
     <div>
       <Banner/>
+      <h1 className={s.title}>Mahsulotlar</h1>
       <div className={s.main}>
         <FilterProduct/>
         <ProductWrapper/>

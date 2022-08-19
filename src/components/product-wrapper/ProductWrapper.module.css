@@ -1,5 +1,5 @@
 .product_wrapper{
-    width: calc(100% - 400px);
+    width: 75%;
 }
 .product_container{
     display: flex;

@@ -1,6 +1,9 @@
 .main{
     width: 80%;
-    margin: 80px auto;
+    margin: 30px auto;
     display: flex;
-
+}
+.title{
+    padding-left: 10%;
+    margin-top: 30px;
 }

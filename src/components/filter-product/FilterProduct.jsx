@@ -4,20 +4,19 @@ import React, { useState } from "react";
 import s from "./FilterProduct.module.css";
 import filterIcon from "./utils/filterIcon";
 import FilterBtnPrice from "./utils/FilterBtnPrice";
-import FilterBtnColor from "./utils/FilterBtnColor";
-import FilterBtnSeason from "./utils/FilterBtnSeason";
-import FilterBtnType from "./utils/FilterBtnType";
 import { filterData } from "../../static/static";
+import FilterBtnColorSeasonType from "./utils/FilterBtnColorSeasonType";
 
 function FilterProduct() {
+  const { types } = filterData;
   const [filter, setFilter] = useState({
-    season: "barchasi",
-    color: "barchasi",
     type: "barchasi",
+    season: "barchasi",
     price: {
       from: 0,
-      to: 0
-    }
+      to: 0,
+    },
+    color: "barchasi",
   });
   return (
     <main className={s.filter}>
@@ -31,80 +30,28 @@ function FilterProduct() {
 
       {/* Filter Body Start */}
       <div className={s.filterBody}>
-        {/* Type Start */}
-        <div className={s.filterBodyRow}>
-          <p>Turi</p>
-          <div className={s.filterBodyButtonsRow}>
-            <FilterBtnType />
+        {Object.keys(filter).map((key, inx) => (
+          <div key={inx} className={s.filterBodyRow}>
+            <p>{types[key]}</p>
+            <div className={s.filterBodyButtonsRow}>
+              {key === "price" ? (
+                <FilterBtnPrice setFilter={setFilter} filter={filter} />
+              ) : (
+                filterData[key].map((title, idx) => (
+                  <FilterBtnColorSeasonType
+                    key={idx}
+                    title={title}
+                    setFilter={setFilter}
+                    filter={filter}
+                    type={key}
+                  />
+                ))
+              )}
+            </div>
           </div>
-        </div>
-        {/* Type End */}
-
-        {/* Season Start */}
-        <div className={s.filterBodyRow}>
-          <p>Mavsumiyligi</p>
-          <div className={s.filterBodyButtonsRow}>
-            <FilterBtnSeason />
-          </div>
-        </div>
-        {/* Season End */}
-
-        {/* Price Start */}
-        <div className={s.filterBodyRow}>
-          <p>Narxi</p>
-          <div className={s.filterBodyButtonsRow}>
-            <FilterBtnPrice />
-          </div>
-        </div>
-        {/* Price End */}
-
-        {/* Color Start */}
-        <div className={s.filterBodyRow}>
-          <p>Rang</p>
-          <div className={s.filterBodyButtonsRow}>
-            <FilterBtnColor />
-          </div>
-        </div>
-        {/* Color End */}
+        ))}
       </div>
       {/* Filter Body End */}
-
-
-
-      {/* Zokirxon mana shu  code bir ko'rinda */}
-
-      {/* commentdan ciqaraib */}
-
-      {/* <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {filterData?.type.map((title, inx) => (
-          <button
-            key={inx}
-            onClick={() => setFilter({ ...filter, type: title })}
-            className={
-              filter.type === title
-                ? [s.filterBodyButtonsRowBtn, s.active].join(" ")
-                : s.filterBodyButtonsRowBtn
-            }
-          >
-            {title}
-          </button>
-        ))}
-      </div>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {filterData?.season.map((title, inx) => (
-          <button
-            key={inx}
-            onClick={() => setFilter({ ...filter, season: title })}
-            className={
-              filter.season === title
-                ? [s.filterBodyButtonsRowBtn, s.active].join(" ")
-                : s.filterBodyButtonsRowBtn
-            }
-          >
-            {title}
-          </button>
-        ))}
-      </div> */}
     </main>
   );
 }

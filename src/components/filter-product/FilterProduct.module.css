@@ -1,10 +1,21 @@
 /* Core Start */
 .filter {
-  width: 400px;
-  height: 650px;
-  background: var(--bg-light);
+  width: 25%;
+  height: calc(100vh - 160px);
+  background: #fff;
+  margin-top: 8px;
+  box-shadow: 0px 0px 4px 1px #00000021;
+  position: sticky;
+  top: 140px;
+  overflow: auto;
 }
-
+.filter::-webkit-scrollbar{
+  width: 6px;
+}
+.filter::-webkit-scrollbar-thumb{
+  background-color: #caa399;
+  border-radius: 5px;
+}
 /* Core End */
 
 /* Filter Navbar Start */
@@ -16,8 +27,10 @@
 .filterNavbar {
   padding-left: 0.625rem;
   height: 3.125rem;
-  background: #734a3f3b;
+  background: #caa399;
   color: var(--bg-py);
+  position: sticky;
+  top: 0;
 }
 .filterNavbar div span {
   padding: 0 0.312rem;
@@ -52,6 +65,7 @@
   color: var(--bg-py);
   font-size: var(--font-md);
   font-weight: 600;
+  text-transform: capitalize;
 }
 .filterBodyButtonsRow {
   display: flex;
@@ -79,18 +93,6 @@
   color: var(--bg-light);
   background: var(--bg-py);
 }
-.filterBtnColor {
-  display: inline-block;
-  height: 2rem;
-  width: 2rem;
-  margin-right: 5px;
-  padding: 1rem;
-}
-
-.onlyForBtnColor {
-  padding: 0.2rem 0.5rem 0.2rem 0.2rem;
-}
-
 .filterInput {
   width: 60%;
   height: 2.5rem;
@@ -106,19 +108,41 @@
   outline: none;
 }
 
+.white,
+.all,
+.other,
 .black {
-  background: var(--bg-dark);
-}
-.white {
-  background: var(--bg-light);
+  color: var(--bg-light);
 }
 .red {
-  background: red;
+  color: red;
 }
 .blue {
-  background: blue;
+  color: blue;
 }
 .brown {
-  background: rgb(159, 82, 37);
+  color: #543028;
 }
+.pink {
+  color: rgb(219, 69, 194);
+}
+.green {
+  color: rgb(23, 170, 9);
+}
+.yellow {
+  color: yellow;
+}
+.white,
+.all,
+.other,
+.black,
+.red,
+.blue,
+.brown,
+.pink,
+.green,
+.yellow {
+  text-shadow: 0px 0px 4px var(--bg-py);
+}
+
 /* Filter Body End */
