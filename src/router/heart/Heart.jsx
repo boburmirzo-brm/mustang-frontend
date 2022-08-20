@@ -7,7 +7,6 @@ import HeartComponent from "./HeartComponent";
 import { removeFromHeart } from "../../context/action/action";
 
 const Heart = () => {
-  const cart = useSelector((state) => state.cart);
   const [data, setData] = useState(useSelector((state) => state.heart) || []);
   const dispatch = useDispatch();
 
@@ -24,8 +23,6 @@ const Heart = () => {
             data={data}
             key={idx}
             setData={setData}
-            dispatch={dispatch}
-            cart={cart}
           />
         ))}
       </div>
