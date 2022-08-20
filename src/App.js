@@ -10,7 +10,7 @@ import Footer from './components/footer/Footer';
 import PrivateRoute from './router/private-route/PrivateRoute';
 import Admin from './router/admin/Admin';
 import About from './router/about/About';
-import Like from './router/like/Like';
+import Heart from './router/heart/Heart';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           <Route exact path="/" component={Home}/>
           <Route path="/login" component={Login}/>
           <Route path="/cart" component={Cart}/>
-          <Route path="/heart" component={Like} />
+          <Route path="/heart" component={Heart} />
           <Route path="/product/:id" component={SinglePage}/>
           <PrivateRoute path="/admin">
             <Admin/>

@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+// @ts-nocheck
+import React  from 'react'
 import {PRODUCTS} from "../../static/static"
 import {AiFillStar,AiOutlineStar } from "react-icons/ai"
 import {TiDeleteOutline} from "react-icons/ti"
