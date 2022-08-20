@@ -7,7 +7,7 @@ import s from "./Navbar.module.css"
 function Navbar() {
   const location = useLocation()
   
-  if(location.pathname === "/login"){
+  if(location.pathname === "/login" || location.pathname === "/admin"){
     return <></>
   }
   return (
