@@ -1,15 +1,15 @@
 .product{
     width: 320px;
-    height: 420px;
+    min-height: 420px;
     box-shadow: 0 0 10px #2222;
     margin: 8px;
     transition: .3s;
+    padding: 10px;
 }
 .product:hover{
     box-shadow: 0 0 20px #3333;
 }
 .product_body{
-    padding: 16px;
     display: flex;
     flex-direction: column;
     height: calc(100% - 250px);
@@ -23,7 +23,7 @@
     font-size: var(--font-md);
 }
 .product_price{
-    padding: 8px 0;
+    padding: 6px 0;
     color:  var(--bg-py);
 }
 .product_stars{
@@ -48,6 +48,8 @@
     font-size: 16px;
 }
 .btn_shopping svg{
+    min-width: 22px;
+    font-size: 22px;
     margin-right: 4px;
 }
 .btn_shopping:hover{
@@ -130,5 +132,52 @@
     }
     .product img{
         height: 220px;
+    }
+}
+@media screen and (max-width: 600px){
+    .product{
+        width: calc(50% - 6px);
+        margin: 3px;
+    }
+    .heart{
+        height: 30px;
+        width: 30px;
+    }
+    .heart svg{
+        font-size: 18px;
+    }
+    .btn_shopping{
+        height: 30px;
+        padding: 8px ;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+    .btn_shopping svg{
+        min-width: 18px;
+        font-size: 16px;
+        margin-right: 2px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .product_body{
+        height: calc(100% - 150px);
+    }
+    .product img{
+        height: 150px;
+    }
+    .product{
+        min-height: 300px;
+    }
+    .btn_shopping{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 360px){
+    .btn_shopping span{
+        display: none;
+    }
+    .btn_shopping svg{
+        margin-right: 0;
     }
 }

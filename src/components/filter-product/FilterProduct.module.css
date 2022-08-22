@@ -9,11 +9,12 @@
   top: 140px;
   overflow: auto;
 }
+
 .filter::-webkit-scrollbar{
-  width: 6px;
+  width: 4px;
 }
 .filter::-webkit-scrollbar-thumb{
-  background-color: #caa399;
+  background-color: #ddd;
   border-radius: 5px;
 }
 /* Core End */
@@ -27,7 +28,8 @@
 .filterNavbar {
   padding-left: 0.625rem;
   height: 3.125rem;
-  background: #caa399;
+  background: var(--bg-light);
+  box-shadow: 0px 3px 3px #0001;
   color: var(--bg-py);
   position: sticky;
   top: 0;
@@ -144,5 +146,43 @@
 .yellow {
   text-shadow: 0px 0px 4px var(--bg-py);
 }
-
+.filter_bottom{
+  position: sticky;
+  bottom: 0;  
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient( transparent, #fff 70% );
+}
 /* Filter Body End */
+
+
+@media screen and (max-width: 1111px) {
+  .filter {
+    width: 300px;
+    height: calc(100vh - 200px);
+    position: fixed;
+    top: 120px;
+    overflow: auto;
+    z-index: 10;
+    left: -300px;
+    transition: .35s ease-in;
+  }
+  .show{
+    left: 0;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  .filter {
+    top: 10px;
+    width: 70%;
+    left: -70%;
+    height: calc(100vh - 80px);
+  }
+  .show{
+    left: 0;
+  }
+
+}

@@ -3,6 +3,8 @@ import CreateProduct from "../components/create-product/CreateProduct";
 import EditProduct from "../components/edit-product/EditProduct";
 import CreateAdmin from "../components/create-admin/CreateAdmin";
 import {AiOutlineShoppingCart, AiOutlinePlus, AiOutlineEdit, AiOutlineUsergroupAdd} from "react-icons/ai"
+import { AiOutlineHeart,AiFillHeart, AiOutlineHome,AiFillHome, AiOutlineFilter, AiFillFilter } from "react-icons/ai";
+import {BsCart, BsFillCartFill} from "react-icons/bs"
 
 export const PRODUCTS = [
   {
@@ -25,7 +27,7 @@ export const PRODUCTS = [
   },
   {
     _id: 2,
-    title: "Cabani shoes",
+    title: "Cabani shoes lorem impas asd dolor sit emt",
     price: 80000,
     desc: "lorem ipsum dolor",
     season: "bahor",
@@ -168,4 +170,35 @@ export const adminSidebar = [
     icon: <AiOutlineUsergroupAdd/>,
     link: "add-admin"
   }
+]
+
+export const bottomData = [
+  {
+      id: 0,
+      title: "Bosh sahifa",
+      icon: <AiOutlineHome/>,
+      iconFill: <AiFillHome/>,
+      route: "/"
+  },
+  {
+      id: 1,
+      title: "Sevimlilar",
+      icon: <AiOutlineHeart/>,
+      iconFill: <AiFillHeart/>,
+      route: "/heart"
+  },
+  {
+      id: 2,
+      title: "Savatcha",
+      icon: <BsCart/>,
+      iconFill: <BsFillCartFill/>,
+      route: "/cart"
+  },
+  // {
+  //     id: 3,
+  //     title: "Filter",
+  //     icon: <AiOutlineFilter/>,
+  //     iconFill: <AiFillFilter/>,
+  //     route: "/filter"
+  // },
 ]

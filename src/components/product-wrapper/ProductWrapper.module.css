@@ -5,3 +5,10 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+
+@media screen and (max-width: 1111px) {
+    .product_wrapper{
+        width: 100%;
+    }
+}

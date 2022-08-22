@@ -11,14 +11,18 @@ import PrivateRoute from './router/private-route/PrivateRoute';
 import Admin from './router/admin/Admin';
 import About from './router/about/About';
 import Like from './router/like/Like';
+import BackToTop from './components/backToTop/BackToTop';
+import BottomController from './components/bottom-controller/BottomController';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Navbar/>
+        <BackToTop/>
         <Switch>
           <Route exact path="/" component={Home}/>
+          <Route path="/filter" component={Home}/>
           <Route path="/login" component={Login}/>
           <Route path="/cart" component={Cart}/>
           <Route path="/heart" component={Like} />
@@ -28,6 +32,7 @@ function App() {
           </PrivateRoute>
           <Route path="/about"  component={About}/>
         </Switch>
+        <BottomController/>
         <Footer/>
       </Router>
     </div>

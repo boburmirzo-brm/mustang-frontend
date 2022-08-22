@@ -7,7 +7,7 @@ import FilterBtnPrice from "./utils/FilterBtnPrice";
 import { filterData } from "../../static/static";
 import FilterBtnColorSeasonType from "./utils/FilterBtnColorSeasonType";
 
-function FilterProduct() {
+function FilterProduct({filterShow}) {
   const { types } = filterData;
   const [filter, setFilter] = useState({
     type: "barchasi",
@@ -19,7 +19,7 @@ function FilterProduct() {
     color: "barchasi",
   });
   return (
-    <main className={s.filter}>
+    <main className={filterShow ? [s.filter, s.show].join(" "): s.filter }>
       {/* Filter Navbar Start */}
       <div className={s.filterNavbar}>
         <div>
@@ -52,6 +52,7 @@ function FilterProduct() {
         ))}
       </div>
       {/* Filter Body End */}
+      <div className={s.filter_bottom}></div>
     </main>
   );
 }
