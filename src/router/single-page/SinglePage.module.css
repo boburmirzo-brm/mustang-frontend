@@ -59,6 +59,7 @@
     border: 2px solid transparent;
    border-radius: 5px;
    overflow: hidden;
+   border: 2px solid #eee;
 }
 .one_img_container img{
     width: 100%;
@@ -304,7 +305,6 @@
         width: 65%;
         margin-left:35%;
         margin-bottom: 3%;
-        border: 1px solid red;
     }
     /* .singleProMain{
         width: 100%;
@@ -383,7 +383,6 @@
         width: 45%;
         margin-left:35%;
         margin-bottom: 3%;
-        border: 1px solid red;
     }
 
   }
