@@ -21,7 +21,8 @@ function SinglePage({match}) {
   const singlePro = PRODUCTS.filter(pro=> pro._id === +match.params.id)[0]
   const  [mainImg,setMainImg] = useState(singlePro.urls[0])
   return (
-    <div className={s.singlePro_Main}>
+    <div  className={s.singlePro_Main}>
+      {/* <div style={{backgroundImage:`url(${mainImg})`}}  className={s.bg_img}></div> */}
       <div className={s.SinglePage}>
 
         <div className={s.singleProMain}>
@@ -59,22 +60,26 @@ function SinglePage({match}) {
                 {new Array(5 - singlePro.stars).fill("").map((_,inx)=><AiOutlineStar key={inx}/>)}
             </div>
              </div>
-             <h1>{singlePro.price} $</h1>
+             <h1>$ {singlePro.price.brm()} </h1>
            </div>
             <p className={s.pro_desk}>{singlePro.desc}</p>
 
             <div className={s.pro_states}>
-              <IoIosArrowForward/>  <h3>{  singlePro.type  }  </h3>
+              {/* <IoIosArrowForward/>  */}
+               <h3>{  singlePro.type  }  </h3>
             </div>
             <div className={s.pro_states}>
-                <img src={season} alt="" />   <h3>{  singlePro.season  }  </h3>
+                {/* <img src={season} alt="" />  */}
+                  <h3>{  singlePro.season  }  </h3>
             </div>
             <div className={s.pro_states}>
-              <IoIosArrowForward />  <h3>{  singlePro.productId  }  </h3>
+              {/* <IoIosArrowForward /> */}
+               <h3>{  singlePro.productId  }  </h3>
             </div>
 
             <div className={s.pro_states}>
-              <img src={colorIcon} alt="" />  <h3>{  singlePro.color  }  </h3>
+              {/* <img src={colorIcon} alt="" />  */}
+               <h3>{  singlePro.color  }  </h3>
             </div>
            <div className={s.size_container}>
            <img className={s.size_img} src={size} alt="" />  <div className={s.sizes}><h3>{singlePro.size}</h3></div>
