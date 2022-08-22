@@ -10,9 +10,10 @@ import Footer from './components/footer/Footer';
 import PrivateRoute from './router/private-route/PrivateRoute';
 import Admin from './router/admin/Admin';
 import About from './router/about/About';
-import Like from './router/like/Like';
+// import Like from './router/like/Like';
 import BackToTop from './components/backToTop/BackToTop';
 import BottomController from './components/bottom-controller/BottomController';
+import Heart from './router/heart/Heart';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
           <Route path="/filter" component={Home}/>
           <Route path="/login" component={Login}/>
           <Route path="/cart" component={Cart}/>
-          <Route path="/heart" component={Like} />
+          <Route path="/heart" component={Heart} />
           <Route path="/product/:id" component={SinglePage}/>
           <PrivateRoute path="/admin">
             <Admin/>
