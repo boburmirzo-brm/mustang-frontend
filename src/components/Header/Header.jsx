@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { BsHeart } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import {useSelector} from "react-redux"
 
 function Header(props) {
+  const cart = useSelector(s => s.cart)
   return (
     <div className={s.header}>
       <Link to="/">
@@ -31,7 +33,7 @@ function Header(props) {
         </Link>
         <Link className={s.cart_item} to="/cart">
           <AiOutlineShoppingCart />
-          <span>0</span>
+          <span>{cart.length}</span>
         </Link>
       </div>
     </div>

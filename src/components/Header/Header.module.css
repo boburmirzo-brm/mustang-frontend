@@ -22,10 +22,6 @@
     cursor: pointer;
 }
 
-.header_collection li:nth-child(2){
-    color: gray;
-}
-
 .searchbar{
     width: 400px;
     height: 40px;
