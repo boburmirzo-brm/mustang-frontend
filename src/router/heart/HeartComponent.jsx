@@ -10,11 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 const HeartComponent = ({ data, setData }) => {
   const { _id, title, urls, price, stars, type } = data;
   const cart = useSelector((state) => state.cart);
-  // const heart = useSelector((state) => state.heart);
   const dispatch = useDispatch();
-
-  // console.log('cart >>>',cart)
-  // console.log('heart >>>',heart)
 
   const removeItemFromHeart = () => {
     setData((e) => e.filter((i) => i._id !== _id));
@@ -37,39 +33,43 @@ const HeartComponent = ({ data, setData }) => {
             {type}
           </p>
         </div>
+        {/* heartInfo */}
+        <div className={s.heartedInfo}>
+          <div className={s.priceContainer}>
+            <span className={s.price} title={`${price.brm()} so'm`}>
+              {price.brm()} so'm
+            </span>
+            <span className={s.stars} title={`${stars} stars`}>
+              {new Array(stars).fill("").map((_, index) => (
+                <AiFillStar key={index} />
+              ))}
+              {new Array(5 - stars).fill("").map((_, index) => (
+                <AiOutlineStar key={index} />
+              ))}
+            </span>
+          </div>
+        </div>
+        {/* heartInfo */}
       </div>
       {/* heartNav */}
-
-      {/* heartInfo */}
-      <div className={s.heartedInfo}>
-        <div className={s.priceContainer}>
-          <span className={s.price} title={`${price.brm()} so'm`}>
-            {price.brm()} so'm
-          </span>
-          <span className={s.stars} title={`${stars} stars`}>
-            {new Array(stars).fill("").map((_, index) => (
-              <AiFillStar key={index} />
-            ))}
-            {new Array(5 - stars).fill("").map((_, index) => (
-              <AiOutlineStar key={index} />
-            ))}
-          </span>
-        </div>
-      </div>
-      {/* heartInfo */}
 
       {/* actions */}
       <div className={s.actions}>
         <div className={s.btns}>
-          <Link to={`product/${_id}`}>
+          <Link title="To'liq ma'lumot" to={`product/${_id}`}>
             <button className={s.viewDetails}>To'liq ma'lumot</button>
           </Link>
-          <button onClick={removeItemFromHeart} className={s.delete}>
+          <button
+            title="O'chirish"
+            onClick={removeItemFromHeart}
+            className={s.delete}
+          >
             O'chirish
           </button>
         </div>
         <div className={s.btnAddToCart}>
           <button
+            title="Savatchaga qo'shish"
             onClick={() => UseProduct(data, ADD_TO_CART, cart, dispatch)}
             className={s.addToCart}
           >
