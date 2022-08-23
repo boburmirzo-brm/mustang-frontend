@@ -11,7 +11,7 @@ function Product({data}) {
     const cart = useSelector(state => state.cart)
     const heart = useSelector(state => state.heart)
     const dispatch = useDispatch()
-    console.log("cart>>", cart);
+    // console.log("cart>>", cart);
     // console.log("heart>>", heart);
   return (
     <div className={s.product}>

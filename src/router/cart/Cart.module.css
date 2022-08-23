@@ -8,11 +8,18 @@
 .cart_header
 {
     width: 100%;
-    height: 140px;
-    background: var(--bg-light);
+    height: 100px;
+    background: var(--bg-sy);
     display: flex;
     align-items: center;
     padding-left: 100px;
+}
+
+.cart_header h1
+{
+    letter-spacing: 2px;
+    word-spacing: 3px;
+    color: var(--bg-light);
 }
 
 .cart_box
@@ -20,7 +27,7 @@
     width: 100%;
     min-height: 80%;
     background: #fff;
-    padding: 80px;
+    padding: 40px;
 }
 
 .cart_box.active
@@ -31,4 +38,11 @@
 .cart_box a
 {
     color: #2260fc;
+}
+
+@media screen and (max-width: 1000px){
+    .cart_box
+    {
+        padding: 20px;
+    }
 }

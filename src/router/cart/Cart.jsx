@@ -9,9 +9,9 @@ function Cart() {
 
   return (
     <div className={s.cart}>
-      <div className={s.cart_header}>
-        <h1>Harit savati</h1>
-      </div>
+      {/* <div className={s.cart_header}>
+        <h1>Harit savatchangiz</h1>
+      </div> */}
         <div className={`${s.cart_box} ${!cart.length && s.active}`}>
           { cart.length ? <CartProducts/> : <EmptyCart/>  }
         </div>

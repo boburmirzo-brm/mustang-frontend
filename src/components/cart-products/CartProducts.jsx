@@ -24,9 +24,10 @@ function CartProducts() {
         <div className={s.cart_wrapper}>
           {
             cart?.map(({_id, title, urls, size, color, price, brand, quontity}) => <div key={_id} className={s.cart_product}>
-              <img src={urls.length ? urls[0] : empty_url} alt="" />
+              <div className={s.left_side}>
+              <img src={urls.length ? urls[0] : empty_url} alt="" className={s.cart_image} />
               <div className={s.text}>
-                <h3 className={s.cartpro_title}>{title.length > 50 ? title.slice(0,50) + "..." : title}</h3>
+                <h3 className={s.cartpro_title}>{title.length > 30 ? title.slice(0,30) + "..." : title}</h3>
                 <div className={s.desc}>
                   <div className={s.extra}>
                     <p>Size: {size}</p>
@@ -34,6 +35,7 @@ function CartProducts() {
                   </div>
                   <p>Brand: {brand}</p>
                 </div>
+              </div>
               </div>
               <div className={s.box}>
                 <div className={s.price_quontity}>
@@ -83,20 +85,13 @@ function CartProducts() {
         type="text" 
         className={s.cart_inp} 
         />
-        <input 
-        type="text" 
+        <textarea  
         className={s.cart_inp} 
         />
-        <div className={s.hr}></div>
         <div className={s.total_price}>
           <h3>Jami narx:</h3>
-          <p>{cart?.reduce((a,b) => a + b.price, 0)}</p>
-        </div>
-        <div className={s.total_price}>
-          <h3>Jami:</h3>
           <p>{cart?.reduce((a,b) => a + (b.price * b.quontity), 0)}</p>
         </div>
-        <div className={s.hr}></div>
         <button className={s.checkout}>checkout</button>
         <button 
         className={s.del_btn}
