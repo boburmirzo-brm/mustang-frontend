@@ -13,7 +13,8 @@
 .singleProMain{
     width: 100%;
     display: flex;
-    min-height: 800px;
+    min-height: 920px;
+    border: 1px solid red;
     justify-content: space-between;
     background: #fff;
     padding: 25px 25px;
@@ -291,6 +292,14 @@
 
 }
 }
+@media screen and (max-width:930px) {
+  
+    .singleProMain{
+      
+        min-height: 660px;
+      
+    }
+}
 @media screen and (max-width:660px) {
     .SinglePage{
         width: 95%;
@@ -299,7 +308,7 @@
     
     }
     .main_img_container{
-        min-height: 340px;
+        min-height: 370px;
         display: flex;
         align-items: center;
         justify-content: center;
