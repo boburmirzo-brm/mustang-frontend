@@ -12,6 +12,7 @@
     color: var(--bg-py);
 }
 .filter_show{
+    cursor: pointer;
     width: 200px;
     height: 36px;
     background: transparent;

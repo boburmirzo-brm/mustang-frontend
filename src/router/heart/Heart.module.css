@@ -8,7 +8,7 @@
   --darkColor: #2d2d2d;
 }
 .container {
-  min-height: calc(100vh - 15rem);
+  min-height: calc(100vh - 29rem);
   background: var(--bg-container);
   padding-bottom: 80px;
 }
@@ -55,13 +55,14 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  width: 100%;
 }
 .title {
   color: var(--darkColor);
   font-size: var(--font-lg);
 }
 .heartedInfo {
-  width: 30%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -70,7 +71,6 @@
 .priceContainer {
   display: flex;
   flex-direction: column;
-  margin-left: 1rem;
 }
 .price {
   color: var(--darkColor);
@@ -157,7 +157,6 @@
   }
   .body {
     width: auto;
-    margin-left: 2rem;
   }
   .heartNav {
     justify-content: flex-start;
@@ -166,7 +165,6 @@
     width: 100%;
     display: flex;
     align-items: flex-start;
-    margin-left: 1rem;
   }
   .actions {
     width: calc(100% - 1rem);
@@ -181,16 +179,22 @@
     width: 100%;
   }
 }
-@media (max-width: 600px) {
+@media screen and (max-width: 650px) {
+  .heartNav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .imageContainer {
+    margin-right: 0;
+  }
   .heartedInfo {
     align-items: center;
-    margin-left: -1rem;
   }
 }
 @media (max-width: 500px) {
   .body {
     width: auto;
-    margin-left: 0;
   }
   .actions {
     flex-direction: column;

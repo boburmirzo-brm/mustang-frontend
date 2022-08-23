@@ -1,15 +1,17 @@
 .container {
-  min-height: calc(100vh - 15rem);
+  min-height: calc(100vh - 29rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .image {
   cursor: pointer;
 }
 .image img {
   border-radius: 1rem;
+  width: 100%;
 }
 .body {
   display: flex;
@@ -22,4 +24,9 @@
 }
 .body p {
   color: #1b3035;
+}
+@media screen and (max-width: 600px) {
+  .body h1 {
+    font-size: 1.3rem;
+  }
 }

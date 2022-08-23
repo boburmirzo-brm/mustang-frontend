@@ -107,10 +107,25 @@
     .searchbar{
         display: none;
     }
-    .header_collection{
-        display: none;
-    }
+  
     .cart_like_box_wrapper{
         display: none;
+    }
+}
+@media screen and (max-width:700px) {
+    .header{
+        padding: 0 2%;
+    }
+    .logo{
+        width: 80px;
+        flex:1;
+    }
+    .header_collection{
+        margin-left: 20px;
+        flex: 0;
+    }
+    .header_collection li{
+        margin: 5px;
+        font-size: 12px;
     }
 }
