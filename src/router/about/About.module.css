@@ -132,6 +132,9 @@ body{
 }
 
 @media screen and (max-width:630px){
+    .about_page_blur p{
+        width: 100%;
+    }
     .about_socond{
         order: 2;
     }
