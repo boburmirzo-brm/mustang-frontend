@@ -101,3 +101,16 @@
 .cart_item svg{
     color: var(--bg-dark);
 }
+
+
+@media screen and (max-width: 990px) {
+    .searchbar{
+        display: none;
+    }
+    .header_collection{
+        display: none;
+    }
+    .cart_like_box_wrapper{
+        display: none;
+    }
+}

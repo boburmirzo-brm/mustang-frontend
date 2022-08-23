@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <Navbar/> */}
+        <Navbar/>
         <BackToTop/>
         <Switch>
           <Route exact path="/" component={Home}/>
