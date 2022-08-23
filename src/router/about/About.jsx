@@ -23,10 +23,10 @@ const About = () => {
           </div>
        </div>
        <div className={s.about_box_wrapper}>
-       <div className={s.about_box}><h1>Our Work</h1>
+       <div className={[s.about_box, s.about_socond].join(" ") }><h1>Our Work</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet consequatur doloribus delectus itaque ipsa commodi saepe dignissimos facilis, a perferendis quasi aliquid illo esse nostrum aperiam, veniam nesciunt exercitationem aliquam nihil. Nesciunt quia ea minus error at modi dolores nostrum. Rerum doloribus, quos repellendus magnam eum excepturi sunt tempore vel saepe maiores voluptatibus illum quis eos doloremque optio architecto molestiae.</p>
           </div>
-          <div className={s.about_box}><img src={img3} alt="" /></div>
+          <div className={[s.about_box, s.about_first].join(" ")}><img src={img3} alt="" /></div>
        </div>
        <div className={s.about_box_wrapper}>
           <div className={s.about_box}><img src={img4} alt="" /></div>
@@ -35,10 +35,10 @@ const About = () => {
           </div>
        </div>
        <div className={s.about_box_wrapper}>
-       <div className={s.about_box}><h1>Our Founding</h1>
+       <div className={[s.about_box, s.about_socond].join(" ") }><h1>Our Founding</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet consequatur doloribus delectus itaque ipsa commodi saepe dignissimos facilis, a perferendis quasi aliquid illo esse nostrum aperiam, veniam nesciunt exercitationem aliquam nihil. Nesciunt quia ea minus error at modi dolores nostrum. Rerum doloribus, quos repellendus magnam eum excepturi sunt tempore vel saepe maiores voluptatibus illum quis eos doloremque optio architecto molestiae.</p>
           </div>
-          <div className={s.about_box}><img src={img5} alt="" /></div>
+          <div className={[s.about_box, s.about_first].join(" ")}><img src={img5} alt="" /></div>
        </div>
          <div className={s.about_name}>
             <h1>Where Does The Name "Mustang" Come From?</h1>
