@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import s from "./Footer.module.css";
 import { FaFacebookF } from "react-icons/fa";
 import { AiOutlineTwitter, AiOutlineMail } from "react-icons/ai";
 import { BsInstagram, BsTelegram, BsYoutube } from "react-icons/bs";
 import { BiMap, BiPhoneCall } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const [isAbout, setIsAbout] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setIsAbout(pathname === "/about");
+  }, [pathname]);
+
   return (
     <div className={s.footer_body}>
       <footer className={s.footer}>
@@ -21,9 +28,13 @@ const Footer = () => {
               survived not only five centuries, but also the leap into
               electronic typesetting, <br />
               remaining essentially unchanged...{" "}
-              <Link className={s.link} to="/about">
-                more
-              </Link>
+              {isAbout ? (
+                ""
+              ) : (
+                <Link className={s.link} to="/about">
+                  more
+                </Link>
+              )}
             </p>
             <ul className={s.sci}>
               <li>

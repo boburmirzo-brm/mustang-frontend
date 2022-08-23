@@ -34,7 +34,7 @@ function App() {
           <Route path="/about" component={About} />
         </Switch>
         <BottomController />
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </div>
   );

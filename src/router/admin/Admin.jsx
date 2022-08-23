@@ -1,19 +1,19 @@
-import React from 'react'
-import s from "./Admin.module.css"
-import {adminSidebar} from "../../static/static"
-import {NavLink, Switch, Route} from "react-router-dom"
-import {IoExitOutline} from "react-icons/io5"
-import {useDispatch} from "react-redux"
-import {useHistory} from "react-router-dom"
-import {signOut} from "../../context/action/action"
+import React from "react";
+import s from "./Admin.module.css";
+import { adminSidebar } from "../../static/static";
+import { NavLink, Switch, Route } from "react-router-dom";
+import { IoExitOutline } from "react-icons/io5";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { signOut } from "../../context/action/action";
 
 function Admin() {
-  const history = useHistory()
-  const dispatch = useDispatch()
-  const signOutAdminPanel = ()=>{
-    dispatch(signOut())
-    history.push("/login")
-  }
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const signOutAdminPanel = () => {
+    dispatch(signOut());
+    history.push("/login");
+  };
   return (
     <div className={s.admin}>
       <div className={s.sidebar}>
@@ -26,37 +26,34 @@ function Admin() {
           </div>
         </div>
         <div className={s.sidebar_collection}>
-          {
-            adminSidebar?.map(({id,title, icon, link})=> <NavLink 
-            to={`/admin/${link}`} 
-            className={s.sidebar_item} 
-            activeClassName={s.active}
-            key={id}>
+          {adminSidebar?.map(({ id, title, icon, link }) => (
+            <NavLink
+              to={`/admin/${link}`}
+              className={s.sidebar_item}
+              activeClassName={s.active}
+              key={id}
+            >
               {icon}
               <span>{title}</span>
-            </NavLink>)
-          }
+            </NavLink>
+          ))}
         </div>
         <div onClick={signOutAdminPanel} className={s.sign_out}>
-          <IoExitOutline/>
+          <IoExitOutline />
           <span>Chiqish</span>
         </div>
       </div>
       <div className={s.admin_content}>
-          <Switch>
-            {
-              adminSidebar?.map(({component, link, id})=><Route
-              key={id}
-              path={`/admin/${link}`} >
-                {component}
-              </Route>)
-            }
-          </Switch>
+        <Switch>
+          {adminSidebar?.map(({ component, link, id }) => (
+            <Route key={id} path={`/admin/${link}`}>
+              {component}
+            </Route>
+          ))}
+        </Switch>
       </div>
-     
     </div>
-    
-  )
+  );
 }
 
-export default Admin
+export default Admin;
