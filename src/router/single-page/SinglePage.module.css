@@ -6,13 +6,14 @@
 
 .SinglePage{
     width: 85%;
-    min-height: 90vh;
-    margin: auto;
+    min-height: 1080px;
+    margin: 1px auto 25px;
+
 }
 .singleProMain{
     width: 100%;
-    min-height: 71vh;
     display: flex;
+    min-height: 920px;
     justify-content: space-between;
     background: #fff;
     padding: 25px 25px;
@@ -20,19 +21,31 @@
 }
 .imgs_container{
     width: 50%;
-    height: 68vh;
+    min-height: 730px;
     
 }
 .info_container {
     width: 47%;
-    height: 68vh;
+    min-height: 720px;
     border: 1px solid transparent;
 
 }
 .main_img_container{
     width: 100%;
     height: 90%;
+    position: relative;
 
+}
+.brand{
+    padding: 5px 15px;
+    position:absolute ;
+    top: 15px;
+    right: 11px;
+    color: var(--bg-dark);
+    z-index: 15;
+    font-weight: 200;
+    background: crimson;
+    color: #fff;
 }
 .main_img_container img{
     width: 100%;
@@ -41,6 +54,7 @@
 }
 .all_imgs_container{
     width: 100%;
+    overflow-x: auto;
     height: 10%;
     display: flex;
     margin-top: 5px;
@@ -49,8 +63,10 @@
     /* background: rgba(216, 216, 216, 0.133); */
 }
 .one_img_container{
-    width: 55px;
-    height: 55px;
+    min-width: 55px;
+    max-width: 55px;
+    min-height: 55px;
+    max-height: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,8 +78,10 @@
    border: 2px solid #eee;
 }
 .one_img_container img{
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
     object-fit: contain;
 }
 .checked_img_border{
@@ -88,10 +106,7 @@
     font-size: var(--font-lg);
     color: var(--bg-py);
 }
-.brand{
-    padding: 10px 20px;
-    background: var(--bg-dark);
-}
+
 .brand h3{
     font-size: var(--font-md);
     color: #fff;
@@ -250,7 +265,7 @@
     /* display: flex;
     align-items: center;
     justify-content: space-between; */
-    margin: 40px 0;
+    /* margin: 40px 0; */
     margin-bottom: 7%;
 }
 .price_container h1{
@@ -260,245 +275,96 @@
 }
 
 
-/* .pro_states img{
-    width: 25px;
-    height: 25px;
-    margin-right: 7px;
-} */
+
 .product_stars svg{
     color: var(--bg-gold);
 }
 
-
-
-
-
-
-
-
-
-
+/* 
+                MEDIA
+*/
 @media screen and (max-width:1330px) {
-    .info_title{
-        
-        display: block;
-        
-    }
-   
-    .brand{
-        padding: 10px 20px;
-        background: var(--bg-dark);
-        display: inline-block;
-        margin: 15px 0;
-    }
-    .stars{
-        margin-top: 25%;
-    }
-  }
-  @media screen and (max-width:1281px) {
-    .SinglePage{
-        width: 92%;
-        min-height: 90vh;
-        margin: auto;
-    }
-    .btns_container{
-        width: 65%;
-        margin-left:35%;
-        margin-bottom: 3%;
-    }
-    /* .singleProMain{
-        width: 100%;
-        min-height: 86vh;
-        
-    } */
-  }
-  @media screen and (max-width:1270px) {
-    .SinglePage{
-        width: 85%;
-        min-height: 90vh;
-        margin: auto;
-    }
-   
-  }
+  
+  .SinglePage{
+    width: 90%;
+    
 
-@media screen and (max-width:1200px) {
+}
+}
+@media screen and (max-width:930px) {
+  
     .singleProMain{
-        width: 100%;
-        min-height: 71vh;
-        display: block;
-        
+      
+        min-height: 660px;
+      
     }
-    .imgs_container{
-        width: 70%;
-        height: 40%;
-        display: block;
-        margin: auto;
-        margin-bottom: 25px;
-        
+}
+@media screen and (max-width:660px) {
+    .SinglePage{
+        width: 95%;
+        min-height: 1080px;
+        margin: 1px auto 25px;
+    
     }
     .main_img_container{
-        width: 100%;
-        height: 80%;
-    
+        min-height: 370px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    .info_container {
-        width: 100%;
-        display: block;
-        margin: auto;
-        height: 50%;
-        border: 1px solid transparent;
-        text-align: center;
-    
-    }
-    .price_container{
-        display: inline-block;
-        margin: auto;
-    }
-    .stars{
-        display: block;
-        margin: auto;
-        margin-top: 15%;
-       
-    }
-    .pro_desk{
-        margin-top: 2%;
-    }
-    .size_container{
-        margin-left: 41%;
-        margin-bottom: 3%;
-    }
-    .btns_container{
-        margin-left: 28%;
-        margin-bottom: 3%;
-    }
-    .size_img{
-        margin-right: 7%;
-    }
-    .price_container h1{
-        margin-top: 3%;
-    }
-  }
-@media screen and (max-width:1024px) {
-    .btns_container{
-        width: 45%;
-        margin-left:35%;
-        margin-bottom: 3%;
-    }
-
-  }
-@media screen and (max-width:990px) {
     .singleProMain{
         width: 100%;
-        min-height: 71vh;
+        min-height: 800px;
+        background: #fff;
+        padding: 25px 25px;
+        border-radius: 15px;
         display: block;
-        
     }
     .imgs_container{
-        width: 80%;
-        height: 40%;
-        
+        width: 100%;
+        min-height: 370px;
     }
     .info_container {
         width: 100%;
-        height: 50%;
+        min-height: 450px;
         border: 1px solid transparent;
     
     }
-    .stars{
-        margin-top: 15%;
-    }
-    .btns_container{
-        margin-left: 36%;
-    }
-   
-  }
-
-  @media screen and (max-width:920px) {
-    .btns_container{
-        margin-left: 26%;
-    }
-   
-  }
-  @media screen and (max-width:8170px) {
-    .btns_container{
-        margin-left: 24%;
-    }
-   
-  }
-
-
-  @media screen and (max-width:780px) {
-    .btns_container{
-        margin-left: 22%;
-    }
-   
-  }
-  @media screen and (max-width:710px) {
-    .btns_container{
-        margin-left: 20%;
-        width: 95%;
-
-    }
-    .price_container{
-        margin-top: 6%;
-    }
-   
-.pro_states::before{
-    content: "" ;
-    top: 50%;
-    left: -5px;
-    position: absolute;
-    width: 11px;
-    height: 1px;
-    background: var(--bg-dark);
 }
-.pro_states::after{
-    content: "" ;
-    top: 50%;
-    right: -5px;
-    position: absolute;
-    width: 11px;
-    height: 1px;
-    background: var(--bg-dark);
+@media screen and (max-width:300px) {
+    .SinglePage{
+        width: 97%;
+        min-height: 1080px;
+        margin: 1px auto 25px;
+    
+    }
+    .singleProMain{
+        width: 100%;
+        min-height: 800px;
+        background: #fff;
+        padding: 15px 20px;
+        border-radius: 15px;
+        display: block;
+    }
+    .brand{
+        padding: 5px 15px;
+        position:absolute ;
+        top: 0;
+        right: 11px;
+        color: var(--bg-dark);
+        z-index: 15;
+        font-weight: 200;
+        background: crimson;
+        color: #fff;
+    }
+    .imgs_container{
+        width: 100%;
+        min-height: 270px;
+    }
+    .info_container {
+        width: 100%;
+        min-height: 500px;
+        border: 1px solid transparent;
+    
+    }
 }
-
-   
-  }
-  @media screen and (max-width:640px) {
-    .btns_container{
-        margin-left: 18%;
-    }
-   
-  }
-
-
-  @media screen and (max-width:600px) {
-    .btns_container{
-        margin-left: 15%;
-    }
-   
-  }
-  @media screen and (max-width:530px) {
-    .btns_container{
-        margin-left: 12%;
-    }
-   
-  }
-  @media screen and (max-width:490px) {
-    .btns_container{
-        margin-left: 10%;
-    }
-   
-  }
-  @media screen and (max-width:450px) {
-    .btns_container{
-        margin-left: 5%;
-    }
-   
-  }
-  @media screen and (max-width:415px) {
-    .btns_container{
-        margin-left: 3%;
-    }
-   
-  }

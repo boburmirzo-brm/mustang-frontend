@@ -30,6 +30,7 @@ function SinglePage({match}) {
            <div  className={s.imgs_container}>
           <div className={s.main_img_container}>
             <img src={mainImg} alt="" />
+            <p className={s.brand}>{singlePro.brand}</p>
           </div>
           <div className={s.all_imgs_container}>
             {
@@ -51,7 +52,7 @@ function SinglePage({match}) {
 
             <div className={s.info_title}>
                  <h1>{singlePro.title}</h1>
-                 <div className={s.brand}><h3>{singlePro.brand}</h3></div>
+                 
             </div>
            <div className={s.price_container}>
              <div className={s.stars}>
