@@ -20,6 +20,9 @@ export const PRODUCTS = [
     urls: [
       "https://www.tradeinn.com/f/13753/137536832/sebago-classic-will-shoes.jpg",
       "https://cdn.sorsware.com/ecco/ContentImages/Product/GENEL/62160401001/ecco-melbourne_01001-siyah_1_buyuk.jpg",
+      "https://www.pngall.com/wp-content/uploads/5/Brown-Men-Shoes-PNG-Image.png",
+      "https://cdn.picpng.com/men_shoes/men-shoes-view-30501.png",
+      "https://www.pngall.com/wp-content/uploads/5/Brown-Men-Shoes-PNG-Clipart.png"
     ],
     productId: "3536",
     size: "40-44",
