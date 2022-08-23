@@ -33,8 +33,8 @@ function App() {
           </PrivateRoute>
           <Route path="/about"  component={About}/>
         </Switch>
-        <BottomController/>
-        <Footer/>
+        {/* <BottomController/> */}
+        {/* <Footer/> */}
       </Router>
     </div>
   );
