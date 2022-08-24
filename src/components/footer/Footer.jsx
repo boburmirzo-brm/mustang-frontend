@@ -14,6 +14,10 @@ const Footer = () => {
     setIsAbout(pathname === "/about");
   }, [pathname]);
 
+  if (pathname.includes("/admin")) {
+    return <></>;
+  }
+
   return (
     <div className={s.footer_body}>
       <footer className={s.footer}>

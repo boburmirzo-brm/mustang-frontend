@@ -4,10 +4,11 @@ import Header from '../Header/Header'
 import SubHeader from '../subHeader/SubHeader'
 import s from "./Navbar.module.css"
 
+
 function Navbar() {
-  const location = useLocation()
+  const {pathname} = useLocation()
   
-  if(location.pathname === "/login" || location.pathname === "/admin"){
+  if(pathname === "/login" || pathname.includes("/admin")){
     return <></>
   }
   return (

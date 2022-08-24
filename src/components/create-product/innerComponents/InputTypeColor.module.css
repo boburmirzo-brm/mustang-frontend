@@ -1,0 +1,124 @@
+.inputTypeRadio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* custom radio button */
+
+/* Brauzerning radio buttoni berkitish */
+.formControl .typeRadio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.typeRadio {
+  margin-bottom: 10px;
+}
+
+/* Radio button uchun container */
+.formControl {
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Maxsus radio button ga style berish */
+.customRadio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: var(--border-color);
+  border-radius: 50%;
+  transition: all 0.22s ease-in-out;
+}
+
+/* Sichqonchani ustiga olib borilganda orqa fonni rangini o'zgartirish */
+.formControl:hover .typeRadio ~ .customRadio {
+  box-shadow: 0 2px 10px #0007;
+}
+
+/* Radio button tanlanganda, uning orqa fon rangini o'zgartirish */
+.formControl .typeRadio:checked ~ .customRadio {
+  background: var(--bg-py);
+  box-shadow: 0 2px 10px #0007;
+}
+
+/* Radio button tanlanganligini bildiruvchi belgi yaratish */
+.customRadio::after {
+  position: absolute;
+  content: "";
+  top: 8px;
+  left: 8px;
+  width: 8px;
+  height: 8px;
+  background: var(--bg-light);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.22s ease-in-out;
+}
+
+/* Tanlangan paytida belgini ko'rsatish */
+.formControl .typeRadio:checked ~ .customRadio::after {
+  opacity: 1;
+}
+
+.white {
+  background-color: var(--bg-light);
+  box-shadow: 0 1px 2px #0005;
+}
+.all {
+  background: rgb(208, 15, 15);
+  background: linear-gradient(
+    90deg,
+    rgba(208, 15, 15, 1) 0%,
+    rgba(210, 124, 18, 1) 22%,
+    rgba(19, 75, 213, 1) 51%,
+    rgba(19, 213, 41, 1) 82%
+  );
+  box-shadow: 0 1px 2px #0005;
+}
+.other {
+  background-color: rgba(0, 0, 0, 0.014);
+}
+.black {
+  background-color: var(--bg-dark);
+  box-shadow: 0 1px 2px #0005;
+}
+.red {
+  background-color: red;
+  box-shadow: 0 1px 2px #0005;
+}
+.blue {
+  background-color: blue;
+  box-shadow: 0 1px 2px #0005;
+}
+.brown {
+  background-color: var(--bg-py);
+  box-shadow: 0 1px 2px #0005;
+}
+.pink {
+  background-color: rgb(219, 69, 194);
+  box-shadow: 0 1px 2px #0005;
+}
+.green {
+  background-color: rgb(23, 170, 9);
+  box-shadow: 0 1px 2px #0005;
+}
+.yellow {
+  background-color: yellow;
+  box-shadow: 0 1px 2px #0005;
+}
+
+/* custom radio button */
+
+@media screen and (max-width: 991px) {
+  .typeSelectInputs {
+    width: 100%;
+  }
+}

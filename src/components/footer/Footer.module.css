@@ -152,7 +152,7 @@
 .copyrightText {
   width: 100%;
   background: var(--bg-dark);
-  padding: 0.5rem 6.25rem;
+  padding: 0.5rem 6.25rem 2rem 6.25rem;
   text-align: center;
   color: var(--gray);
 }
@@ -181,7 +181,7 @@
   }
 
   .copyrightText {
-    padding: 0.5rem 2.5rem;
+    padding: 0.5rem 2.5rem 2rem 2.5rem;
   }
 }
 @media (max-width: 700px) {

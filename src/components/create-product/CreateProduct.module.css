@@ -1,5 +1,7 @@
 .container {
+  min-height: 100vh;
   margin: 2rem;
+  overflow: hidden;
 }
 .title h1 {
   color: var(--bg-py);
@@ -9,10 +11,10 @@
   margin-top: 2rem;
 }
 .form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
 }
 .typeTextInputs,
 .typeSelectInputs {
@@ -27,7 +29,6 @@
 .typeSelectInput {
   padding: 0.8rem 1.3rem;
   border-radius: 0.7rem;
-  /* margin: 0.5rem 0; */
   border: 1px solid var(--border-color);
   font-size: var(--font-md);
   color: var(--bg-py);
@@ -41,16 +42,7 @@
   transition: all 0.23s ease-in-out;
 }
 .typeSelectInput {
-    width: 100%;
-}
-.inputTypeRadio {
-    display: flex;
-    gap: 0.5rem;
+  width: 100%;
 }
 
-@media screen and (max-width: 991px){
-    .typeSelectInputs {
-        width: 100%;
-      }
-}
 

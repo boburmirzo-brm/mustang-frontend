@@ -15,20 +15,21 @@ const Heart = () => {
   }, [data, dispatch]);
 
   //   console.log(data);
-  return data.length ? (
-    <div className={s.container}>
-      <div className={s.heartedProducts}>
-        {data?.map((data, idx) => (
-          <HeartComponent
-            data={data}
-            key={idx}
-            setData={setData}
-          />
-        ))}
-      </div>
-    </div>
-  ) : (
-    <HeartEmpty />
+  return (
+    <>
+      {data.length ? (
+        <div className={s.container}>
+          <h1 className={s.h1}>Sevimli Mahsulotlar</h1>
+          <div className={s.heartedProducts}>
+            {data?.map((data, idx) => (
+              <HeartComponent data={data} key={idx} setData={setData} />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <HeartEmpty />
+      )}
+    </>
   );
 };
 
