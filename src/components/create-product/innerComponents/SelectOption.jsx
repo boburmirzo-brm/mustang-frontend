@@ -1,5 +1,5 @@
 import React from "react";
-import { filterData } from "../../../static/static";
+import { createProduct } from "../../../static/static";
 import s from "../CreateProduct.module.css";
 
 const SelectOption = ({ kalit, value, handleChange }) => {
@@ -10,8 +10,11 @@ const SelectOption = ({ kalit, value, handleChange }) => {
       className={s.typeSelectInput}
       name={kalit}
     >
-      {filterData[kalit]?.map((el, index) => (
-        <option key={index} value={el}>
+      {createProduct[kalit]?.map((el, index) => (
+        <option
+          key={index}
+          value={el === "Turi" ? "" : el === "Fasl" ? "" : el}
+        >
           {el}
         </option>
       ))}

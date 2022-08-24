@@ -114,6 +114,40 @@ export const PRODUCTS = [
   },
 ];
 
+export const createProduct = {
+  season: ["Fasl", "bahor", "yoz", "kuz", "qish"],
+  type: ["Turi", "makasina", "classic", "krasofka"],
+  color: [
+    "barchasi",
+    "oq",
+    "qora",
+    "qizil",
+    "ko'k",
+    "jigarrang",
+    "pushti",
+    "yashil",
+    "sariq",
+    "boshqa",
+  ],
+  colorReverse: {
+    barchasi: "all",
+    oq: "white",
+    qora: "black",
+    qizil: "red",
+    "ko'k": "blue",
+    jigarrang: "brown",
+    pushti: "pink",
+    yashil: "green",
+    sariq: "yellow",
+    boshqa: "other",
+  },
+  types: {
+    type: "turi",
+    season: "mavsumiyligi",
+    price: "narxi",
+    color: "rangi",
+  },
+};
 export const filterData = {
   season: ["barchasi", "bahor", "yoz", "kuz", "qish"],
   type: ["barchasi", "makasina", "classic", "krasofka"],

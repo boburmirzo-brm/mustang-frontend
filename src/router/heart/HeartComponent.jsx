@@ -32,12 +32,14 @@ const HeartComponent = ({ data, setData }) => {
             <h1 className={s.title}>{title}</h1>
           </Link>
 
+          <div className={s.typeContainerBody}>
           <p className={s.type} title={type}>
             turi: {type}
           </p>
           <p className={s.type} title={color}>
             rangi: {color}
           </p>
+          </div>
         </div>
         {/* heartInfo */}
         <div className={s.heartedInfo}>

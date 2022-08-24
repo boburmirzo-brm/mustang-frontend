@@ -1,12 +1,12 @@
 import React from "react";
-import { filterData } from "../../../static/static";
+import { createProduct } from "../../../static/static";
 import s from "./InputTypeColor.module.css";
 
 const InputTypeColor = ({ kalit, placeholder, handleChange }) => {
   return (
     <div className={s.inputTypeRadio}>
       {/* radio selection */}
-      {filterData[kalit]?.map((el, index) => (
+      {createProduct[kalit]?.map((el, index) => (
         <label className={s.formControl} key={index}>
           <input
             type="radio"
@@ -18,7 +18,7 @@ const InputTypeColor = ({ kalit, placeholder, handleChange }) => {
           />
           <span
             title={el}
-            className={`${s.customRadio} ${s[filterData.colorReverse[el]]}`}
+            className={`${s.customRadio} ${s[createProduct.colorReverse[el]]}`}
           ></span>
         </label>
       ))}

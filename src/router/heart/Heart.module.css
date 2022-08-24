@@ -46,13 +46,18 @@
   align-items: flex-start;
   width: 100%;
 }
+.typeContainerBody {
+  display: flex;
+}
+.type:nth-last-of-type(1) {
+  margin-left: 1rem;
+}
 .imageContainer {
   width: 6.25rem;
   height: 6.25rem;
   padding: 0.625rem;
   margin-right: 2.25rem;
   border-radius: 1rem;
-  /* background-color: #fff; */
   box-shadow: 0 0.625rem 1.875rem var(--boxShadowColor);
   transition: all 0.3s ease-in-out;
 }
@@ -76,7 +81,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
 }
 .priceContainer {
@@ -103,15 +107,20 @@
   margin-left: 1rem;
   margin-right: 0.5rem;
   display: flex;
-  justify-content: flex-end;
   gap: 0.3rem;
   width: 45%;
 }
 .btns {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 0.3rem;
   width: 100%;
+}
+.btns > * {
+  display: flex;
+  justify-content: flex-end;
+  /* width: 150px; */
 }
 .delete,
 .addToCart,
@@ -125,54 +134,64 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 50px;
 }
 .viewDetails span:nth-last-of-type(2),
 .addToCart span:nth-last-of-type(2),
 .delete span:nth-last-of-type(2) {
   display: flex;
 }
+.viewDetails span:nth-last-of-type(1),
+.addToCart span:nth-last-of-type(1),
+.delete span:nth-last-of-type(1) {
+  display: none;
+}
 .delete {
-  background: var(--white);
-  color: var(--qizil);
+  display: inline;
+  background: var(--qizil);
+  color: var(--white);
   border: 1px solid var(--qizil);
   transition: all 0.23s ease-in-out;
   font-size: large;
 }
 .delete:hover {
-  background: var(--qizil);
-  color: var(--white);
+  background: var(--white);
+  color: var(--qizil);
 }
 
 .addToCart,
 .btnAddToCart,
 .viewDetails {
-  width: 100%;
   transition: all 0.23s ease-in-out;
 }
 .viewDetails {
-  color: var(--bg-py);
-  background-color: var(--white);
+  color: var(--white);
+  background-color: var(--bg-py);
   border: 1px solid var(--bg-py);
   font-size: large;
 }
 .viewDetails:hover {
-  color: var(--white);
-  background-color: var(--bg-py);
+  color: var(--bg-py);
+  background-color: var(--white);
 }
 .addToCart {
-  color: var(--yashil);
-  background-color: var(--white);
+  color: var(--white);
+  background-color: var(--yashil);
   border: 1px solid var(--yashil);
   font-size: large;
 }
 .addToCart:hover {
-  color: var(--white);
-  background-color: var(--yashil);
+  color: var(--yashil);
+  background-color: var(--white);
 }
 
 @media (max-width: 991px) {
   .heartedProduct {
     flex-direction: column;
+  }
+  .btns {
+    display: flex;
+    justify-content: space-evenly;
   }
   .body {
     width: 100%;
@@ -186,30 +205,19 @@
     margin-top: 2rem;
     flex-direction: column;
   }
-  .btns {
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-  .btns > * {
-    width: 150px;
+  .delete,
+  .addToCart,
+  .viewDetails {
+    width: 70px;
   }
   .viewDetails span:nth-last-of-type(2),
   .addToCart span:nth-last-of-type(2),
   .delete span:nth-last-of-type(2) {
     padding: 0.5rem;
   }
-
-  .viewDetails span:nth-last-of-type(1),
-  .addToCart span:nth-last-of-type(1),
-  .delete span:nth-last-of-type(1) {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 700px) {
-  .btns > * {
-    width: 100px;
-  }
   .viewDetails span:nth-last-of-type(2),
   .addToCart span:nth-last-of-type(2),
   .delete span:nth-last-of-type(2) {
@@ -228,7 +236,7 @@
     justify-content: center;
     box-shadow: none;
   }
-  
+
   .imageLink img {
     border-radius: 1rem;
     box-shadow: 0 0.625rem 1.875rem var(--boxShadowColor);
@@ -239,22 +247,11 @@
   }
 }
 @media (max-width: 500px) {
-  .body {
-    width: auto;
-  }
   .actions {
     flex-direction: column;
   }
-  .btns > * {
-    width: 100px;
-  }
-  .viewDetails span:nth-last-of-type(2),
-  .addToCart span:nth-last-of-type(2),
-  .delete span:nth-last-of-type(2) {
-    padding: 0.2rem;
-  }
 }
-@media screen and (max-width: 380px){
+@media screen and (max-width: 380px) {
   .heartedInfo,
   .body {
     width: 100%;
@@ -263,12 +260,12 @@
 }
 
 @media screen and (max-width: 300px) {
-  .btns > * {
-    width: 80px;
-  }
   .viewDetails span:nth-last-of-type(2),
   .addToCart span:nth-last-of-type(2),
   .delete span:nth-last-of-type(2) {
     padding: 0;
+  }
+  .viewDetails {
+    width: auto;
   }
 }
