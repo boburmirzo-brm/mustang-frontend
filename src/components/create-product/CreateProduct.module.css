@@ -44,10 +44,35 @@
 .typeSelectInput {
   width: 100%;
 }
+.typeSelectInput:focus {
+  outline: none;
+}
 /* input Type File started */
 .inputTypeFile {
   display: flex;
   width: 100%;
-  margin-top: 10%;
+  margin-top: 2rem;
   margin-left: 0.5rem;
+}
+/* Submit Button */
+.btn {
+  padding: 1rem 2rem;
+  font-size: var(--font-md);
+  border-radius: 3rem;
+  background: var(--bg-py);
+  color: var(--bg-light);
+  border: none;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.23s ease-in-out;
+}
+.btn:hover {
+  box-shadow: 0 0 1rem #72493f9c;
+}
+.btnIcon {
+  display: flex;
+  justify-content: center;
+  margin-right: 0.3rem;
 }

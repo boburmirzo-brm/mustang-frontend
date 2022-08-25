@@ -4,9 +4,17 @@ import s from "./CreateProduct.module.css";
 import InputTypeFileImage from "./innerComponents/image/InputTypeFileImage";
 import InputTypeText from "./innerComponents/text/InputTypeText";
 import SelectAndColorInput from "./innerComponents/SelectAndColorInput";
+import { AiFillCheckCircle, AiOutlineCheckCircle } from "react-icons/ai";
 
 function CreateProduct() {
-  const [inputTypeTextData] = useState(["title","desc","price","size","productId","brand",]);
+  const [inputTypeTextData] = useState([
+    "title",
+    "desc",
+    "price",
+    "size",
+    "productId",
+    "brand",
+  ]);
   const [inputTypeSelectData] = useState(["type", "season", "color"]);
   const [allPlaceHolders] = useState({
     title: "Nomi: (Cabani shoes)",
@@ -21,8 +29,23 @@ function CreateProduct() {
   });
 
   // <Barcha Ma'lumotlar shu state da shuni backendga yuboriladi>
-  const [allData, setAllData] = useState({title: "",desc: "",price: "",size: "",productId: "",brand: "",type: "",season: "",color: "",urls: [],stars: 0,view: 0,});
+  const [allData, setAllData] = useState({
+    title: "",
+    desc: "",
+    price: "",
+    size: "",
+    productId: "",
+    brand: "",
+    type: "",
+    season: "",
+    color: "",
+    urls: [],
+    stars: 0,
+    view: 0,
+  });
   // </Barcha Ma'lumotlar shu state da shuni backendga yuboriladi>
+
+  // console.log(allData)
 
   const [imgs, setImgs] = useState([]);
   // getSetValue
@@ -48,6 +71,12 @@ function CreateProduct() {
     });
   };
 
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+  }
+
   return (
     <div className={s.container}>
       <div className={s.title}>
@@ -55,7 +84,7 @@ function CreateProduct() {
         <hr />
       </div>
       <div className={s.row}>
-        <form className={s.form}>
+        <form onSubmit={handleSubmit} className={s.form}>
           {/* typeTextInput */}
           {inputTypeTextData?.map((key, idx) => (
             <InputTypeText
@@ -88,6 +117,11 @@ function CreateProduct() {
             />
           </div>
           {/* inputTypeFile Images */}
+
+          <button type="submit" className={s.btn}>
+            <AiFillCheckCircle className={s.btnIcon} />{" "}
+            <span>Mahsulot Yaratish</span>
+          </button>
         </form>
       </div>
     </div>
