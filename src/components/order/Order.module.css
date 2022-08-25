@@ -1,0 +1,91 @@
+.order_container
+{
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+}
+
+.order_header
+{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 0 35px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.order_header h1
+{
+    font-size: 48px;
+}
+
+.order_sort
+{
+    width: 300px;
+    height: 50px;
+    outline: none;
+    border: 2px solid var(--bg-dark);
+    padding: 0 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.order_wrapper
+{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-top: 50px;
+}
+
+.order_wrapper::-webkit-scrollbar {
+    width: 4px;
+}
+.order_wrapper::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.order
+{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    padding-left: 8px;
+}
+
+.order_box
+{
+    width: 90%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #6666;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.user_circle
+{
+    width: 75px;
+    height: 75px;
+    background: #2260FC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.user_circle h1
+{
+    color: #fff;
+    font-size: 40px;
+    font-weight: 500;
+}

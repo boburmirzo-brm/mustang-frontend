@@ -12,7 +12,7 @@ function EmptyCart() {
       />
       <div className={s.text}>
         <h2>Sizning savatchangiz bo'sh.</h2>
-        <p>Karzinkani to'ldirish uchun, biror nima sotib oling</p>
+        <p>Savatchani to'ldirish uchun, biror nima sotib oling</p>
         <div className={s.grow}></div>
         <Link to="/">
           <button>Sotib olish</button>

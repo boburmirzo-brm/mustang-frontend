@@ -5,6 +5,7 @@ import {MdOutlineShoppingCart} from "react-icons/md"
 import {Link} from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import {UseProduct} from "../../hooks/UseProducts"
+import {UseCart} from "../../hooks/UseCart"
 import {ADD_TO_CART, ADD_TO_HEART} from "../../context/action/actionTypes"
 
 function Product({data}) {
@@ -30,7 +31,7 @@ function Product({data}) {
                 {new Array(5 - data.stars).fill("").map((_,inx)=><AiOutlineStar key={inx}/>)}
             </div>
             <div className={s.product_btns}>
-                <button onClick={()=>UseProduct(data, ADD_TO_CART,  cart, dispatch)} className={s.btn_shopping}><MdOutlineShoppingCart/><span>Savatchaga qo'shish</span></button>
+                <button onClick={()=>UseCart(data, ADD_TO_CART,  cart, dispatch)} className={s.btn_shopping}><MdOutlineShoppingCart/><span>Savatchaga qo'shish</span></button>
                 <div className={s.heart_con}>
                     <button onClick={()=>UseProduct(data, ADD_TO_HEART,  heart, dispatch)} className={s.heart}><AiOutlineHeart/></button>
                 </div>

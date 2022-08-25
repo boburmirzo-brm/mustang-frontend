@@ -205,3 +205,57 @@ export const bottomData = [
   //     route: "/filter"
   // },
 ]
+
+export const order = [
+  {
+    _id: 0,
+    name: "John Doe",
+    tel: "99891 343 06 68",
+    address: "Namangan tumani",
+    date: "2022 08 24",
+    orders: [
+      {
+        _id: 5,
+        title: "Cabani shoes",
+        price: 380000,
+        season: "qish",
+        type: "krasofka",
+        color: "oq",
+        urls: [
+          "https://www.tradeinn.com/f/13753/137536832/sebago-classic-will-shoes.jpg",
+          "https://cdn.sorsware.com/ecco/ContentImages/Product/GENEL/62160401001/ecco-melbourne_01001-siyah_1_buyuk.jpg",
+        ],
+        productId: "3536",
+        size: "40-44",
+        brand: "Mustang",
+
+        orderType: {
+          type: "single",
+          size: "41",
+          quontity: 1
+        }
+      },
+      {
+        _id: 5,
+        title: "Cabani shoes",
+        price: 380000,
+        season: "qish",
+        type: "krasofka",
+        color: "oq",
+        urls: [
+          "https://www.tradeinn.com/f/13753/137536832/sebago-classic-will-shoes.jpg",
+          "https://cdn.sorsware.com/ecco/ContentImages/Product/GENEL/62160401001/ecco-melbourne_01001-siyah_1_buyuk.jpg",
+        ],
+        productId: "3536",
+        size: "39-44",
+        brand: "Mustang",
+
+        orderType: {
+          type: "complect",
+          size: "39-44",
+          quontity: 6
+        }
+      },
+    ]
+  }
+]
