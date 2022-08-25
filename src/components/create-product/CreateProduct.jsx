@@ -1,13 +1,20 @@
+// @ts-nocheck
 import React, { useState } from "react";
 import s from "./CreateProduct.module.css";
 import InputTypeText from "./innerComponents/InputTypeText";
-
 import SelectAndColorInput from "./innerComponents/SelectAndColorInput";
+import cameraIcon from "../../assets/camera.png";
 
 function CreateProduct() {
-  const [inputTypeTextData] = useState(["title","desc","price","size","productId","brand",]);
+  const [inputTypeTextData] = useState([
+    "title",
+    "desc",
+    "price",
+    "size",
+    "productId",
+    "brand",
+  ]);
   const [inputTypeSelectData] = useState(["type", "season", "color"]);
-
 
   const [allPlaceHolders] = useState({
     title: "Nomi: (Cabani shoes)",
@@ -38,6 +45,7 @@ function CreateProduct() {
   });
   // </Barcha Ma'lumotlar shu state da shuni backendga yuboriladi>
 
+  const [imgs, setImgs] = useState([]);
   // getSetValue
   const handleChangeInput = (e) => {
     let key = e.target.getAttribute("name");
@@ -46,7 +54,19 @@ function CreateProduct() {
   };
   // getSetValue
 
-  console.log(allData);
+  const handleChangeImage = ({ target: { files } }) => {
+    Object.values(files).forEach((i) => {
+      let source = {
+        src: URL.createObjectURL(i),
+        name: i.name,
+        size: i.size,
+        date: i.lastModifiedDate,
+      };
+      setImgs((e) => [...e, source]);
+    });
+  };
+
+  // console.log(imgs);
 
   return (
     <div className={s.container}>
@@ -79,6 +99,42 @@ function CreateProduct() {
             />
           ))}
           {/* typeSelectInput */}
+
+          {/* inputTypeFile Images */}
+          <div className={s.inputTypeFile}>
+            <div className={s.imageReceiver}>
+              <label title="Rasm yuklang" className={s.customUpload}>
+                <img src={cameraIcon} alt="camera icon" />
+                <p>Rasm yuklash</p>
+                <p className={s.colorBrown}>.jpg / .png / .jpeg</p>
+                <input
+                  onChange={handleChangeImage}
+                  type="file"
+                  className={s.typeFile}
+                  multiple
+                />
+              </label>
+            </div>
+            <div className={s.imagesContainer}>
+              {imgs[0] ? (
+                <div className={s.firstDiv}>
+                  <img
+                    className={s.eachImg}
+                    alt={imgs[0].name}
+                    src={imgs[0].src}
+                  />
+                </div>
+              ) : (
+                ""
+              )}
+              <div className={s.lastDiv}>
+                {imgs?.slice(1)?.map(({ src, name }, idx) => (
+                  <img key={idx} className={s.eachImg} alt={name} src={src} />
+                ))}
+              </div>
+            </div>
+          </div>
+          {/* inputTypeFile Images */}
         </form>
       </div>
     </div>

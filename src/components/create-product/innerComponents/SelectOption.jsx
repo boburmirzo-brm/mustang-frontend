@@ -13,7 +13,7 @@ const SelectOption = ({ kalit, value, handleChange }) => {
       {createProduct[kalit]?.map((el, index) => (
         <option
           key={index}
-          value={el === "Turi" ? "" : el === "Fasl" ? "" : el}
+          value={["turi", "fasl"].includes(el.toLowerCase()) ? "" : el}
         >
           {el}
         </option>
