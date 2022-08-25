@@ -1,6 +1,6 @@
 import React from "react";
-import { createProduct } from "../../../static/static";
-import s from "../CreateProduct.module.css";
+import { createProduct } from "../../../../static/static";
+import s from "../../CreateProduct.module.css";
 
 const SelectOption = ({ kalit, value, handleChange }) => {
   return (

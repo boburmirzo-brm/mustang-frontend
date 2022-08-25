@@ -1,7 +1,7 @@
 import React from "react";
 import s from "../CreateProduct.module.css";
-import InputTypeColor from "./InputTypeColor";
-import SelectOption from "./SelectOption";
+import InputTypeColor from "./color/InputTypeColor";
+import SelectOption from "./selectOption/SelectOption";
 
 const SelectAndColorInput = ({ kalit, placeholder, handleChange, value }) => {
   return (

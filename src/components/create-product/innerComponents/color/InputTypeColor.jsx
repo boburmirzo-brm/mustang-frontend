@@ -1,5 +1,5 @@
 import React from "react";
-import { createProduct } from "../../../static/static";
+import { createProduct } from "../../../../static/static";
 import s from "./InputTypeColor.module.css";
 
 const InputTypeColor = ({ kalit, placeholder, handleChange }) => {

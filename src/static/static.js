@@ -140,13 +140,7 @@ export const createProduct = {
     yashil: "green",
     sariq: "yellow",
     boshqa: "other",
-  },
-  types: {
-    type: "turi",
-    season: "mavsumiyligi",
-    price: "narxi",
-    color: "rangi",
-  },
+  }
 };
 export const filterData = {
   season: ["barchasi", "bahor", "yoz", "kuz", "qish"],

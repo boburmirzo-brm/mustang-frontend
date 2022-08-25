@@ -1,5 +1,5 @@
 import React from "react";
-import s from "../CreateProduct.module.css";
+import s from "../../CreateProduct.module.css";
 
 const InputTypeText = ({ value, name, placeholder, handleChange }) => {
   return (
