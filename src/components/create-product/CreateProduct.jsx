@@ -1,128 +1,139 @@
-import React, { useState, useEffect } from "react";
+// @ts-nocheck
+import React, { useState } from "react";
 import s from "./CreateProduct.module.css";
-import { filterData } from "../../static/static";
+import InputTypeFileImage from "./innerComponents/image/InputTypeFileImage";
+import InputTypeText from "./innerComponents/text/InputTypeText";
+import SelectAndColorInput from "./innerComponents/SelectAndColorInput";
+import { AiFillCheckCircle, AiOutlineCheckCircle } from "react-icons/ai";
 
 function CreateProduct() {
-  const [inputTypeTextData, setTypeTextData] = useState({
+  const [inputTypeTextData] = useState([
+    "title",
+    "desc",
+    "price",
+    "size",
+    "productId",
+    "brand",
+  ]);
+  const [inputTypeSelectData] = useState(["type", "season", "color"]);
+  const [allPlaceHolders] = useState({
+    title: "Nomi: (Cabani shoes)",
+    desc: "Ta'rifi: (Sifatli toza charmda  tayyorlangan...)",
+    price: "Narxi: (420 000 so'm)",
+    size: "O'lchami: (39-44)",
+    productId: "Mahsulot id: (45p7)",
+    brand: "Brandi: (Mustang)",
+    type: "Mahsulot turi: ",
+    season: "Mavsumiyligi: (Fasl)",
+    color: "Rangi: ",
+  });
+
+  // <Barcha Ma'lumotlar shu state da shuni backendga yuboriladi>
+  const [allData, setAllData] = useState({
     title: "",
     desc: "",
     price: "",
     size: "",
     productId: "",
     brand: "",
-  });
-  const [inputTypeSelectData, settypeSelectData] = useState({
     type: "",
     season: "",
     color: "",
-  });
-  const [urls, setUrls] = useState([]);
-  const [allPlaceHolders] = useState({
-    title: "Nomi: (Cabani shoes)",
-    desc: "Ta'rifi: (Sifatli toza charmda  tayyorlangan",
-    price: "Narxi: (420 000 so'm)",
-    size: "O'lchami: (39-44)",
-    productId: "Mahsulot id: (45p7)",
-    brand: "Brandi: (Mustang)",
-    type: "Mahsulot kategoriyasi",
-    season: "Mavsumiyligi (Fasl)",
-    color: "jigarrang",
-  });
-
-  // <Barcha Ma'lumotlar shu state da shuni backendga yuboriladi>
-  const [allData, setAllData] = useState({
+    urls: [],
     stars: 0,
     view: 0,
   });
-
-  useEffect(() => {
-    setAllData((e) => ({
-      ...e,
-      ...inputTypeTextData,
-      ...inputTypeSelectData,
-      urls,
-    }));
-  }, [inputTypeSelectData, inputTypeTextData, urls]);
-  console.log(allData);
   // </Barcha Ma'lumotlar shu state da shuni backendga yuboriladi>
 
-  // getSetValueTypeText
-  const handleChangeInputTypeText = (e) => {
-    let key = e.target.getAttribute("name");
-    let value = e.target.value;
-    let tempData = { ...inputTypeTextData };
-    tempData[key] = value;
-    setTypeTextData(tempData);
-  };
-  // getSetValueTypeText
+  // console.log(allData)
 
-  // getSetValueTypeSelect
-  const handleChangeInputTypeSelect = (e) => {
+  const [imgs, setImgs] = useState([]);
+  const [multipleFileImages, setMultipleFileImages] = useState("");
+
+  // getSetValue
+  const handleChangeInput = (e) => {
     let key = e.target.getAttribute("name");
     let value = e.target.value;
-    let tempData = { ...inputTypeSelectData };
-    tempData[key] = value;
-    settypeSelectData(tempData);
+    setAllData({ ...allData, [key]: value });
   };
-  // getSetValueTypeSelect
+  // getSetValue
+
+  const handleChangeImage = ({ target: { files } }) => {
+    const MAX_COUNT_OF_IMAGES = 5;
+    if (files.length <= MAX_COUNT_OF_IMAGES) {
+      setMultipleFileImages(files);
+      Object.values(files).forEach((i) => {
+        let source = {
+          src: URL.createObjectURL(i),
+          name: i.name,
+          size: i.size,
+          date: i.lastModifiedDate,
+        };
+        setImgs((e) => [...e, source]);
+      });
+    } else {
+      alert("uzur faqatgina 5 dona rasm yuklay olasiz holos:(");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let formData = new FormData();
+
+    formData.append('title','images');
+
+    Array.from(multipleFileImages).forEach((i) => {
+      formData.append("image", i, i.name);
+    });
+
+
+    // Axios ni shu yerdan boshlab yoziladi
+  };
 
   return (
     <div className={s.container}>
       <div className={s.title}>
         <h1>Mahsulot yaratish</h1>
-        <hr />
       </div>
       <div className={s.row}>
-        <form className={s.form}>
+        <form onSubmit={handleSubmit} className={s.form}>
           {/* typeTextInput */}
-          {Object.keys(inputTypeTextData).map((key, idx) => (
-            <div key={idx} className={s.typeTextInputs}>
-              <input
-                type="text"
-                value={inputTypeTextData[key]}
-                className={s.typeTextInput}
-                name={key}
-                placeholder={allPlaceHolders[key]}
-                onChange={handleChangeInputTypeText}
-              />
-            </div>
+          {inputTypeTextData?.map((key, idx) => (
+            <InputTypeText
+              key={idx}
+              value={allData[key]}
+              name={key}
+              placeholder={allPlaceHolders[key]}
+              handleChange={handleChangeInput}
+            />
           ))}
           {/* typeTextInput */}
 
           {/* typeSelectInput */}
-          {Object.keys(inputTypeSelectData).map((key, idx) => (
-            <div key={idx} className={s.typeSelectInputs}>
-              {key === "color" ? (
-                <div className={s.inputTypeRadio}>
-                  {filterData[key]?.map((el, index) => (
-                    <input
-                      key={index}
-                      type="radio"
-                      value={inputTypeSelectData[key]}
-                      className={s.typeSelectInput}
-                      name={key}
-                      placeholder={allPlaceHolders[key]}
-                      onChange={handleChangeInputTypeSelect}
-                    />
-                  ))}
-                </div>
-              ) : (
-                <select
-                  value={inputTypeSelectData[key]}
-                  onChange={handleChangeInputTypeSelect}
-                  className={s.typeSelectInput}
-                  name={key}
-                >
-                  {filterData[key]?.map((el, index) => (
-                    <option key={index} value={el}>
-                      {el}
-                    </option>
-                  ))}
-                </select>
-              )}
-            </div>
+          {inputTypeSelectData?.map((key, idx) => (
+            <SelectAndColorInput
+              key={idx}
+              kalit={key}
+              placeholder={allPlaceHolders[key]}
+              handleChange={handleChangeInput}
+              value={allData[key]}
+            />
           ))}
           {/* typeSelectInput */}
+
+          {/* inputTypeFile Images */}
+          <div className={s.inputTypeFile}>
+            <InputTypeFileImage
+              handleChangeImage={handleChangeImage}
+              imgs={imgs}
+            />
+          </div>
+          {/* inputTypeFile Images */}
+
+          <button type="submit" className={s.btn}>
+            <AiOutlineCheckCircle className={s.btnIcon} />{" "}
+            <span>Mahsulot Yaratish</span>
+          </button>
         </form>
       </div>
     </div>

@@ -1,18 +1,26 @@
 .container {
+  min-height: 100vh;
   margin: 2rem;
 }
+
 .title h1 {
   color: var(--bg-py);
-  padding: 0.625rem 0;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #ddd;
+}
+.label {
+  margin: 0 0 0.5rem 0.5rem;
+  color: var(--bg-py);
+  font-size: var(--font-md);
 }
 .row {
   margin-top: 2rem;
 }
 .form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
 }
 .typeTextInputs,
 .typeSelectInputs {
@@ -25,10 +33,10 @@
 
 .typeTextInput,
 .typeSelectInput {
-  padding: 0.8rem 1.3rem;
+  padding: 0 .8rem;
+  height: 40px;
   border-radius: 0.7rem;
-  /* margin: 0.5rem 0; */
-  border: 1px solid var(--border-color);
+  border: 1px solid #ddd;
   font-size: var(--font-md);
   color: var(--bg-py);
 }
@@ -41,16 +49,37 @@
   transition: all 0.23s ease-in-out;
 }
 .typeSelectInput {
-    width: 100%;
+  width: 100%;
 }
-.inputTypeRadio {
-    display: flex;
-    gap: 0.5rem;
+.typeSelectInput:focus {
+  outline: none;
 }
-
-@media screen and (max-width: 991px){
-    .typeSelectInputs {
-        width: 100%;
-      }
+/* input Type File started */
+.inputTypeFile {
+  display: flex;
+  width: 100%;
+  margin-top: 3rem;
+  margin-left: 0.5rem;
 }
-
+/* Submit Button */
+.btn {
+  padding: 1rem 2rem;
+  font-size: var(--font-md);
+  border-radius: 3rem;
+  background: var(--bg-py);
+  color: var(--bg-light);
+  border: none;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.23s ease-in-out;
+}
+.btn:hover {
+  box-shadow: 0 0 1rem #72493f9c;
+}
+.btnIcon {
+  display: flex;
+  justify-content: center;
+  margin-right: 0.3rem;
+}

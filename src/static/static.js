@@ -22,7 +22,7 @@ export const PRODUCTS = [
       "https://cdn.sorsware.com/ecco/ContentImages/Product/GENEL/62160401001/ecco-melbourne_01001-siyah_1_buyuk.jpg",
       "https://www.pngall.com/wp-content/uploads/5/Brown-Men-Shoes-PNG-Image.png",
       "https://cdn.picpng.com/men_shoes/men-shoes-view-30501.png",
-      "https://www.pngall.com/wp-content/uploads/5/Brown-Men-Shoes-PNG-Clipart.png"
+      "https://www.pngall.com/wp-content/uploads/5/Brown-Men-Shoes-PNG-Clipart.png",
     ],
     productId: "3536",
     size: "40-44",
@@ -102,6 +102,34 @@ export const PRODUCTS = [
   },
 ];
 
+export const createProduct = {
+  season: ["Fasl", "bahor", "yoz", "kuz", "qish"],
+  type: ["Turi", "makasina", "classic", "krasofka"],
+  color: [
+    "barchasi",
+    "oq",
+    "qora",
+    "qizil",
+    "ko'k",
+    "jigarrang",
+    "pushti",
+    "yashil",
+    "sariq",
+    "boshqa",
+  ],
+  colorReverse: {
+    barchasi: "all",
+    oq: "white",
+    qora: "black",
+    qizil: "red",
+    "ko'k": "blue",
+    jigarrang: "brown",
+    pushti: "pink",
+    yashil: "green",
+    sariq: "yellow",
+    boshqa: "other",
+  }
+};
 export const filterData = {
   season: ["barchasi", "bahor", "yoz", "kuz", "qish"],
   type: ["barchasi", "makasina", "classic", "krasofka"],
@@ -117,6 +145,18 @@ export const filterData = {
     "sariq",
     "boshqa",
   ],
+  colorReverse: {
+    barchasi: "all",
+    oq: "white",
+    qora: "black",
+    qizil: "red",
+    "ko'k": "blue",
+    jigarrang: "brown",
+    pushti: "pink",
+    yashil: "green",
+    sariq: "yellow",
+    boshqa: "other",
+  },
   prices: [
     50000,
     100000,
@@ -136,66 +176,65 @@ export const filterData = {
     "undan yuqori",
   ],
   types: {
-    type: 'turi',
-    season: 'mavsumiyligi',
-    price: 'narxi',
-    color: 'rangi'
-  }
+    type: "turi",
+    season: "mavsumiyligi",
+    price: "narxi",
+    color: "rangi",
+  },
 };
-
 
 export const adminSidebar = [
   {
     id: 0,
     title: "Buyurtmalar",
-    component: <Order/>,
-    icon: <AiOutlineShoppingCart/>,
-    link: "order"
+    component: <Order />,
+    icon: <AiOutlineShoppingCart />,
+    link: "order",
   },
   {
     id: 1,
     title: "Mahsulot yaratish",
-    component: <CreateProduct/>,
-    icon: <AiOutlinePlus/>,
-    link: "create-product"
+    component: <CreateProduct />,
+    icon: <AiOutlinePlus />,
+    link: "create-product",
   },
   {
     id: 2,
     title: "Mahsulotlarni boshqarish",
-    component: <EditProduct/>,
-    icon: <AiOutlineEdit/>,
-    link: "edit-product"
+    component: <EditProduct />,
+    icon: <AiOutlineEdit />,
+    link: "edit-product",
   },
   {
     id: 3,
     title: "Admin qo'shish",
-    component: <CreateAdmin/>,
-    icon: <AiOutlineUsergroupAdd/>,
-    link: "add-admin"
-  }
-]
+    component: <CreateAdmin />,
+    icon: <AiOutlineUsergroupAdd />,
+    link: "add-admin",
+  },
+];
 
 export const bottomData = [
   {
-      id: 0,
-      title: "Bosh sahifa",
-      icon: <AiOutlineHome/>,
-      iconFill: <AiFillHome/>,
-      route: "/"
+    id: 0,
+    title: "Bosh sahifa",
+    icon: <AiOutlineHome />,
+    iconFill: <AiFillHome />,
+    route: "/",
   },
   {
-      id: 1,
-      title: "Sevimlilar",
-      icon: <AiOutlineHeart/>,
-      iconFill: <AiFillHeart/>,
-      route: "/heart"
+    id: 1,
+    title: "Sevimlilar",
+    icon: <AiOutlineHeart />,
+    iconFill: <AiFillHeart />,
+    route: "/heart",
   },
   {
-      id: 2,
-      title: "Savatcha",
-      icon: <BsCart/>,
-      iconFill: <BsFillCartFill/>,
-      route: "/cart"
+    id: 2,
+    title: "Savatcha",
+    icon: <BsCart />,
+    iconFill: <BsFillCartFill />,
+    route: "/cart",
   },
   // {
   //     id: 3,

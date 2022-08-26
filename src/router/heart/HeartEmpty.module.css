@@ -1,5 +1,5 @@
 .container {
-  min-height: calc(100vh - 29rem);
+  min-height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,11 +22,14 @@
   color: var(--bg-py);
   font-size: 1.7rem;
 }
-.body p {
-  color: #1b3035;
-}
 @media screen and (max-width: 600px) {
   .body h1 {
     font-size: 1.3rem;
+  }
+  .image{
+    width: 250px;
+  }
+  .body h1 {
+    font-size: 18px;
   }
 }
