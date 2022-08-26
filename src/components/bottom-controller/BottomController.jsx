@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom"
 import {bottomData} from "../../static/static"
 import { useLocation } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import {filterShow} from "../../context/action/action"
+import {filterShow, filterHide} from "../../context/action/action"
 import {AiOutlineFilter, AiFillFilter} from "react-icons/ai" 
 
 function BottomController() {
@@ -20,7 +20,7 @@ function BottomController() {
             {
                 bottomData?.map(({id, title, icon, iconFill ,route})=> <NavLink 
                 key={id} 
-                onClick={()=> { route === "/filter" && dispatch(filterShow()) }}
+                onClick={()=> dispatch(filterHide())}
                 className={s.bottom_link} 
                 to={route}>
                  {pathname === route ? iconFill : icon }

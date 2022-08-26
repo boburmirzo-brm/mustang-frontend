@@ -58,4 +58,7 @@
     .main{
         width: 98%;
     }
+    .title{
+        font-size: 24px;
+    }
 }

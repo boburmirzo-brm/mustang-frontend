@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import s from "./Product.module.css" 
 import {AiFillStar, AiOutlineStar, AiOutlineHeart, AiOutlineEye} from "react-icons/ai"
 import {MdOutlineShoppingCart} from "react-icons/md"
@@ -6,11 +6,13 @@ import {Link} from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import {UseProduct} from "../../hooks/UseProducts"
 import {ADD_TO_CART, ADD_TO_HEART} from "../../context/action/actionTypes"
+import ZoomImage from '../zoom-image/ZoomImage'
 
 function Product({data}) {
     const cart = useSelector(state => state.cart)
     const heart = useSelector(state => state.heart)
     const dispatch = useDispatch()
+    const [zoom, setZoom] = useState(null)
     // console.log("cart>>", cart);
     // console.log("heart>>", heart);
   return (
@@ -34,10 +36,12 @@ function Product({data}) {
                 <div className={s.heart_con}>
                     <button onClick={()=>UseProduct(data, ADD_TO_HEART,  heart, dispatch)} className={s.heart}><AiOutlineHeart/></button>
                 </div>
+                {/* <button onClick={()=> setZoom(data.urls)}>view</button> */}
                 <div className={s.view}>
                     <AiOutlineEye/>
                     <p>78</p>
                 </div>
+                {zoom && <ZoomImage urls={zoom} setZoom={setZoom}/> } 
             </div>
         </div>
     </div>

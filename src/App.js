@@ -14,8 +14,11 @@ import About from "./router/about/About";
 import BackToTop from "./components/backToTop/BackToTop";
 import BottomController from "./components/bottom-controller/BottomController";
 import Heart from "./router/heart/Heart";
+import {useSelector} from "react-redux"
 
 function App() {
+  const filter = useSelector(state=> state.filterShow)
+  document.body.style.overflow = filter ? "hidden" : "auto"
   return (
     <div className="App">
       <Router>

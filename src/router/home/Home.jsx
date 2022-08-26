@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, {useState} from 'react'
+import React, { useEffect} from 'react'
 import Banner from '../../components/banner/Banner'
 import ExtraInfo from '../../components/extra-info/ExtraInfo'
 import FilterProduct from '../../components/filter-product/FilterProduct'
@@ -12,8 +12,7 @@ import {AiOutlineFilter} from "react-icons/ai"
 const Home = () => {
   const filter = useSelector(state=> state.filterShow)
   const dispatch = useDispatch()
-  document.body.style.overflow = filter ? "hidden" : "auto"
-  
+
   return (
     <div>
       <Banner/>

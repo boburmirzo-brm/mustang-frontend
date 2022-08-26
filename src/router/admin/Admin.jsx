@@ -6,8 +6,10 @@ import { IoExitOutline } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { signOut } from "../../context/action/action";
+import { useSelector } from "react-redux"
 
 function Admin() {
+  const {owner, name} = useSelector(s=> s.auth)
   const history = useHistory();
   const dispatch = useDispatch();
   const signOutAdminPanel = () => {
@@ -19,14 +21,15 @@ function Admin() {
       <div className={s.sidebar}>
         <h1 className={s.logo}>Mustang</h1>
         <div className={s.admin_info}>
-          <div className={s.admin_circle}>RB</div>
+          <div className={s.admin_circle}>{name.slice(0,1)}</div>
           <div>
-            <h3>Rasulov Boburmirzo</h3>
-            <p>Admin</p>
+            <h3>{name}</h3>
+            <p>{owner ? "Owner" : "Admin"} </p>
           </div>
         </div>
         <div className={s.sidebar_collection}>
           {adminSidebar?.map(({ id, title, icon, link }) => (
+            !owner && link === "add-admin" ? <div key={id}></div> :
             <NavLink
               to={`/admin/${link}`}
               className={s.sidebar_item}

@@ -1,12 +1,12 @@
 /* Core Start */
 .filter {
   width: 25%;
-  height: calc(100vh - 160px);
+  height: calc(100vh - 100px);
   background: #fff;
   margin-top: 8px;
   box-shadow: 0px 0px 4px 1px #00000021;
   position: sticky;
-  top: 140px;
+  top: 80px;
   overflow: auto;
 }
 
@@ -170,7 +170,7 @@
 
 @media screen and (max-width: 700px) {
   .filter {
-    top: 10px;
+    top: 0px;
     width: 70%;
     left: -70%;
     height: calc(100vh - 80px);

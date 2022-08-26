@@ -42,7 +42,7 @@
     top: 15px;
     right: 11px;
     color: var(--bg-dark);
-    z-index: 15;
+    z-index: 5;
     font-weight: 200;
     background: crimson;
     color: #fff;
@@ -352,7 +352,7 @@
         top: 0;
         right: 11px;
         color: var(--bg-dark);
-        z-index: 15;
+        z-index: 5;
         font-weight: 200;
         background: crimson;
         color: #fff;
