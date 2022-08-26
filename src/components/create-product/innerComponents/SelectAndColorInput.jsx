@@ -13,7 +13,12 @@ const SelectAndColorInput = ({ kalit, placeholder, handleChange, value }) => {
           handleChange={handleChange}
         />
       ) : (
-        <SelectOption kalit={kalit} value={value} handleChange={handleChange} />
+        <SelectOption
+          kalit={kalit}
+          value={value}
+          placeholder={placeholder}
+          handleChange={handleChange}
+        />
       )}
     </div>
   );

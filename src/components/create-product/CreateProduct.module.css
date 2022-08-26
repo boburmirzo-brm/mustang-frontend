@@ -7,6 +7,11 @@
   color: var(--bg-py);
   padding: 0.625rem 0;
 }
+.label {
+  margin: 0 0 0.5rem 0.5rem;
+  color: var(--bg-py);
+  font-size: var(--font-md);
+}
 .row {
   margin-top: 2rem;
 }
@@ -51,7 +56,7 @@
 .inputTypeFile {
   display: flex;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 3rem;
   margin-left: 0.5rem;
 }
 /* Submit Button */

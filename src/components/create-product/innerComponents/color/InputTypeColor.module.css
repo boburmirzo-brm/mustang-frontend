@@ -5,6 +5,12 @@
   margin-left: 0.5rem;
 }
 
+.label {
+  margin: 0 0 0.5rem 0.5rem;
+  color: var(--bg-py);
+  font-size: var(--font-md)
+}
+
 /* custom radio button */
 
 /* Brauzerning radio buttoni berkitish */

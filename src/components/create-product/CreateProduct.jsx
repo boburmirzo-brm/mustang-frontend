@@ -23,9 +23,9 @@ function CreateProduct() {
     size: "O'lchami: (39-44)",
     productId: "Mahsulot id: (45p7)",
     brand: "Brandi: (Mustang)",
-    type: "Mahsulot kategoriyasi",
-    season: "Mavsumiyligi (Fasl)",
-    color: "jigarrang",
+    type: "Mahsulot turi: ",
+    season: "Mavsumiyligi: (Fasl)",
+    color: "Rangi: ",
   });
 
   // <Barcha Ma'lumotlar shu state da shuni backendga yuboriladi>
@@ -48,6 +48,8 @@ function CreateProduct() {
   // console.log(allData)
 
   const [imgs, setImgs] = useState([]);
+  const [multipleFileImages, setMultipleFileImages] = useState("");
+
   // getSetValue
   const handleChangeInput = (e) => {
     let key = e.target.getAttribute("name");
@@ -57,25 +59,36 @@ function CreateProduct() {
   // getSetValue
 
   const handleChangeImage = ({ target: { files } }) => {
-    let maxCountOfImages = 5;
-    Object.values(files).forEach((i) => {
-      let source = {
-        src: URL.createObjectURL(i),
-        name: i.name,
-        size: i.size,
-        date: i.lastModifiedDate,
-      };
-      if (imgs.length < maxCountOfImages) {
+    const MAX_COUNT_OF_IMAGES = 5;
+    if (files.length <= MAX_COUNT_OF_IMAGES) {
+      setMultipleFileImages(files);
+      Object.values(files).forEach((i) => {
+        let source = {
+          src: URL.createObjectURL(i),
+          name: i.name,
+          size: i.size,
+          date: i.lastModifiedDate,
+        };
         setImgs((e) => [...e, source]);
-      }
-    });
+      });
+    } else {
+      alert("uzur faqatgina 5 dona rasm yuklay olasiz holos:(");
+    }
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-  }
+    let formData = new FormData();
+
+    formData.append('title','images');
+
+    Array.from(multipleFileImages).forEach((i) => {
+      formData.append("image", i, i.name);
+    });
+
+
+    // Axios ni shu yerdan boshlab yoziladi
+  };
 
   return (
     <div className={s.container}>
@@ -119,7 +132,7 @@ function CreateProduct() {
           {/* inputTypeFile Images */}
 
           <button type="submit" className={s.btn}>
-            <AiFillCheckCircle className={s.btnIcon} />{" "}
+            <AiOutlineCheckCircle className={s.btnIcon} />{" "}
             <span>Mahsulot Yaratish</span>
           </button>
         </form>
