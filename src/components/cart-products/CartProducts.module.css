@@ -81,7 +81,7 @@
 
 .left_side
 {
-    width: 50%;
+    width: calc(50% - 120px);
     display: flex;
 }
 
@@ -96,7 +96,6 @@
 
 .cartpro_title
 {
-    white-space: nowrap;
     font-weight: 500;
 }
 
@@ -187,6 +186,16 @@
 {
     color: #B1A8AF;
     font-size: 14px;
+}
+
+.cart_select
+{
+    width: 120px;
+    height: 32px;
+    padding: 0 12px;
+    outline: none;
+    margin: 14px 0 0 14px;
+    cursor: pointer;
 }
 
 .pro_actions
@@ -315,6 +324,11 @@ textarea.cart_inp::-webkit-scrollbar-thumb{
         margin-top: 12px;
     }
 
+    .cart_select
+    {
+        margin-left: 0;
+    }
+
     .cart_inp
     {
         height: 40px;
@@ -396,14 +410,6 @@ textarea.cart_inp::-webkit-scrollbar-thumb{
    {
         white-space: nowrap;
    }
-}
-
-@media screen and (max-width: 710px)
-{
-    .cart_actions
-    {
-        width: 60%;
-    }
 }
 
 @media screen and (max-width: 710px)
