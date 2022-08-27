@@ -105,6 +105,8 @@ export const PRODUCTS = [
 export const createProduct = {
   season: ["Fasl", "bahor", "yoz", "kuz", "qish"],
   type: ["Turi", "makasina", "classic", "krasofka"],
+  // stars: ["0","3","4","5"],
+  stars: [0,3,4,5],
   color: [
     "barchasi",
     "oq",
