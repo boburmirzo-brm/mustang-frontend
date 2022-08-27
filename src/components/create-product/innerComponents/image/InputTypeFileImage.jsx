@@ -8,7 +8,11 @@ const InputTypeFileImage = ({ handleChangeImage, imgs }) => {
     <>
       <div className={s.imageReceiver}>
         <label
-          title={`Rasm yuklang,\n5ta dan ortiq rasm yuklanmaydi.`}
+          title={
+            imgs.length
+              ? "Qayta rasm yuklash"
+              : "Rasm yuklang,\n5ta dan ortiq rasm yuklanmaydi."
+          }
           className={s.customUpload}
         >
           <img src={cameraIcon} alt="camera icon" />
