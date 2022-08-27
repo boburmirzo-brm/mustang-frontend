@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import { createProduct } from "../../../../static/static";
 import s from "../../CreateProduct.module.css";
@@ -15,7 +16,7 @@ const SelectOption = ({ kalit, value, handleChange, placeholder }) => {
         {createProduct[kalit]?.map((el, index) => (
           <option
             key={index}
-            value={["turi", "fasl"].includes(el.toLowerCase()) ? "" : el}
+            value={["turi", "fasl"].includes(el) ? "" : el}
           >
             {el}
           </option>

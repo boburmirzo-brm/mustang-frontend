@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import s from "./InputTypeFileImage.module.css";
 import cameraIcon from "../../../../assets/camera.png";
