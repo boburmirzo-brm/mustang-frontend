@@ -26,7 +26,6 @@ function App() {
         <BackToTop />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/filter" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/cart" component={Cart} />
           <Route path="/heart" component={Heart} />

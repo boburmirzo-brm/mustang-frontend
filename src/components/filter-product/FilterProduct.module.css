@@ -118,9 +118,9 @@
 @media screen and (max-width: 1111px) {
   .filter {
     width: 300px;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 60px);
     position: fixed;
-    top: 120px;
+    top: 60px;
     overflow: auto;
     z-index: 10;
     left: -300px;
@@ -133,10 +133,10 @@
 
 @media screen and (max-width: 700px) {
   .filter {
-    top: 0px;
+    top: -8px;
     width: 70%;
     left: -70%;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 100px);
   }
   .show {
     left: 0;

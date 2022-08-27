@@ -16,6 +16,8 @@
 }
 .logo{
     text-align: center;
+}
+.logo a{
     color: #fff;
 }
 .admin_info{
@@ -75,8 +77,8 @@
     font-size: 24px;
 }
 .active{
-    background-color: #fff;
-    color: var(--bg-py);
+    background-color: #fff3;
+    /* color: var(--bg-py); */
 }
 .admin_content{
     width: calc(100% - 300px);
