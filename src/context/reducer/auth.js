@@ -1,6 +1,6 @@
 import {SIGN_OUT, SIGN_IN} from "../action/actionTypes"
 
-const auth = (state=true, action)=>{
+const auth = (state=null, action)=>{
     switch(action.type){
         case SIGN_IN:
             return state = action.payload 

@@ -37,6 +37,10 @@
 {
     width: 50%;
     margin-right: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-right: 65px;
 }
 
 .cart_nav h2
@@ -49,6 +53,11 @@
 .cart_nav h2:last-child
 {
     margin-left: 40px;
+}
+
+.cart_nav h2:nth-child(2)
+{
+    margin-left: 10px;
 }
 
 .cart_wrapper
@@ -223,6 +232,16 @@
     font-size: 20px;
 }
 
+.action_btn.liked
+{
+    background: #444;
+}
+
+.action_btn.liked svg
+{
+    color: var(--bg-light);
+}
+
 .cart_actions
 {
     padding: 12px;
@@ -279,7 +298,12 @@ textarea.cart_inp::-webkit-scrollbar-thumb{
     background: var(--bg-py);
     color: var(--bg-light);
     border: none;
+}
 
+.checkout:disabled
+{
+    opacity: .7;
+    cursor: not-allowed;
 }
 
 .del_btn

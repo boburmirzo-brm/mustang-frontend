@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import s from "./Product.module.css" 
 import {AiFillStar, AiOutlineStar, AiOutlineHeart, AiOutlineEye} from "react-icons/ai"
 import {MdOutlineShoppingCart} from "react-icons/md"
@@ -16,6 +16,37 @@ function Product({data}) {
     const [zoom, setZoom] = useState(null)
     // console.log("cart>>", cart);
     // console.log("heart>>", heart);
+
+    const [liked, setLiked] =  useState(false)
+
+    const AddToHeart = () => {
+        const pro = heart?.filter(item => item._id === data._id)
+
+        if(!pro.length) {
+            setLiked(true)
+            UseProduct(data, ADD_TO_HEART, heart, dispatch)
+        } else {
+            let newData = heart?.filter(item => item._id !== data._id)
+
+            setLiked(false)
+            dispatch({type: ADD_TO_HEART, payload: newData})
+        }
+
+        return;
+    }
+
+    useEffect(() => {
+        const pro = heart?.filter(item => item._id === data._id)
+
+        if(pro.length) {
+            setLiked(true)
+        } else {
+            setLiked(false)
+        }
+
+        return;
+    }, [])
+
   return (
     <div className={s.product}>
         <Link to={`/product/${data._id}`}>
@@ -35,7 +66,7 @@ function Product({data}) {
             <div className={s.product_btns}>
                 <button onClick={()=>UseCart(data, ADD_TO_CART,  cart, dispatch)} className={s.btn_shopping}><MdOutlineShoppingCart/><span>Savatchaga qo'shish</span></button>
                 <div className={s.heart_con}>
-                    <button onClick={()=>UseProduct(data, ADD_TO_HEART,  heart, dispatch)} className={s.heart}><AiOutlineHeart/></button>
+                    <button onClick={AddToHeart}  className={`${s.heart} ${liked && s.active}`}><AiOutlineHeart/></button>
                 </div>
                 {/* <button onClick={()=> setZoom(data.urls)}>view</button> */}
                 <div className={s.view}>

@@ -19,6 +19,7 @@
 {
     letter-spacing: 2px;
     word-spacing: 3px;
+    font-size: 32px;
     color: var(--bg-light);
 }
 
@@ -44,5 +45,30 @@
     .cart_box
     {
         padding: 20px;
+    }
+
+    .cart_header h1
+    {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .cart_header
+    {
+        padding: 0;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 555px){
+    .cart_header
+    {
+        height: 80px;
+    }
+
+    .cart_header h1
+    {
+        font-size: 24px;
     }
 }
