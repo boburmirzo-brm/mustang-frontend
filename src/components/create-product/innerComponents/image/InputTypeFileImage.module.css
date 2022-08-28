@@ -68,3 +68,9 @@
 .eachImg:hover {
   box-shadow: 0 0 10px #0003;
 }
+
+@media screen and (max-width: 705px) {
+  .imagesContainer {
+    margin-left: 0;
+  }
+}
