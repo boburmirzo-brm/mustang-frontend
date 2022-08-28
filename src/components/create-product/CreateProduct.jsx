@@ -201,13 +201,35 @@ function CreateProduct() {
     setIsLoading(true);
     axios
       .post("/products", formData, auth())
-      .then((res) => {
-        console.log(res);
+      .then(({ data: { data, msg, state } }) => {
+        console.log(data);
+        toast.success(msg, {
+          position: "top-right",
+          autoClose: 7000,
+        });
+        setAllData({
+          title: "",
+          desc: "",
+          price: "",
+          size: "",
+          productId: "",
+          brand: "",
+          type: "",
+          season: "",
+          color: "",
+          urls: [],
+          stars: 0,
+          view: 1,
+        });
         setIsLoading(false);
       })
-      .catch(({ response }) => {
+      .catch(({ response: { data } }) => {
         setIsLoading(false);
-        console.log("error: ", response);
+        console.log("error: ", data);
+        toast.error(data?.msg, {
+          position: "top-right",
+          autoClose: 7000,
+        });
       });
   };
 
@@ -252,7 +274,7 @@ function CreateProduct() {
           </div>
           {/* inputTypeFile Images */}
 
-          <button disabled={isLoading} type="submit" className={s.btn} >
+          <button disabled={isLoading} type="submit" className={s.btn}>
             {isLoading ? (
               <Loader
                 config={{ size: 24, color: "#fff", display: "inline-block" }}

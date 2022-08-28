@@ -1,0 +1,243 @@
+.container {
+  min-height: 700px;
+  padding: 2rem 10%;
+  display: flex;
+  gap: 15px;
+}
+/* Images Container started */
+.imagesContainer {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mainImage {
+  cursor: zoom-in;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 20px;
+}
+
+.singleImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  object-fit: contain;
+  transition: all 0.23s ease-in-out;
+}
+
+.heartIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  right: 14px;
+  top: 10px;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.23s ease-in-out;
+  color: var(--bg-sy);
+  background: #fff;
+}
+
+.heartIcon:hover{
+    border: 1px solid var(--bg-sy);
+}
+.activeHeartIcon {
+  background-color: var(--bg-sy);
+  color: #fff;
+  cursor: pointer;
+}
+.miniImages::-webkit-scrollbar {
+  height: 6px;
+}
+.miniImages::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 5px;
+}
+.miniImages {
+  width: 100%;
+  display: flex;
+  gap: 7px;
+  transition: all 0.23s ease-in-out;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+.miniImage {
+  width: 50px;
+  min-width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 1rem;
+  background: #fff;
+  transition: all 0.23s ease-in-out;
+  border: 1px solid transparent;
+  opacity: .7;
+  transition: all 0.23s ease-in-out;
+  overflow: hidden;
+}
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.miniImage,
+.image {
+  background-color: #fff;
+}
+.active {
+  border: 1px solid var(--bg-py);
+  opacity: 1;
+}
+/* Images Container finished */
+
+/* infoBody started */
+.infoBody {
+  width: 60%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.miniGroupOfInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.title{
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+.desc{
+    color: var(--bg-dark);
+}
+
+.price{
+    color: var(--bg-sy);
+    font-size: 2rem;
+}
+.type,
+.stars,
+.brand,
+.size,
+.season,
+.view,
+.share {
+    color: var(--bg-py);
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.type span,
+.stars span,
+.brand span,
+.size span,
+.season span,
+.view span {
+  margin-left: 6px;
+}
+
+.stars,
+.share {
+  display: flex;
+  align-items: center;
+}
+.stars span {
+  display: flex;
+  color: var(--bg-gold);
+  margin-left: 0;
+  border-bottom: none;
+}
+.miniInfo {
+  font-size: 10px;
+  text-transform: lowercase;
+}
+
+/* buttons */
+.telegram,
+.facebook,
+.twitter,
+.instagram {
+  display: flex;
+  font-size: 1.5rem;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.22s ease-in-out;
+}
+
+.telegram {
+  color: #0088cc;
+}
+.facebook {
+  color: #3b5998;
+}
+.twitter {
+  color: #1da1f2;
+}
+.instagram {
+  color: #bc1888;
+}
+.buttonsAction {
+  width: 100%;
+}
+.cart_btn {
+  padding: .6rem 1.5rem;
+  border-radius: 3rem;
+  border: 1px solid var(--bg-sy);
+  color: var(--bg-sy);
+  background: #fff;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.23s ease-in-out;
+}
+.cart_btn:hover {
+  box-shadow: 3px 3px 10px rgba(0, 4, 219, 0.133);
+}
+.addToCartIcon {
+  display: flex;
+  font-size: var(--font-lg);
+  margin-right: 0.3rem;
+}
+@media screen and (max-width: 1220px){
+    .container{
+        padding: 1.5rem 5%;
+    }
+}
+@media screen and (max-width: 990px){
+    .container {
+        flex-direction: column;
+        padding: 1.5rem 5% 5rem;
+    }
+    .imagesContainer {
+        width: 100%;
+        margin: auto;
+    }
+    .infoBody{
+        width: 100%;
+        margin-left: 0px;
+    }
+}
+@media screen and (max-width: 500px){
+    .container {
+        padding: 1.5rem 3% 5rem;
+    }
+    .mainImage {
+        height: 320px;
+    }
+}
+@media screen and (max-width: 340px){
+    .mainImage {
+        height: 250px;
+    }
+}

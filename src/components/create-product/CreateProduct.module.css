@@ -98,5 +98,12 @@
   .inputTypeFile {
     flex-direction: column;
     gap: 10px;
+    margin-left: 0;
   }
 }
+@media screen and (max-width: 705px) {
+  .btn {
+    margin-top: 60%;
+  }
+}
+

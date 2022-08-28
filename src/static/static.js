@@ -39,6 +39,7 @@ export const PRODUCTS = [
     stars: 3,
     view: 0,
     urls: [
+      "https://cdn.shopify.com/s/files/1/0034/2038/9487/products/HTB1R_q1MhTpK1RjSZFKq6y2wXXat.jpg?v=1571611861",
       "https://www.tradeinn.com/f/13753/137536832/sebago-classic-will-shoes.jpg",
       "https://cdn.sorsware.com/ecco/ContentImages/Product/GENEL/62160401001/ecco-melbourne_01001-siyah_1_buyuk.jpg",
     ],
