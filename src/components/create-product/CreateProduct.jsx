@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import s from "./CreateProduct.module.css";
 import InputTypeFileImage from "./innerComponents/image/InputTypeFileImage";
 import InputTypeText from "./innerComponents/text/InputTypeText";
@@ -8,6 +8,7 @@ import { AiOutlineCheckCircle } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "../../api/axios";
 import { auth } from "../../auth/auth";
+import Loader from "../../components/loader/Loader";
 
 function CreateProduct() {
   const [inputTypeTextData] = useState([
@@ -99,7 +100,7 @@ function CreateProduct() {
         );
         setTimeout(() => {
           document.querySelector('input[name="size"]').focus();
-        }, 1000);
+        }, 500);
       }
     }
   };
@@ -107,9 +108,7 @@ function CreateProduct() {
   const handleChangeImage = ({ target: { files } }) => {
     const MAX_COUNT_OF_IMAGES = 5;
     if (files.length <= MAX_COUNT_OF_IMAGES) {
-      let tempImages = multipleFileImages;
-      tempImages += files;
-      setMultipleFileImages(tempImages);
+      setMultipleFileImages(files);
       setImgs([]);
       Object.values(files).forEach((i) => {
         let source = {
@@ -163,7 +162,7 @@ function CreateProduct() {
         if (key === "size") {
           setTimeout(() => {
             document.querySelector('input[name="size"]').focus();
-          }, 1000);
+          }, 500);
         }
         return toast.error(
           `Iltimos ${allPlaceHolders[key].split(":")[0]} ni ${
@@ -253,11 +252,17 @@ function CreateProduct() {
           </div>
           {/* inputTypeFile Images */}
 
-          <button type="submit" className={s.btn}>
-            <>
-              <AiOutlineCheckCircle className={s.btnIcon} />{" "}
-              <span>Mahsulot Yaratish</span>
-            </>
+          <button disabled={isLoading} type="submit" className={s.btn} >
+            {isLoading ? (
+              <Loader
+                config={{ size: 24, color: "#fff", display: "inline-block" }}
+              />
+            ) : (
+              <>
+                <AiOutlineCheckCircle className={s.btnIcon} />{" "}
+                <span>Mahsulot Yaratish</span>
+              </>
+            )}
           </button>
         </form>
       </div>

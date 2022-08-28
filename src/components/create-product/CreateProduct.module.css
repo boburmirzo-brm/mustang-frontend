@@ -63,6 +63,7 @@
 }
 /* Submit Button */
 .btn {
+  width: 234px;
   padding: 1rem 2rem;
   font-size: var(--font-md);
   border-radius: 3rem;
@@ -75,8 +76,15 @@
   cursor: pointer;
   transition: all 0.23s ease-in-out;
 }
+
+
 .btn:hover {
   box-shadow: 0 0 1rem #72493f9c;
+}
+.btn:disabled{
+  opacity: .6;
+  cursor: no-drop;  
+  box-shadow: 0 0 0 #000;
 }
 .btnIcon {
   display: flex;
