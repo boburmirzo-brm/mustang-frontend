@@ -5,6 +5,8 @@ import { removeFromCart } from '../../context/action/action'
 import CartProduct from './CartProduct'
 import axios from '../../api/axios'
 import { ADD_TO_CART } from '../../context/action/actionTypes'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CartProducts() {
   const cart = useSelector(s=> s.cart)
@@ -14,15 +16,31 @@ function CartProducts() {
   const [user, setUser] = useState({
     name: '',
     address: '',
-    tel: '+998'
+    message: '',
+    tel: 998
   })
 
   const sendOrders = (orders) => {
+    const {name, address, tel} = user
+    if(name.length < 3 || tel.toString().length < 12){
+      toast.error("malumotni to'liq kiring  ", {
+        position: "top-right",
+        autoClose: 10000,
+      });
+      return;
+    }
+
     setLoading(true)
     axios.post('/orders', {...user, orders})
   
       .then((res) => { 
         setLoading(false)
+
+        toast.success('Mahsulotlar muvofaqiyatli qabul qilindi.', {
+          position: 'top-right',
+          autoClose: 15000
+        })
+
         if(res.data.state) {
           dispatch({type: ADD_TO_CART, payload: []})
         }
@@ -31,6 +49,7 @@ function CartProducts() {
   }
   return (
     <div className={s.shopping_cart}>
+      <ToastContainer />
       <div className={s.cart_products}>
         <div className={s.cart_nav}>
           <div className={s.nav_box}>
@@ -58,15 +77,22 @@ function CartProducts() {
         <input 
         value={user.tel}
         onChange={({target}) => setUser({...user, tel: target.value})}
-        type='text' 
+        type='number' 
         className={s.cart_inp} 
         placeholder='Sizning telefon raqamingiz...'
         />
-        <textarea  
+        <input 
         value={user.address}
         onChange={({target}) => setUser({...user, address: target.value})}
+        type='text' 
         className={s.cart_inp} 
         placeholder='Sizning manzilingiz...'
+        />
+        <textarea  
+        value={user.message}
+        onChange={({target}) => setUser({...user, message: target.value})}
+        className={s.cart_inp} 
+        placeholder='Sizning habaringiz...'
         />
         <div className={s.total_price}>
           <h3>Jami narx:</h3>

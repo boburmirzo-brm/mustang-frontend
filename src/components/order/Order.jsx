@@ -56,11 +56,11 @@ function Order() {
               <div className={s.order_other_infos}>
                 <div className={s.info}>
                   <h3 className={s.mainText}>Mahsulotlar soni:</h3>
-                  <p className={s.infoText}>{orders.lenght}ta</p>
+                  <p className={s.infoText}>{orders.length}ta</p>
                 </div>
                 <div className={s.info}>
                   <h3 className={s.mainText}>Jami narx:</h3>
-                  <p className={s.infoText}>{orders?.reduce((a,b) => a+b.price, 0)} sum</p>
+                  <p className={s.infoText}>{orders?.reduce((a,b) => a+b.price, 0).brm()} sum</p>
                 </div>
               </div>
             </div>

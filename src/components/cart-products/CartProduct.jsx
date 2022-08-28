@@ -70,7 +70,7 @@ function CartProduct({all}) {
                     }
                     </option>)
                 }
-                <option value="complect">Complect</option>
+                <option value="complect">Complect ({size})</option>
               </select>
               <div className={s.box}>
                 <div className={s.price_quontity}>
@@ -90,7 +90,7 @@ function CartProduct({all}) {
                   </div>
                  <div className={s.prices}>
                    <h4>{(price * quontity).brm()}</h4>
-                   <p>{price * (orderType === 'complect' ? (+size.replace('-', ' ').split(' ')[1] - +size.replace('-', ' ').split(' ')[0] + 1) : quontity)} har {orderType === 'complect' ? 'complektga' : 'biri'}</p>
+                   <p>{(price * (orderType === 'complect' ? (+size.replace('-', ' ').split(' ')[1] - +size.replace('-', ' ').split(' ')[0] + 1) : 1)).brm()} har {orderType === 'complect' ? 'complektga' : 'biri'}</p>
                  </div>
                 </div>
                 <div className={s.pro_actions}>
