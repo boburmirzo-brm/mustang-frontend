@@ -20,9 +20,9 @@ function CartProducts() {
   const sendOrders = (orders) => {
     setLoading(true)
     axios.post('/orders', {...user, orders})
+  
       .then((res) => { 
         setLoading(false)
-        
         if(res.data.state) {
           dispatch({type: ADD_TO_CART, payload: []})
         }
@@ -70,7 +70,7 @@ function CartProducts() {
         />
         <div className={s.total_price}>
           <h3>Jami narx:</h3>
-          <p>{cart?.reduce((a,b) => a + (b.price * b.quontity), 0)}</p>
+          <p>{cart?.reduce((a,b) => a + (b.price * b.quontity), 0).brm()}</p>
         </div>
         <button 
         className={s.checkout} 

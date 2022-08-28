@@ -89,7 +89,7 @@ function CartProduct({all}) {
                       +</button>
                   </div>
                  <div className={s.prices}>
-                   <h4>{price * quontity}</h4>
+                   <h4>{(price * quontity).brm()}</h4>
                    <p>{price * (orderType === 'complect' ? (+size.replace('-', ' ').split(' ')[1] - +size.replace('-', ' ').split(' ')[0] + 1) : quontity)} har {orderType === 'complect' ? 'complektga' : 'biri'}</p>
                  </div>
                 </div>

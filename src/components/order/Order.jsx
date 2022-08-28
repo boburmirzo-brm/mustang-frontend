@@ -15,11 +15,12 @@ function Order() {
       .catch((err) => console.log(err))
   }, [])
 
-  console.log(data);
+  // console.log(data);
   return (
     <>
       <div className={s.order_container}>
       <div className={s.order_header}>
+        <h1>Buyurtmalar</h1>
         <h1>Buyurtmalar</h1>
         <select className={s.order_sort}>
           <option value="all">Hammasi</option>
@@ -29,8 +30,8 @@ function Order() {
       </div>
       <div className={s.order_wrapper}>
         {
-          data?.map(({_id, tel, name, address, orders}) => <div className={s.order}>
-          <div key={_id} className={s.order_box}>
+          data?.map(({_id, tel, name, address, orders}) => <div key={_id} className={s.order}>
+          <div  className={s.order_box}>
             <div className={s.user_circle}>
               <h1>{name.slice(0, 1)}</h1>
             </div>
