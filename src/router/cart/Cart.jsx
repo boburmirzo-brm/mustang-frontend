@@ -7,11 +7,13 @@ import { useSelector } from 'react-redux'
 function Cart() {
   const cart = useSelector(s => s.cart)
 
+  // console.log(cart);
+
   return (
     <div className={s.cart}>
-      {/* <div className={s.cart_header}>
+      <div className={s.cart_header}>
         <h1>Harit savatchangiz</h1>
-      </div> */}
+      </div>
         <div className={`${s.cart_box} ${!cart.length && s.active}`}>
           { cart.length ? <CartProducts/> : <EmptyCart/>  }
         </div>

@@ -27,13 +27,13 @@ function Banner() {
     className={s.mySwiper}
     >
       <SwiperSlide className={s.swiper_slider}>
-        <img src={img1} />
+      <img src={img3} alt="Banner image 4." />
       </SwiperSlide>
       <SwiperSlide className={s.swiper_slider}>
         <img src={img2} alt="Banner image 3." />
       </SwiperSlide>
       <SwiperSlide className={s.swiper_slider}>
-        <img src={img3} alt="Banner image 4." />
+      <img src={img1} />
       </SwiperSlide>
     </Swiper>
   )

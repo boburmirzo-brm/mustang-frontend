@@ -14,7 +14,7 @@ const Heart = () => {
     dispatch(removeFromHeart(data));
   }, [data, dispatch]);
 
-  //   console.log(data);
+    // console.log(data);
   return (
     <>
       {data.length ? (

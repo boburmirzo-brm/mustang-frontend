@@ -13,8 +13,11 @@ function BottomController() {
     const filter = useSelector(state=>state.filterShow)
     const dispatch = useDispatch()
 
-    
-  return (
+    useEffect(()=>{
+        dispatch(filterHide())
+    }, [pathname])
+
+    return (
     <div className={s.bottom_controller}>
         <div className={s.bottom_container}>
             {
@@ -29,8 +32,8 @@ function BottomController() {
             </NavLink>)
             }
             <a 
-                onClick={()=> pathname !== "/about" && pathname !== "/heart" && pathname !== "/cart" && dispatch(filterShow())}
-                className={pathname !== "/heart" && pathname !== "/about" && pathname !== "/cart" ? s.bottom_link : [s.bottom_link, s.bottom_filter].join(" ")} 
+                onClick={()=> !pathname.includes("/product") && pathname !== "/about" && pathname !== "/heart" && pathname !== "/cart" && dispatch(filterShow())}
+                className={!pathname.includes("/product") && pathname !== "/heart" && pathname !== "/about" && pathname !== "/cart" ? s.bottom_link : [s.bottom_link, s.bottom_filter].join(" ")} 
                 >
                 {filter ? <AiFillFilter/>:<AiOutlineFilter/>}
                 <p>Filter</p>

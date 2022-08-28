@@ -13,13 +13,15 @@ function Admin() {
   const history = useHistory();
   const dispatch = useDispatch();
   const signOutAdminPanel = () => {
-    dispatch(signOut());
-    history.push("/login");
+    if(window.confirm("Ishonchingiz komilmi?")){
+      dispatch(signOut());
+      history.push("/login");
+    }
   };
   return (
     <div className={s.admin}>
       <div className={s.sidebar}>
-        <h1 className={s.logo}>Mustang</h1>
+        <h1 className={s.logo}><NavLink to="/">Mustang</NavLink></h1>
         <div className={s.admin_info}>
           <div className={s.admin_circle}>{name.slice(0,1)}</div>
           <div>
