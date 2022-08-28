@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import s from "./CreateProduct.module.css";
 import InputTypeFileImage from "./innerComponents/image/InputTypeFileImage";
 import InputTypeText from "./innerComponents/text/InputTypeText";
@@ -8,6 +8,7 @@ import { AiOutlineCheckCircle } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "../../api/axios";
 import { auth } from "../../auth/auth";
+import Loader from "../../components/loader/Loader";
 
 function CreateProduct() {
   const [inputTypeTextData] = useState([
@@ -49,10 +50,11 @@ function CreateProduct() {
   });
   // </Barcha Ma'lumotlar shu state da shuni backendga yuboriladi>
 
-  console.log(allData);
+  // console.log(allData);
 
   const [imgs, setImgs] = useState([]);
   const [multipleFileImages, setMultipleFileImages] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // getSetValue
   const handleChangeInput = (e) => {
@@ -64,10 +66,14 @@ function CreateProduct() {
       value = +value;
       if (value < 0) {
         value = 0;
-        alert(
+        toast.error(
           `${
             allPlaceHolders[key].split(":")[0]
-          } ning qiymati 0 kichik bo'lmaydi`
+          } ning qiymati 0 kichik bo'lmaydi`,
+          {
+            position: "top-right",
+            autoClose: 7000,
+          }
         );
       }
     }
@@ -83,14 +89,18 @@ function CreateProduct() {
       let temp = e.target.value.trim();
       let isMatch = temp.match(/\d\d-\d\d/g);
       if (!isMatch) {
-        alert(
+        toast.error(
           `Iltimos ${
             allPlaceHolders[key].split(":")[0]
-          } ni to'g'ri to'ldiring.\nMisol uchun: 39-44`
+          } ni to'g'ri to'ldiring.\nMisol uchun: 39-44`,
+          {
+            position: "top-right",
+            autoClose: 7000,
+          }
         );
         setTimeout(() => {
           document.querySelector('input[name="size"]').focus();
-        }, 1000);
+        }, 500);
       }
     }
   };
@@ -99,6 +109,7 @@ function CreateProduct() {
     const MAX_COUNT_OF_IMAGES = 5;
     if (files.length <= MAX_COUNT_OF_IMAGES) {
       setMultipleFileImages(files);
+      setImgs([]);
       Object.values(files).forEach((i) => {
         let source = {
           src: URL.createObjectURL(i),
@@ -106,10 +117,15 @@ function CreateProduct() {
           size: i.size,
           date: i.lastModifiedDate,
         };
-        setImgs((e) => [...e, source]);
+        if (imgs.length <= MAX_COUNT_OF_IMAGES) {
+          setImgs((e) => [...e, source]);
+        }
       });
     } else {
-      alert("uzur faqatgina 5 dona rasm yuklay olasiz holos:(");
+      toast.error("uzur faqatgina 5 dona rasm yuklay olasiz holos:(", {
+        position: "top-right",
+        autoClose: 7000,
+      });
     }
   };
 
@@ -146,14 +162,18 @@ function CreateProduct() {
         if (key === "size") {
           setTimeout(() => {
             document.querySelector('input[name="size"]').focus();
-          }, 1000);
+          }, 500);
         }
-        return alert(
+        return toast.error(
           `Iltimos ${allPlaceHolders[key].split(":")[0]} ni ${
             key === "size"
               ? "to'g'ri to'ldiring.\nMisol uchun: 39-44"
               : "to'ldiring"
-          }`
+          }`,
+          {
+            position: "top-right",
+            autoClose: 5000,
+          }
         );
       }
     }
@@ -170,15 +190,25 @@ function CreateProduct() {
 
     // Checking image before submit
     if (!imgs.length) {
-      return alert("Iltimos rasm ni yuklang");
+      return toast.error("Iltimos rasm ni yuklang", {
+        position: "top-right",
+        autoClose: 7000,
+      });
     }
 
     // console.log("ok");
     // Axios ni shu yerdan boshlab yoziladi
+    setIsLoading(true);
     axios
       .post("/products", formData, auth())
-      .then((res) => console.log(res))
-      .catch(({response}) => console.log("error: ", response));
+      .then((res) => {
+        console.log(res);
+        setIsLoading(false);
+      })
+      .catch(({ response }) => {
+        setIsLoading(false);
+        console.log("error: ", response);
+      });
   };
 
   return (
@@ -222,12 +252,21 @@ function CreateProduct() {
           </div>
           {/* inputTypeFile Images */}
 
-          <button type="submit" className={s.btn}>
-            <AiOutlineCheckCircle className={s.btnIcon} />{" "}
-            <span>Mahsulot Yaratish</span>
+          <button disabled={isLoading} type="submit" className={s.btn} >
+            {isLoading ? (
+              <Loader
+                config={{ size: 24, color: "#fff", display: "inline-block" }}
+              />
+            ) : (
+              <>
+                <AiOutlineCheckCircle className={s.btnIcon} />{" "}
+                <span>Mahsulot Yaratish</span>
+              </>
+            )}
           </button>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 }
