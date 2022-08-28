@@ -8,11 +8,7 @@
 .cart_header
 {
     width: 100%;
-    height: 100px;
-    background: var(--bg-sy);
-    display: flex;
-    align-items: center;
-    padding-left: 100px;
+    padding: 40px 2.5% 0px;
 }
 
 .cart_header h1
@@ -21,6 +17,8 @@
     word-spacing: 3px;
     font-size: 32px;
     color: var(--bg-light);
+    font-weight: 100;
+    color: var(--bg-py);
 }
 
 .cart_box
@@ -53,13 +51,7 @@
     }
 }
 
-@media screen and (max-width: 700px){
-    .cart_header
-    {
-        padding: 0;
-        justify-content: center;
-    }
-}
+
 
 @media screen and (max-width: 555px){
     .cart_header

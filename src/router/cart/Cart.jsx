@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux'
 function Cart() {
   const cart = useSelector(s => s.cart)
 
+  // console.log(cart);
+
   return (
     <div className={s.cart}>
       <div className={s.cart_header}>

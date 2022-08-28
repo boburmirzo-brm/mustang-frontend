@@ -42,7 +42,7 @@ function CartProducts() {
         </div>
         <div className={s.cart_wrapper}>
           {
-            cart?.map(({_id, title, urls, size, color, price, brand, quontity, orderType}) => <CartProduct key={_id} all={{_id, title, urls, size, color, price, brand, quontity, orderType}}/>)
+            cart?.map(({_id, title, stars, urls, size, color, price, brand, quontity, orderType}) => <CartProduct key={_id} all={{_id, title, urls, size, stars, color, price, brand, quontity, orderType}}/>)
           }
         </div>
       </div>
