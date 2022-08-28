@@ -16,7 +16,9 @@ function BottomController() {
     useEffect(()=>{
         dispatch(filterHide())
     }, [pathname])
-
+    if( pathname === "/login" || pathname.includes("/admin") ){
+        return <></>
+    }
     return (
     <div className={s.bottom_controller}>
         <div className={s.bottom_container}>
@@ -32,8 +34,8 @@ function BottomController() {
             </NavLink>)
             }
             <a 
-                onClick={()=> !pathname.includes("/product") && pathname !== "/about" && pathname !== "/heart" && pathname !== "/cart" && dispatch(filterShow())}
-                className={!pathname.includes("/product") && pathname !== "/heart" && pathname !== "/about" && pathname !== "/cart" ? s.bottom_link : [s.bottom_link, s.bottom_filter].join(" ")} 
+                onClick={()=> pathname === "/" && dispatch(filterShow())}
+                className={pathname === "/"? s.bottom_link : [s.bottom_link, s.bottom_filter].join(" ")} 
                 >
                 {filter ? <AiFillFilter/>:<AiOutlineFilter/>}
                 <p>Filter</p>

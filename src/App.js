@@ -15,6 +15,7 @@ import BackToTop from "./components/backToTop/BackToTop";
 import BottomController from "./components/bottom-controller/BottomController";
 import Heart from "./router/heart/Heart";
 import {useSelector} from "react-redux"
+import Social from "./components/social/Social";
 
 function App() {
   const filter = useSelector(state=> state.filterShow)
@@ -36,6 +37,7 @@ function App() {
           <Route path="/about" component={About} />
         </Switch>
         <BottomController/>
+        <Social/>
         <Footer/>
       </Router>
     </div>

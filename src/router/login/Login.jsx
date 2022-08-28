@@ -5,6 +5,8 @@ import axios from "../../api/axios"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 import {SIGN_IN} from "../../context/action/actionTypes"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
   const [admin, setAdmin] = useState({
@@ -38,11 +40,20 @@ function Login() {
           })
           if(res.data.user.token){
             dispatch({type:SIGN_IN, payload: res.data.user })
-            history.push("/admin")
+            history.push("/admin/order")
+            return;
           }
       }
       })
-      .catch(err=> console.log(err))
+      .catch(err=>{
+        console.log(err)
+        setLoading(false)
+        return;
+      })
+      setTimeout(()=> {
+        setLoading(false)
+        toast.error("Internet juda past", {autoClose: 5000});
+      }, 10000)
   }
   return (
     <div className={s.login}>
@@ -73,6 +84,7 @@ function Login() {
         <div className={s.border}></div>
         <Link to='/' className={s.backhome_btn}>Asosiy sahifaga qaytish</Link>
       </div>
+      <ToastContainer />
     </div>
   )
 }

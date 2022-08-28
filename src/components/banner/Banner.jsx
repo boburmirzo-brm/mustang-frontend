@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "./style.css";
 import s from './Banner.module.css'
 import { Autoplay, Pagination } from "swiper";
-import img1 from "../../assets/about_banner.jpg"
+import img1 from "../../assets/italian-man-style.webp"
 import img2 from "../../assets/bg1.webp"
 import img3 from "../../assets/banner-img1.jpg"
 

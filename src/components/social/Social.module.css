@@ -1,0 +1,114 @@
+.social{
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    z-index: 15;
+}
+.social_btn{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 0 5px #0002;
+    font-size: 26px;
+    background-color: #FBC100;
+    cursor: pointer;
+    color: #fff;
+    outline: 3px solid #fddf7d;
+    position: relative;
+}
+
+.social_btn::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #FBC100;
+    animation: social .8s infinite;
+}
+.social_btn::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #fddf7d;
+    animation: social linear .8s .5s infinite ;
+}
+@keyframes social {
+    to{
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+.social_content{
+    width: 50px;
+    height: 160px;
+    position: absolute;
+    top: -165px;
+    transition: .25s ease-in;
+    transform-origin: bottom right;
+    transform: scale(0);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 3px;
+}
+.social_item{
+    width: 44px;
+    height: 44px;
+    box-shadow: 0px 0px 5px #0002;
+    border-radius:  50%;
+    display: grid;
+    place-items: center;
+    font-size: 26px;
+    background: #fff;
+    opacity: 0;
+    transition: .5s;
+}
+.social_item:nth-child(3){
+    color: green;
+}
+.social_item:nth-child(2){
+    color: dodgerblue;
+}
+.social_item:nth-child(1){
+    color: blueviolet;
+}
+.show{
+    transform: scale(1);
+}
+.show .social_item{
+    opacity: 1;
+}
+
+@media screen and (max-width:700px) {
+    .social{
+        right: 15px;
+        bottom: 70px;
+        width: 44px;
+        height: 44px;
+    }
+    .social_content{
+        width: 48px;
+        height: auto;
+        position: absolute;
+        top: -146px;
+    }
+    .social_item{
+        width: 40px;
+        height: 40px;
+        margin: 2px 0;
+    }
+}

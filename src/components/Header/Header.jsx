@@ -30,7 +30,7 @@ function Header(props) {
         <FiSearch />
       </div>
       <div className={s.cart_like_box_wrapper}>
-        <NavLink className={s.cart_admin} to="/admin">
+        <NavLink className={s.cart_admin} to="/admin/order">
           <AiOutlineUser />  
         </NavLink>
         <NavLink className={s.cart_heart} to="/heart">
