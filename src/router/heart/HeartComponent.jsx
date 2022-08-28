@@ -51,12 +51,12 @@ const HeartComponent = ({ data, setData }) => {
               {price.brm()} so'm
             </span>
             <span className={s.stars} title={`${stars} stars`}>
-              {new Array(stars).fill("").map((_, index) => (
+              {/* {new Array(stars).fill("").map((_, index) => (
                 <AiFillStar key={index} />
               ))}
               {new Array(5 - stars).fill("").map((_, index) => (
                 <AiOutlineStar key={index} />
-              ))}
+              ))} */}
             </span>
           </div>
         </div>

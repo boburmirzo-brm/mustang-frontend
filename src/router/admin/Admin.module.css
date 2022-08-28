@@ -1,8 +1,10 @@
-.admin {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  overflow: hidden;
+
+.admin{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    position: relative;
 }
 .sidebar {
   width: 300px;
