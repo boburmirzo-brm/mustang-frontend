@@ -6,10 +6,17 @@ import {FiEdit, FiX} from "react-icons/fi"
 import {filterData} from "../../static/static"
 import { ToastContainer, toast } from "react-toastify";
 import "./style.css"
+import useFetch from '../../hooks/useFetch'
+import axios from "../../api/axios"
+import { useEffect } from 'react'
 
 function EditProduct() {
-  const[data,setData] = useState(PRODUCTS)
+  const [data, setData] = useState([])
+  // const {data,loading} = useFetch("/products")
   const [updateModal, setUpdateModal] = useState(false)
+  const [updateProductState, setUpdateProductState] = useState(null)
+
+  console.log(data);
 
   const [updateProduct, setUpdateProduct] = useState({
     title: "",
@@ -21,28 +28,27 @@ function EditProduct() {
     urls:[]
   })
 
+   useEffect(() =>{
+      axios.get(`/products`)
+        .then(res => setData(res.data))
+        .catch(err => console.log(err))
+   }, [updateProductState])
 
+   
 
   const updateProducts = (_id) =>{
     setUpdateModal(true)
-    setUpdateProduct(PRODUCTS?.filter((item) => item._id === _id)[0])
-
-    
+    setUpdateProduct(data.data?.filter((item) => item._id === _id)[0])
   }
+
+  console.log(updateProduct);
 
   const updatePro = (e) =>{
     e.preventDefault()
+    axios.put(`/products/${updateProduct._id}`, updateProduct)
+      .then(res => setUpdateProductState(res.data))
+      .catch(err => console.log(err))
     setUpdateModal(false)
-    setUpdateProduct({
-      title: "",
-      price: 0,
-      desc: "",
-      season: "",
-      type: "",
-      size: "",
-      urls:[]
-    })
-
   }
 
  
@@ -54,7 +60,7 @@ function EditProduct() {
       </div>
       <div  className={s.pro_wrapper}>
         {
-          PRODUCTS?.map(({_id, urls, title, price, stars}, inx) => 
+          data.data?.map(({_id, urls, title, price, stars}, inx) => 
           <div key={inx} className={s.product}>
               <img src={urls[0]} alt="" />
              <div className={s.product_body}>
