@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { removeFromCart } from '../../context/action/action'
 import {UseProduct} from "../../hooks/UseProducts"
 import {ADD_TO_HEART} from "../../context/action/actionTypes"
+import { Link } from 'react-router-dom'
 
 function CartProduct({all}) {
     const {cart, heart} = useSelector(s=>s)
@@ -16,6 +17,7 @@ function CartProduct({all}) {
     const {_id, title, urls, size, color, price, brand, quontity, orderType} = all;
 
     const [liked, setLiked] =  useState(false)
+
 
     const AddToHeart = () => {
         const pro = heart?.filter(item => item._id === _id)
@@ -47,7 +49,9 @@ function CartProduct({all}) {
   return (
     <div key={_id} className={s.cart_product}>
               <div className={s.left_side}>
-                  <img src={urls.length ? urls[0] : empty_url} alt="" className={s.cart_image} />
+                  <Link to={`/product/${_id}`}>
+                    <img src={urls.length ? urls[0] : empty_url} alt="" className={s.cart_image}/>
+                  </Link>
               <div className={s.text}>
                 <h3 className={s.cartpro_title}>{title.length > 20 ? title.slice(0,20) + "..." : title}</h3>
                 <div className={s.desc}>

@@ -126,6 +126,39 @@
     margin: 0 auto;
 }
 
+.quontity_actions
+{
+    height: 40px;
+    display: flex; 
+    align-items: center;
+    padding: 0 16px;
+}
+
+.quontity_action_btn
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    outline: none;
+    background: none;
+    border: 1px solid #222;
+    user-select: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.quontity_action_btn:disabled
+{
+    cursor: not-allowed;
+    opacity: .7;
+    border-color: #2227;
+}
+
+.quontity_actions p
+{
+    font-size: 18px;
+    margin: 0 12px;
+}
 
 @media screen and (max-width: 1800px) {
     .product{

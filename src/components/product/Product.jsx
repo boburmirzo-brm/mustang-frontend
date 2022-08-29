@@ -11,12 +11,14 @@ import ZoomImage from '../zoom-image/ZoomImage'
 
 function Product({data}) {
     const cart = useSelector(state => state.cart)
+    let thisPro = cart?.filter(i=> i._id === data._id)[0]
     const heart = useSelector(state => state.heart)
     const dispatch = useDispatch()
     const [zoom, setZoom] = useState(null)
     // console.log("cart>>", cart);
     // console.log("heart>>", heart);
 
+    const [quontityAction, setQuontityAction] = useState(false)
     const [liked, setLiked] =  useState(false)
 
     const AddToHeart = () => {
@@ -47,6 +49,11 @@ function Product({data}) {
         return;
     }, [])
 
+    const addToCart = () => {
+        setQuontityAction(true)
+        return UseCart(data, ADD_TO_CART,  cart, dispatch)
+    }
+
   return (
     <div className={s.product}>
         <Link to={`/product/${data._id}`}>
@@ -64,7 +71,22 @@ function Product({data}) {
                 {new Array(5 - data.stars).fill("").map((_,inx)=><AiOutlineStar key={inx}/>)}
             </div>
             <div className={s.product_btns}>
-                <button onClick={()=>UseCart(data, ADD_TO_CART,  cart, dispatch)} className={s.btn_shopping}><MdOutlineShoppingCart/><span>Savatchaga qo'shish</span></button>
+                {!quontityAction && <button onClick={addToCart} className={s.btn_shopping}><MdOutlineShoppingCart/><span>Savatchaga qo'shish</span></button>}
+                    { 
+                        quontityAction && 
+                        <div className={s.quontity_actions}>
+                            <button 
+                            className={s.quontity_action_btn}
+                            disabled={thisPro.quontity <= 1}
+                            onClick={() => dispatch({type: ADD_TO_CART, payload: cart?.map((pro) => pro._id === thisPro._id ? {...pro, quontity: pro.quontity - 1} : pro)})}
+                            >-</button>
+                            <p>{thisPro.quontity}</p>
+                            <button 
+                            className={s.quontity_action_btn}
+                            onClick={() => UseCart(data, ADD_TO_CART,  cart, dispatch)}
+                            >+</button>
+                        </div> 
+                    }
                 <div className={s.heart_con}>
                     <button onClick={AddToHeart}  className={`${s.heart} ${liked && s.active}`}><AiOutlineHeart/></button>
                 </div>
