@@ -222,6 +222,7 @@ function CreateProduct() {
           stars: 0,
           view: 1,
         });
+        setImgs([]);
         setIsLoading(false);
       })
       .catch(({ response: { data } }) => {
