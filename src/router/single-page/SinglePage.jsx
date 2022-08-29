@@ -21,6 +21,8 @@ const SinglePage = ({
   const { title, desc, price, size, brand, type, season, stars, view, urls } =
     singleProduct;
 
+  document.title = title;
+
   const heart = useSelector((state) => state.heart) || [];
   const cart = useSelector((state) => state.cart) || [];
   const dispatch = useDispatch();

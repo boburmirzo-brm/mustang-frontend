@@ -11,6 +11,7 @@ import { auth } from "../../auth/auth";
 import Loader from "../../components/loader/Loader";
 
 function CreateProduct() {
+  document.title = 'Create Product'
   const [inputTypeTextData] = useState([
     "title",
     "desc",
