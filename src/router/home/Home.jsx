@@ -11,7 +11,9 @@ import {AiOutlineFilter} from "react-icons/ai"
 
 const Home = () => {
   const filter = useSelector(state=> state.filterShow)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
+  document.title = "Asosiy sahifa";
 
   return (
     <div>

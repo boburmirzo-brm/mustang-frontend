@@ -16,7 +16,7 @@ export const PRODUCTS = [
     type: "classic",
     color: "jigarrang",
     stars: 4,
-    view: 0,
+    view: 98,
     urls: [
       "https://www.tradeinn.com/f/13753/137536832/sebago-classic-will-shoes.jpg",
       "https://cdn.sorsware.com/ecco/ContentImages/Product/GENEL/62160401001/ecco-melbourne_01001-siyah_1_buyuk.jpg",
@@ -37,7 +37,7 @@ export const PRODUCTS = [
     type: "krasofka",
     color: "ko'k",
     stars: 3,
-    view: 0,
+    view: 89,
     urls: [
       "https://cdn.shopify.com/s/files/1/0034/2038/9487/products/HTB1R_q1MhTpK1RjSZFKq6y2wXXat.jpg?v=1571611861",
       "https://www.tradeinn.com/f/13753/137536832/sebago-classic-will-shoes.jpg",
@@ -56,7 +56,7 @@ export const PRODUCTS = [
     type: "makasina",
     color: "qizil",
     stars: 3,
-    view: 0,
+    view: 12,
     urls: [
       "https://www.tradeinn.com/f/13753/137536832/sebago-classic-will-shoes.jpg",
       "https://cdn.sorsware.com/ecco/ContentImages/Product/GENEL/62160401001/ecco-melbourne_01001-siyah_1_buyuk.jpg",
@@ -73,8 +73,8 @@ export const PRODUCTS = [
     season: "yoz",
     type: "tapuchka",
     color: "qora",
-    stars: 3,
-    view: 0,
+    stars: 5,
+    view: 34,
     urls: [
       "https://www.tradeinn.com/f/13753/137536832/sebago-classic-will-shoes.jpg",
       "https://cdn.sorsware.com/ecco/ContentImages/Product/GENEL/62160401001/ecco-melbourne_01001-siyah_1_buyuk.jpg",
@@ -91,8 +91,8 @@ export const PRODUCTS = [
     season: "qish",
     type: "krasofka",
     color: "oq",
-    stars: 3,
-    view: 0,
+    stars: 5,
+    view: 65,
     urls: [
       "https://www.tradeinn.com/f/13753/137536832/sebago-classic-will-shoes.jpg",
       "https://cdn.sorsware.com/ecco/ContentImages/Product/GENEL/62160401001/ecco-melbourne_01001-siyah_1_buyuk.jpg",
