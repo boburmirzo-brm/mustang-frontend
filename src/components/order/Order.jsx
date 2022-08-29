@@ -1,26 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import s from './Order.module.css'
 import OrderBox from './OrderBox'
 import { AiOutlineEye } from 'react-icons/ai'
 import axios from '../../api/axios'
-import { useEffect } from 'react'
 
 function Order() {
-  const [box, setBox] = useState(false)
+  const [box, setBox] = useState('')
   const [data, setData] = useState([])
-
+  // const [maxProducts, setMaxProducts] = useState(2)
+  
   useEffect(() => {
     axios.get('/orders')
-      .then((res) => setData(res.data.orders))
-      .catch((err) => console.log(err))
+    .then((res) => setData(res.data.orders))
+    .catch((err) => console.log(err))
   }, [])
-
-  // console.log(data);
+  
   return (
     <>
       <div className={s.order_container}>
       <div className={s.order_header}>
-        <h1>Buyurtmalar</h1>
         <h1>Buyurtmalar</h1>
         <select className={s.order_sort}>
           <option value="all">Hammasi</option>
@@ -28,7 +26,9 @@ function Order() {
           <option value="false">Aloqaga chiqilmaganlari</option>
         </select>
       </div>
-      <div className={s.order_wrapper}>
+      <div 
+      className={s.order_wrapper}
+      >
         {
           data?.map(({_id, tel, name, address, orders}) => <div key={_id} className={s.order}>
           <div  className={s.order_box}>
@@ -65,12 +65,12 @@ function Order() {
               </div>
             </div>
           </div>
-          <button className={s.order_show} onClick={() => setBox(bool => !bool)}><AiOutlineEye/></button>
+          <button className={s.order_show} onClick={() => setBox(_id)}><AiOutlineEye/></button>
         </div>)
         }
       </div>
     </div>
-    <OrderBox show={{box, setBox}}/>
+    <OrderBox show={{box, setBox}} data={data}/>
     </>
   )
 }
