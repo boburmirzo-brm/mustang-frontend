@@ -63,22 +63,24 @@
 }
 
 .delete_btn{
-  padding: 10px 15px;
-  background-color: red;
-  color: #fff;
+  padding: 10px 12px;
+  color: var(--bg-py);
   border: none;
+  background-color: #fff;
   border-radius: 3px;
   margin-right: 10px;
   cursor: pointer;
+  border: 1px solid var(--bg-py);
 }
 
 .update_btn{
-  padding: 10px 15px;
-  background-color: var(--bg-py);
-  color: #fff;
+  padding: 10px 12px;
+  color: var(--bg-py);
   border: none;
+  background-color: #fff;
   border-radius: 3px;
   cursor: pointer;
+  border: 1px solid var(--bg-py);
 }
 
 
@@ -134,6 +136,16 @@
 }
 .update_img:last-child{
   margin-left: 10px;
+}
+
+.updateSelect{
+  margin: 5px 0px;
+  height: 40px;
+  padding-left: 10px;
+  color: var(--bg-py);
+  border: 1px solid var(--bg-py);
+  border-radius: 3px;
+  background-color: transparent;
 }
 
 

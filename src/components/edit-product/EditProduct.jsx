@@ -3,11 +3,14 @@ import s from "./EditProduct.module.css"
 import {PRODUCTS} from "../../static/static"
 import {BsFillTrashFill} from "react-icons/bs"
 import {FiEdit, FiX} from "react-icons/fi"
+import {filterData} from "../../static/static"
+import { ToastContainer, toast } from "react-toastify";
 import "./style.css"
 
 function EditProduct() {
   const[data,setData] = useState(PRODUCTS)
   const [updateModal, setUpdateModal] = useState(false)
+
   const [updateProduct, setUpdateProduct] = useState({
     title: "",
     price: 0,
@@ -18,9 +21,13 @@ function EditProduct() {
     urls:[]
   })
 
+
+
   const updateProducts = (_id) =>{
     setUpdateModal(true)
     setUpdateProduct(PRODUCTS?.filter((item) => item._id === _id)[0])
+
+    
   }
 
   const updatePro = (e) =>{
@@ -35,7 +42,10 @@ function EditProduct() {
       size: "",
       urls:[]
     })
+
   }
+
+ 
 
   return (
     <div className={s.editProducts}>
@@ -73,7 +83,7 @@ function EditProduct() {
               />
               <br />
               <label htmlFor="">Price</label>
-              <input type="text" 
+              <input type="number" 
               value={updateProduct.price}
               onChange={(e) => setUpdateProduct({...updateProduct, price: e.target.value})}
               />
@@ -85,22 +95,20 @@ function EditProduct() {
               />
               <br />
               <label htmlFor="">Hajmi</label>
-              <input type="text" 
-              value={updateProduct.size}
+              <input  minLength={4} maxLength={5} type="text" 
+              value={updateProduct.size.trim().replace(":","-").replace(".", "-").replace(",", "-")}
               onChange={(e) => setUpdateProduct({...updateProduct, size: e.target.value})}
               />
               <br />
               <label htmlFor="">Season</label>
-              <input type="text" 
-              value={updateProduct.season}
-              onChange={(e) => setUpdateProduct({...updateProduct, season: e.target.value})}
-              />
+              <select className={s.updateSelect}>
+                <option value="">Tanlang</option>
+              </select>
               <br />
-              <label htmlFor="">Type</label>
-              <input type="text" 
-              value={updateProduct.type}
-              onChange={(e) => setUpdateProduct({...updateProduct, type: e.target.value})}
-              />
+              <label  htmlFor="">Type</label>
+              <select className={s.updateSelect}>
+                <option >Tanlang</option>
+              </select>
               </div>
               <br />
               <button className={s.update_modal_btn}>Update</button>

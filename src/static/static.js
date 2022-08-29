@@ -101,6 +101,24 @@ export const PRODUCTS = [
     size: "40-44",
     brand: "Mustang",
   },
+  {
+    _id: 5,
+    title: "Cabani shoes",
+    price: 380000,
+    desc: "lorem ipsum dolor",
+    season: "qish",
+    type: "krasofka",
+    color: "oq",
+    stars: 3,
+    view: 0,
+    urls: [
+      "https://www.tradeinn.com/f/13753/137536832/sebago-classic-will-shoes.jpg",
+      "https://cdn.sorsware.com/ecco/ContentImages/Product/GENEL/62160401001/ecco-melbourne_01001-siyah_1_buyuk.jpg",
+    ],
+    productId: "3536",
+    size: "40-44",
+    brand: "Mustang",
+  },
 ];
 
 export const createProduct = {
