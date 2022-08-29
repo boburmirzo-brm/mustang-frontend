@@ -73,14 +73,18 @@
     place-items: center;
     color:  var(--bg-py);
     transition: background .3s;
+    background-color: #fff;
+    cursor: pointer;
 }
 .heart svg{
     font-size: 24px;
 }
-.heart:hover, .heart.active{
+.heart:hover{
+    border: 1px solid var(--bg-py);
+}
+.heart.active{
     background-color:var(--bg-py);
     color:  #fff;
-    cursor: pointer;
 }
 .view {
     display: flex;

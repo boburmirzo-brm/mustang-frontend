@@ -14,12 +14,11 @@ function OrderBox({show, data}) {
   }) 
 
   useEffect(() => {
-    box.length && setOrder(data?.filter(i=> i._id === box._id)[0])
+    box.length && setOrder(data?.filter(i=> i._id === box)[0])
   }, [box])
 
   const {name, tel, address, message, orders} = order;
 
-  console.log(orders);
   return (
     <>
       <div className={`${s.order_box} ${box && s.active}`} onClick={() => setBox('')}><FiX/></div>
