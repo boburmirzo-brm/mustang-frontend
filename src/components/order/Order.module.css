@@ -20,19 +20,6 @@
     font-size: 48px;
 }
 
-.order_sort
-{
-    width: 300px;
-    height: 50px;
-    outline: none;
-    border: 1px solid var(--bg-dark);
-    padding: 0 30px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    user-select: none;
-}
-
 .order_wrapper
 {
     width: 100%;
@@ -92,7 +79,11 @@
 .user_circle
 {
     width: 75px;
+    min-width: 75px;
+    max-width: 75px;
     height: 75px;
+    min-height: 75px;
+    max-height: 75px;
     background: #2260FC;
     display: flex;
     align-items: center;
@@ -113,7 +104,6 @@
     align-items: center;
     justify-content: space-between;    
     width: 320px;
-    margin-top: 10px;
 }
 
 .user_address
@@ -145,6 +135,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-right: 12px;
 }
 
 .info:last-child
@@ -183,6 +174,7 @@
 {
     font-size: 18px;
     font-weight: 500;
+    white-space: nowrap;
 }
 
 .infoText
@@ -200,4 +192,45 @@
 {
     font-size: 14px;
     color: #666;
+}
+
+.info:last-child
+{
+    display: none;
+}
+
+@media screen and (max-width: 1800px) {
+    .order_show
+    {
+        width: 50px;
+    }
+
+    .order_box
+    {
+        width: calc(100% - 70px);
+        justify-content: start;
+    }
+
+    .user_circle
+    {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 1670px) {
+    .order_info
+    {
+        display: none;
+    }
+
+    .info:last-child
+    {
+        display: flex;
+    }
+
+    .user_info
+    {
+        width: 200px;
+        margin-right: 20px;
+    }
 }

@@ -21,10 +21,9 @@ function CartProducts() {
   })
 
   const sendOrders = (orders) => {
-    setUser({...user, message: user.message.length <= 0 ? "User didn't write message." : user.message})
     const {name, address, tel} = user
-    if(name.length < 3 || tel.toString().length < 12 || tel.toString().length > 13 || address.length < 16){
-      toast.error(`${name.length < 3 ? "Ism 3ta harfdan kickik bo'lmasligi kerak" : tel.toString().length < 12 ? "Telefon Raqami 12tadan kickik bo'lmasligi kerak" : address.length < 16 ? "Manzilni to'liq kiriting" : tel.toString().length > 13 ? "Telefon Raqami 13tadan ko'p bo'lmasligi kerak" : "Ma'lumotni to'ldiring"}`, {
+    if(name.length < 3 || tel.toString().length < 12 || tel.toString().length > 13 || address.length < 3){
+      toast.error(`${name.length < 3 ? "Ism 3ta harfdan kickik bo'lmasligi kerak" : tel.toString().length < 12 ? "Telefon Raqami 12tadan kickik bo'lmasligi kerak" : address.length < 3 ? "Manzilni to'liq kiriting" : tel.toString().length > 13 ? "Telefon Raqami 13tadan ko'p bo'lmasligi kerak" : "Ma'lumotni to'ldiring"}`, {
         position: "top-right",
         autoClose: 10000,
       });
@@ -33,14 +32,16 @@ function CartProducts() {
 
 
     setLoading(true)
-    axios.post('/orders', {...user, orders})
+    axios.post('/orders', {...user, message: user.message.length ? 'Mijoz habar yozmadi.' : user.message, orders})
       .then((res) => { 
         setLoading(false)
         
-        console.log(res.data);
-        if(res.data.state) {
-          dispatch({type: ADD_TO_CART, payload: []})
-        }
+        // console.log(res.data);
+        setTimeout(() => {
+          if(res.data.state) {
+            dispatch({type: ADD_TO_CART, payload: []})
+          }
+        }, 15000)
 
         toast.success('Mahsulotlar muvofaqiyatli qabul qilindi.', {
           position: 'top-right',
