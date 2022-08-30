@@ -1,0 +1,174 @@
+.editProducts{
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+}
+
+.editTitle{
+  padding: 32px;
+}
+.editTitle h1 {
+    color: var(--bg-py);
+    padding:0.8rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.pro_wrapper{
+  width: 97%;
+  height: auto;
+  min-height: 80vh;
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  margin: auto;
+}
+
+.product{
+  /* width: 300px; */
+  min-height: 390px;
+  box-shadow: 0 0 10px #2222;
+  margin: 15px;
+  transition: .3s;
+  padding: 10px;
+  position: relative;
+}
+.product:hover{
+  box-shadow: 0 0 20px #3333;
+}
+.product_body{
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 250px);
+}
+.product img{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.product_title{
+  font-size: var(--font-md);
+}
+.product_price{
+  padding: 6px 0;
+  color:  var(--bg-py);
+}
+
+
+.product_btns{
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.delete_btn{
+  padding: 10px 12px;
+  color: var(--bg-py);
+  border: none;
+  background-color: #fff;
+  border-radius: 3px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: 1px solid var(--bg-py);
+}
+
+.update_btn{
+  padding: 10px 12px;
+  color: var(--bg-py);
+  border: none;
+  background-color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid var(--bg-py);
+}
+
+
+
+.createProduct{
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    width: 450px;
+    height: 600px;
+    border: 1px solid #000;
+    background-color: #fff;
+    padding-top: 20px;
+}
+
+.form input{
+    width: 90%;
+    height: 50px;
+    text-indent: 10px;
+    margin: 20px 25px;
+    border: 1px solid #000;
+    outline: none;
+}
+
+.update_modal_btn,
+.cancel_modal_btn{
+  padding: 5px 20px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  background-color: var(--bg-py);
+  color: #fff;
+  font-size: 17px;
+  margin-top: 17px;
+  margin-bottom: 6px;
+}
+
+.cancel_modal_btn{
+  margin-left: 10px;
+}
+
+.update_img{
+  width: 70px;
+  margin-bottom: 15px;
+  border: 1px solid var(--bg-py);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.update_img:last-child{
+  margin-left: 10px;
+}
+
+
+.updateSelect{
+  margin: 5px 0px;
+  height: 30px;
+  padding-left: 10px;
+  color: var(--bg-py);
+  border: 1px solid var(--bg-py);
+  border-radius: 3px;
+  background-color: transparent;
+}
+
+
+@media screen and (max-width:1500px){
+  .pro_wrapper{
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+@media screen and (max-width:1300px){
+  .pro_wrapper{
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+@media screen and (max-width:1000px){
+  .pro_wrapper{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media screen and (max-width:660px){
+  .pro_wrapper{
+    grid-template-columns: repeat(1,1fr);
+  }
+}
