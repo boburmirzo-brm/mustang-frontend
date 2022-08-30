@@ -7,7 +7,7 @@
     max-height: 100vh;
     display: flex;
     align-items: center;
-    padding-left: 185px;
+    padding-left: 15%;
     background: url('../../assets/shoe.jpg') no-repeat center/cover;
 }
 
@@ -36,6 +36,10 @@
     align-items: center;
     justify-content: center;
     margin: 20px 0;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    padding: 0 6px;
 }
 
 .modal.err
@@ -45,7 +49,7 @@
 
 .modal.suc
 {
-    background: #64ff64;
+    background: #03b103;
 }
 
 .modal_text
@@ -93,7 +97,10 @@
     cursor: pointer;
     margin-top: 25px;
 }
-
+.submit_btn:disabled{
+    opacity: .6;
+    cursor: no-drop;
+}
 .border
 {
     width: 100%;
@@ -115,6 +122,26 @@
     color: var(--bg-py);
     border: none;
     user-select: none;
-    border: 2px solid var(--bg-py);
+    border: 1px solid var(--bg-py);
     cursor: pointer;
+}
+
+.anime{
+    animation: anime 0.2s 4 alternate ;
+}
+@keyframes anime {
+    to{
+        transform: scale(0.97);
+        opacity: .7;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .login{
+        justify-content: center;
+        padding-left: 0;
+    }
+    .card{
+        margin:0 8px;
+    }
 }

@@ -1,4 +1,3 @@
-
 import React, {useState} from 'react'
 import s from "./EditProduct.module.css"
 import {createProduct, PRODUCTS} from "../../static/static"
@@ -58,7 +57,6 @@ function EditProduct() {
     setUpdateModal(false)
   }
 
- 
 
   return (
     <div className={s.editProducts}>
@@ -112,7 +110,6 @@ function EditProduct() {
               value={updateProduct.size.trim().replace(":","-").replace(".", "-").replace(",", "-")}
               onChange={(e) => setUpdateProduct({...updateProduct, size: e.target.value})}
               />
-
 
               <label htmlFor="">Rangi</label>
               <select value={updateProduct.color} onChange={(e)=> setUpdateProduct({...updateProduct, color: e.target.value})} className={s.updateSelect}>

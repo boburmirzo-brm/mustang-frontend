@@ -1,4 +1,4 @@
-import {SIGN_IN, SIGN_OUT, ADD_TO_CART, ADD_TO_HEART, FILTER_SHOW} from "./actionTypes"
+import {SIGN_IN, SIGN_OUT, ADD_TO_CART, ADD_TO_HEART, FILTER_SHOW, FILTER_HIDE} from "./actionTypes"
 
 export const signIn = (payload)=>{
     return {
@@ -30,6 +30,12 @@ export const removeFromHeart = (data)=>{
 export const filterShow = ()=>{
     return {
         type: FILTER_SHOW,
+    }
+}
+
+export const filterHide = ()=>{
+    return {
+        type: FILTER_HIDE,
     }
 }
 

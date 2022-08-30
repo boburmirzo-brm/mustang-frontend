@@ -3,7 +3,7 @@ export const UseProduct = ( product, type, data, dispatch ) => {
   if( itemIndex < 0 ){
     let newPro = {
       ...product,
-      quontity: 1
+      quontity: 1,
     }
     dispatch({type, payload: [...data, newPro]})
   }else{

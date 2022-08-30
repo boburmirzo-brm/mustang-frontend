@@ -60,6 +60,6 @@
 
 @media screen and (max-width: 700px) {
     .bottom_controller{
-        display: block;
+        display: flex;
     }
 }

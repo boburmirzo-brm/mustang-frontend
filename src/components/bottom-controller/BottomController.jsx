@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom"
 import {bottomData} from "../../static/static"
 import { useLocation } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import {filterShow} from "../../context/action/action"
+import {filterShow, filterHide} from "../../context/action/action"
 import {AiOutlineFilter, AiFillFilter} from "react-icons/ai" 
 
 function BottomController() {
@@ -13,14 +13,19 @@ function BottomController() {
     const filter = useSelector(state=>state.filterShow)
     const dispatch = useDispatch()
 
-    
-  return (
+    useEffect(()=>{
+        dispatch(filterHide())
+    }, [pathname])
+    if( pathname === "/login" || pathname.includes("/admin") ){
+        return <></>
+    }
+    return (
     <div className={s.bottom_controller}>
         <div className={s.bottom_container}>
             {
                 bottomData?.map(({id, title, icon, iconFill ,route})=> <NavLink 
                 key={id} 
-                onClick={()=> { route === "/filter" && dispatch(filterShow()) }}
+                onClick={()=> dispatch(filterHide())}
                 className={s.bottom_link} 
                 to={route}>
                  {pathname === route ? iconFill : icon }
@@ -29,8 +34,8 @@ function BottomController() {
             </NavLink>)
             }
             <a 
-                onClick={()=> pathname !== "/about" && pathname !== "/heart" && pathname !== "/cart" && dispatch(filterShow())}
-                className={pathname !== "/heart" && pathname !== "/about" && pathname !== "/cart" ? s.bottom_link : [s.bottom_link, s.bottom_filter].join(" ")} 
+                onClick={()=> pathname === "/" && dispatch(filterShow())}
+                className={pathname === "/"? s.bottom_link : [s.bottom_link, s.bottom_filter].join(" ")} 
                 >
                 {filter ? <AiFillFilter/>:<AiOutlineFilter/>}
                 <p>Filter</p>

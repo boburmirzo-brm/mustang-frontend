@@ -1,103 +1,110 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import s from './CartProducts.module.css'
 import { useSelector, useDispatch } from 'react-redux'
-import empty_url from '../../assets/nothing.jpg'
-import { AiOutlineHeart } from 'react-icons/ai'
-import { FiTrash2 } from 'react-icons/fi'
-import {ADD_TO_CART} from '../../context/action/actionTypes'
 import { removeFromCart } from '../../context/action/action'
+import CartProduct from './CartProduct'
+import axios from '../../api/axios'
+import { ADD_TO_CART } from '../../context/action/actionTypes'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CartProducts() {
   const cart = useSelector(s=> s.cart)
+  const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
 
+  const [user, setUser] = useState({
+    name: '',
+    address: '',
+    message: '',
+    tel: 998
+  })
+
+  const sendOrders = (orders) => {
+    setUser({...user, message: user.message.length <= 0 ? "User didn't write message." : user.message})
+    const {name, address, tel} = user
+    if(name.length < 3 || tel.toString().length < 12 || tel.toString().length > 13 || address.length < 16){
+      toast.error(`${name.length < 3 ? "Ism 3ta harfdan kickik bo'lmasligi kerak" : tel.toString().length < 12 ? "Telefon Raqami 12tadan kickik bo'lmasligi kerak" : address.length < 16 ? "Manzilni to'liq kiriting" : tel.toString().length > 13 ? "Telefon Raqami 13tadan ko'p bo'lmasligi kerak" : "Ma'lumotni to'ldiring"}`, {
+        position: "top-right",
+        autoClose: 10000,
+      });
+      return;
+    }
+
+
+    setLoading(true)
+    axios.post('/orders', {...user, orders})
+      .then((res) => { 
+        setLoading(false)
+        
+        console.log(res.data);
+        if(res.data.state) {
+          dispatch({type: ADD_TO_CART, payload: []})
+        }
+
+        toast.success('Mahsulotlar muvofaqiyatli qabul qilindi.', {
+          position: 'top-right',
+          autoClose: 15000
+        })
+      })
+      .catch((err) => console.log(err))
+  }
   return (
     <div className={s.shopping_cart}>
+      <ToastContainer />
       <div className={s.cart_products}>
         <div className={s.cart_nav}>
           <div className={s.nav_box}>
             <h2>mahsulot</h2>
+            <h2>hajm</h2>
           </div>
-          <h2>quontity</h2>
+          <h2>soni</h2>
           <h2>narx</h2>
         </div>
         <div className={s.cart_wrapper}>
           {
-            cart?.map(({_id, title, urls, size, color, price, brand, quontity}) => <div key={_id} className={s.cart_product}>
-              <img src={urls.length ? urls[0] : empty_url} alt="" />
-              <div className={s.text}>
-                <h3 className={s.cartpro_title}>{title.length > 50 ? title.slice(0,50) + "..." : title}</h3>
-                <div className={s.desc}>
-                  <div className={s.extra}>
-                    <p>Size: {size}</p>
-                    <p>Color: {color}</p>
-                  </div>
-                  <p>Brand: {brand}</p>
-                </div>
-              </div>
-              <div className={s.box}>
-                <div className={s.price_quontity}>
-                  <div className={s.quontity_actions}>
-                    <button 
-                    disabled={quontity <= 1}
-                    className={s.quontity_btn}
-                    onClick={() => dispatch({type: ADD_TO_CART, payload: cart?.map(pro=> pro._id === _id ? {...pro, quontity: pro.quontity - 1} : pro )})}
-                    >
-                      -</button>
-                    <p>{quontity}</p>
-                    <button
-                    className={s.quontity_btn}
-                    onClick={() => dispatch({type: ADD_TO_CART, payload: cart?.map(pro=> pro._id === _id ? {...pro, quontity: pro.quontity + 1} : pro )})}
-                    >
-                      +</button>
-                  </div>
-                 <div className={s.prices}>
-                   <h4>{price * quontity}</h4>
-                   <p>{price} har biri</p>
-                 </div>
-                </div>
-                <div className={s.pro_actions}>
-                  <div className={s.action_btn}>
-                    <AiOutlineHeart/>
-                  </div>
-                  <div 
-                  className={s.action_btn}
-                  onClick={() => dispatch(removeFromCart(cart?.filter(pro => pro._id !== _id)))}
-                  >
-                    <FiTrash2/>
-                  </div>
-                </div>
-              </div>
-            </div>)
+            cart?.map(({_id, title, stars, urls, size, color, price, brand, quontity, orderType}) => <CartProduct key={_id} all={{_id, title, urls, size, stars, color, price, brand, quontity, orderType}}/>)
           }
         </div>
       </div>
       <div className={s.cart_actions}>
         <h3>Iltimos bu yerni to'ldiring:</h3>
         <input 
+        value={user.name}
+        onChange={({target}) => setUser({...user, name: target.value})}
         type="text" 
         className={s.cart_inp} 
         placeholder='Sizning Ismingiz...'
         />
         <input 
-        type="text" 
+        value={user.tel}
+        onChange={({target}) => setUser({...user, tel: target.value})}
+        type='number' 
         className={s.cart_inp} 
+        placeholder='Sizning telefon raqamingiz...'
         />
         <input 
-        type="text" 
+        value={user.address}
+        onChange={({target}) => setUser({...user, address: target.value})}
+        type='text' 
         className={s.cart_inp} 
+        placeholder='Sizning manzilingiz...'
         />
-        <div className={s.hr}></div>
+        <textarea  
+        value={user.message}
+        onChange={({target}) => setUser({...user, message: target.value})}
+        className={s.cart_inp} 
+        placeholder='Sizning habaringiz...'
+        />
         <div className={s.total_price}>
           <h3>Jami narx:</h3>
-          <p>{cart?.reduce((a,b) => a + b.price, 0)}</p>
+          <p>{cart?.reduce((a,b) => a + (b.price * b.quontity), 0).brm()}</p>
         </div>
-        <div className={s.total_price}>
-          <h3>Jami:</h3>
-          <p>{cart?.reduce((a,b) => a + (b.price * b.quontity), 0)}</p>
-        </div>
-        <div className={s.hr}></div>
-        <button className={s.checkout}>checkout</button>
+        <button 
+        className={s.checkout} 
+        onClick={() => sendOrders(cart)}
+        disabled={loading}
+        >{loading ? 'loading...' : 'sotib olish'}</button>
         <button 
         className={s.del_btn}
         onClick={() => dispatch(removeFromCart([]))}

@@ -12,8 +12,7 @@ const HeartEmpty = () => {
         </Link>
       </div>
       <div className={s.body}>
-        <h1>Sorry, you do not have any favourite products yet...</h1>
-        <p>Return after liking some products:)</p>
+        <h1>Kechirasiz, siz yoqtirgan mahsulotlar yo'q.</h1>
       </div>
     </div>
   );

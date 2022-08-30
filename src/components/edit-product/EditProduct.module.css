@@ -55,7 +55,6 @@
   color:  var(--bg-py);
 }
 
-
 .product_btns{
   margin-top: 8px;
   display: flex;
@@ -82,7 +81,6 @@
   cursor: pointer;
   border: 1px solid var(--bg-py);
 }
-
 
 
 .createProduct{
@@ -139,7 +137,6 @@
   margin-left: 10px;
 }
 
-
 .updateSelect{
   margin: 5px 0px;
   height: 30px;
@@ -149,7 +146,6 @@
   border-radius: 3px;
   background-color: transparent;
 }
-
 
 @media screen and (max-width:1500px){
   .pro_wrapper{

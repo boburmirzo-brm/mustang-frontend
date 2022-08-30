@@ -1,0 +1,74 @@
+.zoom_image{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; 
+    z-index: 16;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.zoom_shadow{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; 
+    background: #0006;
+}
+.zoom_shadow svg{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+}
+.zoom_container{
+    width: 80%;
+    height: 80%;
+    position: relative;
+    z-index: 2;
+    background: #fff;
+}
+.zoom_container img{
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.zoom_controller{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-py);
+    color: #fff;
+    cursor: pointer;
+    z-index: 2;
+}
+.zoom_controller:disabled{
+    opacity: .5;
+    cursor: no-drop;
+}
+.zoom_controller:last-child{
+    right: 0;
+
+}
+@media screen and (max-width:700px) {
+    .zoom_container{
+        width: 96%;
+        height: 60%;
+    }
+}

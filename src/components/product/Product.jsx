@@ -1,18 +1,59 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import s from "./Product.module.css" 
 import {AiFillStar, AiOutlineStar, AiOutlineHeart, AiOutlineEye} from "react-icons/ai"
 import {MdOutlineShoppingCart} from "react-icons/md"
 import {Link} from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import {UseProduct} from "../../hooks/UseProducts"
+import {UseCart} from "../../hooks/UseCart"
 import {ADD_TO_CART, ADD_TO_HEART} from "../../context/action/actionTypes"
+import ZoomImage from '../zoom-image/ZoomImage'
 
 function Product({data}) {
     const cart = useSelector(state => state.cart)
+    let thisPro = cart?.filter(i=> i._id === data._id)[0]
     const heart = useSelector(state => state.heart)
     const dispatch = useDispatch()
-    console.log("cart>>", cart);
+    const [zoom, setZoom] = useState(null)
+    // console.log("cart>>", cart);
     // console.log("heart>>", heart);
+
+    const [quontityAction, setQuontityAction] = useState(false)
+    const [liked, setLiked] =  useState(false)
+
+    const AddToHeart = () => {
+        const pro = heart?.filter(item => item._id === data._id)
+
+        if(!pro.length) {
+            setLiked(true)
+            UseProduct(data, ADD_TO_HEART, heart, dispatch)
+        } else {
+            let newData = heart?.filter(item => item._id !== data._id)
+
+            setLiked(false)
+            dispatch({type: ADD_TO_HEART, payload: newData})
+        }
+
+        return;
+    }
+
+    useEffect(() => {
+        const pro = heart?.filter(item => item._id === data._id)
+
+        if(pro.length) {
+            setLiked(true)
+        } else {
+            setLiked(false)
+        }
+
+        return;
+    }, [])
+
+    const addToCart = () => {
+        setQuontityAction(true)
+        return UseCart(data, ADD_TO_CART,  cart, dispatch)
+    }
+
   return (
     <div className={s.product}>
         <Link to={`/product/${data._id}`}>
@@ -30,14 +71,31 @@ function Product({data}) {
                 {new Array(5 - data.stars).fill("").map((_,inx)=><AiOutlineStar key={inx}/>)}
             </div>
             <div className={s.product_btns}>
-                <button onClick={()=>UseProduct(data, ADD_TO_CART,  cart, dispatch)} className={s.btn_shopping}><MdOutlineShoppingCart/><span>Savatchaga qo'shish</span></button>
+                {!quontityAction && <button onClick={addToCart} className={s.btn_shopping}><MdOutlineShoppingCart/><span>Savatchaga qo'shish</span></button>}
+                    { 
+                        quontityAction && 
+                        <div className={s.quontity_actions}>
+                            <button 
+                            className={s.quontity_action_btn}
+                            disabled={thisPro.quontity <= 1}
+                            onClick={() => dispatch({type: ADD_TO_CART, payload: cart?.map((pro) => pro._id === thisPro._id ? {...pro, quontity: pro.quontity - 1} : pro)})}
+                            >-</button>
+                            <p>{thisPro.quontity}</p>
+                            <button 
+                            className={s.quontity_action_btn}
+                            onClick={() => UseCart(data, ADD_TO_CART,  cart, dispatch)}
+                            >+</button>
+                        </div> 
+                    }
                 <div className={s.heart_con}>
-                    <button onClick={()=>UseProduct(data, ADD_TO_HEART,  heart, dispatch)} className={s.heart}><AiOutlineHeart/></button>
+                    <button onClick={AddToHeart}  className={`${s.heart} ${liked && s.active}`}><AiOutlineHeart/></button>
                 </div>
+                {/* <button onClick={()=> setZoom(data.urls)}>view</button> */}
                 <div className={s.view}>
                     <AiOutlineEye/>
                     <p>78</p>
                 </div>
+                {zoom && <ZoomImage urls={zoom} setZoom={setZoom}/> } 
             </div>
         </div>
     </div>
