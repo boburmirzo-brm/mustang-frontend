@@ -15,7 +15,7 @@ function CreateAdmin() {
     password: "",
   });
   const [createLoading, setCreateLoading] = useState(false);
-  const { data } = useFetch("/sign-in", createLoading);
+  const { data } = useFetch("/sign-in", createLoading, true);
 
   const createAdmin = (e) => {
     e.preventDefault();

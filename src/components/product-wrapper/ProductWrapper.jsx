@@ -7,7 +7,7 @@ import Skeleton from '../product/skeleton/Skeleton'
 import fetch from "../../hooks/useFetch"
 
 function ProductWrapper() {
-  const {data: {data}, loading} = fetch("/products")
+  const {data: {data}, loading} = fetch("/products", true, false)
   return (
     <div className={s.product_wrapper}>
       <div className={s.product_container}> 

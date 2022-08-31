@@ -13,12 +13,13 @@ import { auth } from '../../auth/auth'
 
 function EditProduct() {
   //const [data, setData] = useState([])
-  const {data,loading} = useFetch("/products")
+  const [realTime, setRealTime] = useState(false)
+  const {data,loading} = useFetch("/products", realTime, true)
   const [updateModal, setUpdateModal] = useState(false)
   const [state,setState] = useState(false)
   const [updateProductState, setUpdateProductState] = useState(null)
 
-  console.log(data);
+  // console.log(data);
 
   const [updateProduct, setUpdateProduct] = useState({
     title: "",
@@ -47,12 +48,13 @@ function EditProduct() {
     setUpdateProduct(data.data?.filter((item) => item._id === _id)[0])
   }
 
-  console.log(updateProduct);
+  // console.log(updateProduct);
 
   const updatePro = (e) =>{
     e.preventDefault()
+    setRealTime(true)
     axios.put(`/products/${updateProduct._id}`, updateProduct,auth())
-      .then(res => console.log(res))
+      .then(res => setRealTime(false))
       .catch(err => console.log(err))
     setUpdateModal(false)
   }
