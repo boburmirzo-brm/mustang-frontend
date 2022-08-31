@@ -13,4 +13,8 @@
   height: 100%;
   object-fit: cover;
 }
-  
+
+.swiper-pagination-bullet-active
+{
+  background: #72493F !important;
+}

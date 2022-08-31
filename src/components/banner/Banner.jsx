@@ -16,7 +16,7 @@ function Banner() {
     <Swiper
     centeredSlides={true}
     autoplay={{
-      delay: 5000,
+      delay: 25000,
       disableOnInteraction: false,
     }}
     loop={true}

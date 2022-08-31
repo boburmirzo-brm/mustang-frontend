@@ -7,7 +7,7 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { BiLinkExternal } from "react-icons/bi";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { FiTrash2 } from "react-icons/fi";
-import { UseProduct } from "../../hooks/UseProducts";
+import { UseCart } from "../../hooks/UseCart";
 import { ADD_TO_CART } from "../../context/action/actionTypes";
 import { useSelector, useDispatch } from "react-redux";
 import ZoomImage from "../../components/zoom-image/ZoomImage";
@@ -91,7 +91,7 @@ const HeartComponent = ({ data, setData }) => {
 
           <button
             title="Savatchaga qo'shish"
-            onClick={() => UseProduct(data, ADD_TO_CART, cart, dispatch)}
+            onClick={() => UseCart(data, ADD_TO_CART, cart, dispatch)}
             className={s.addToCart}
           >
             <span>
