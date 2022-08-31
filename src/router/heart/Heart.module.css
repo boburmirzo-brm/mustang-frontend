@@ -14,7 +14,7 @@
   color: var(--bg-py);
 }
 .h1 {
-  margin: 40px 10% 20px;
+  padding: 40px 10% 20px;
   font-weight: 100;
 }
 .container .heartedProducts {

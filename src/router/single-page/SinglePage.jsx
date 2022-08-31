@@ -105,8 +105,7 @@ const SinglePage = ({
   };
 
   return (
-    <>
-      <div className={s.container}>
+      <>
         {loading ? (
           <Loader config={{ size: "100px" }} />
         ) : (
@@ -126,7 +125,7 @@ const SinglePage = ({
               },
               idx
             ) => (
-              <div key={idx}>
+              <div className={s.container} key={idx}>
                 {zoom && <ZoomImage urls={zoom} setZoom={setZoom} />}
                 <div className={s.imagesContainer}>
                   <div className={s.mainImage}>
@@ -249,7 +248,6 @@ const SinglePage = ({
             )
           )
         )}
-      </div>
       <ToastContainer />
     </>
   );

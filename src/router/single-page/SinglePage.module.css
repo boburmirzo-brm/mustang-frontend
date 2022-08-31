@@ -3,6 +3,7 @@
   padding: 2rem 10%;
   display: flex;
   gap: 15px;
+  background: var(--bg-light);
 }
 /* Images Container started */
 .imagesContainer {
@@ -87,10 +88,7 @@
   height: 100%;
   object-fit: contain;
 }
-.miniImage,
-.image {
-  background-color: #fff;
-}
+
 .active {
   border: 1px solid var(--bg-py);
   opacity: 1;
