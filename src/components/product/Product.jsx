@@ -56,7 +56,7 @@ function Product({data}) {
 
   return (
     <div className={s.product}>
-        <Link to={`/product/${data._id}`}>
+        <Link to={`/products/${data._id}`}>
             <img src={data.urls[0]} alt="" />
         </Link>
         <div className={s.product_body}>

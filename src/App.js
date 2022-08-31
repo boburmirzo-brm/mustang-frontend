@@ -29,7 +29,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/cart" component={Cart} />
           <Route path="/heart" component={Heart} />
-          <Route path="/product/:id" component={SinglePage} />
+          <Route path="/products/:id" component={SinglePage} />
           <PrivateRoute path="/admin">
             <Admin />
           </PrivateRoute>
