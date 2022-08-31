@@ -6,7 +6,7 @@
   background-color: var(--bg-light);
   position: fixed;
   left: 52%;
-  bottom: -790px;
+  bottom: -990px;
   transform: translateX(-50%);
   border-radius: 3px;
   padding: 10px 20px;
@@ -24,9 +24,8 @@
 
 .show_modal
 {
-  bottom: 120px;
+  bottom: 50px;
 }
-
 
 .update_modal > svg
 {
@@ -41,14 +40,14 @@
 {
   font-size: 16px;
   margin-right: 12px;
+  margin-top: 10px;
   color: #fff;
 }
-
 
 .update_modal input
 {
   width: 100%;
-  height: 40px;
+  height: 32px;
   border-radius: 3px;
   outline: none;
   border: 1px solid var(--bg-py);
@@ -58,7 +57,6 @@
   color: var(--bg-py) ;
   margin:8px 0px;
 }
-
 
 .update_form_left{
     width: 100%;
@@ -82,6 +80,4 @@
 .update_form_left label{
   color: var(--bg-py);
 }
-
-
 

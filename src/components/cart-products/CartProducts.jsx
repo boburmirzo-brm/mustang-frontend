@@ -32,16 +32,15 @@ function CartProducts() {
 
 
     setLoading(true)
-    axios.post('/orders', {...user, message: user.message.length ? 'Mijoz habar yozmadi.' : user.message, orders})
+    axios.post('/orders', {...user, message: !user.message.length ? 'Mijoz habar yozmadi.' : user.message, orders})
       .then((res) => { 
         setLoading(false)
-        
         // console.log(res.data);
         setTimeout(() => {
           if(res.data.state) {
             dispatch({type: ADD_TO_CART, payload: []})
           }
-        }, 15000)
+        }, 5000)
 
         toast.success('Mahsulotlar muvofaqiyatli qabul qilindi.', {
           position: 'top-right',

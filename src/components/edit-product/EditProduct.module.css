@@ -55,7 +55,6 @@
   color:  var(--bg-py);
 }
 
-
 .product_btns{
   margin-top: 8px;
   display: flex;
@@ -82,7 +81,6 @@
   cursor: pointer;
   border: 1px solid var(--bg-py);
 }
-
 
 
 .createProduct{
@@ -120,7 +118,8 @@
   background-color: var(--bg-py);
   color: #fff;
   font-size: 17px;
-  margin-top: 10px;
+  margin-top: 17px;
+  margin-bottom: 6px;
 }
 
 .cancel_modal_btn{
@@ -140,14 +139,13 @@
 
 .updateSelect{
   margin: 5px 0px;
-  height: 40px;
+  height: 30px;
   padding-left: 10px;
   color: var(--bg-py);
   border: 1px solid var(--bg-py);
   border-radius: 3px;
   background-color: transparent;
 }
-
 
 @media screen and (max-width:1500px){
   .pro_wrapper{

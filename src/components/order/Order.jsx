@@ -79,10 +79,10 @@ function Order() {
           <button className={s.order_show} onClick={() => setBox(_id)}><AiOutlineEye/></button>
         </div>)
         }
-        { loading && <Loader config={{size: 100}}/> }
+        { loading && <Loader config={{size: 50}}/> }
       </div>
     </div>
-    <OrderBox show={{box, setBox}} data={data.orders}/>
+    <OrderBox show={{box, setBox}} data={data}/>
     </>
   )
 }
