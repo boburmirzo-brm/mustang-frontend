@@ -6,9 +6,14 @@ import {FiEdit, FiX} from "react-icons/fi"
 import {filterData} from "../../static/static"
 import { ToastContainer, toast } from "react-toastify";
 import "./style.css"
+import useFetch from '../../hooks/useFetch'
+import axios from "../../api/axios"
+import { useEffect } from 'react'
+import { auth } from '../../auth/auth'
 
 function EditProduct() {
-  const[data,setData] = useState(PRODUCTS)
+  //const [data, setData] = useState([])
+  const {data,loading} = useFetch("/products")
   const [updateModal, setUpdateModal] = useState(false)
   const [state,setState] = useState(false)
   const [updateProductState, setUpdateProductState] = useState(null)
@@ -30,7 +35,12 @@ function EditProduct() {
     brand:"",
   })
 
-
+  //  useEffect(() =>{
+  //     axios.get(`/products`)
+  //       .then(res => setData(res.data))
+  //       .catch(err => console.log(err))
+  //  }, [updateProduct])
+   
 
   const updateProducts = (_id) =>{
     setUpdateModal(true)
@@ -41,10 +51,12 @@ function EditProduct() {
 
   const updatePro = (e) =>{
     e.preventDefault()
+    axios.put(`/products/${updateProduct._id}`, updateProduct,auth())
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
     setUpdateModal(false)
   }
 
- 
 
   return (
     <div className={s.editProducts}>
@@ -68,9 +80,9 @@ function EditProduct() {
           )
         }
       </div>
-      <div className={updateModal ? "update_modal show_modal" : "update_modal"}>
+      <div className={updateModal ? `${s.update_modal} ${s.show_modal}` : s.update_modal}>
             <form className={s.updateForm} onSubmit={updatePro} action="">
-              <div className="update_form_left">
+              <div className={s.update_form_left}>
              <div className={s.update_images}>
              <img  className={s.update_img}  src={updateProduct.urls[0]} alt="" />
               <img  className={s.update_img} src={updateProduct.urls[1]} alt="" />
@@ -156,7 +168,7 @@ function EditProduct() {
               <button className={s.cancel_modal_btn}>Cancel</button>
             </form>
       </div>
-      <div onClick={() => setUpdateModal(false)} className={updateModal ? "shadow show_shadow" : "shadow"}></div>
+      <div onClick={() => setUpdateModal(false)} className={updateModal ? `${s.shadow} ${s.show_shadow}` : s.shadow}></div>
     </div>
   )
 }

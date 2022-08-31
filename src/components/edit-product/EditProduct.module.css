@@ -13,6 +13,91 @@
     border-bottom: 1px solid #ddd;
 }
 
+
+.update_modal
+{
+  width:60%;
+  height: 80%;
+  overflow: auto;
+  background-color: var(--bg-light);
+  position: fixed;
+  left: 52%;
+  bottom: -990px;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  padding: 10px 20px;
+  transition: all .3s ease;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 2;
+  min-height: 750px;
+}
+
+.updateForm{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.show_modal
+{
+  bottom: 50px;
+}
+
+.update_modal > svg
+{
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+}
+
+.update_modal label
+{
+  font-size: 16px;
+  margin-right: 12px;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.update_modal input
+{
+  width: 100%;
+  height: 32px;
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid var(--bg-py);
+  padding: 12px;
+  font-size: 14px;
+  background: none;
+  color: var(--bg-py) ;
+  margin:8px 0px;
+}
+
+.update_form_left{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.show_shadow{
+  background-color: rgba(0, 0, 0, 0.716);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.update_form_left label{
+  color: var(--bg-py);
+}
+
+
 .pro_wrapper{
   width: 97%;
   height: auto;
