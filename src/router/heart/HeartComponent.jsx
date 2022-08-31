@@ -18,7 +18,7 @@ const HeartComponent = ({ data, setData }) => {
   const dispatch = useDispatch();
   const [zoom, setZoom] = useState(null)
 
-  console.log(stars);
+  // console.log(stars);
 
   const removeItemFromHeart = () => {
     setData((e) => e.filter((i) => i._id !== _id));
