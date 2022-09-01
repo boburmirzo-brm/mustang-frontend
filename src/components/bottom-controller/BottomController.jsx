@@ -34,8 +34,8 @@ function BottomController() {
             </NavLink>)
             }
             <a 
-                onClick={()=> pathname === "/" && dispatch(filterShow())}
-                className={pathname === "/"? s.bottom_link : [s.bottom_link, s.bottom_filter].join(" ")} 
+                onClick={()=> (pathname === "/" || pathname.includes("/page")) && dispatch(filterShow())}
+                className={(pathname === "/" || pathname.includes("/page"))? s.bottom_link : [s.bottom_link, s.bottom_filter].join(" ")} 
                 >
                 {filter ? <AiFillFilter/>:<AiOutlineFilter/>}
                 <p>Filter</p>

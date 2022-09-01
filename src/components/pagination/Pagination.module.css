@@ -1,0 +1,22 @@
+.pagination_btns{
+    text-align: center;
+    margin-top: 30px;
+}
+.p_btn{
+    margin: 3px;
+    border: none;
+}
+.p_btn:active{
+    opacity: 0.6;
+}
+.p_btn:disabled{
+    opacity: .6;
+}
+.p_btn a{
+    padding: 6px 12px;
+    background: var(--bg-py);
+    color: #fff;
+    border-radius: 2px; 
+    cursor: pointer;
+    text-decoration: none;
+}

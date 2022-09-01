@@ -11,6 +11,10 @@
     margin-top: 30px;
     color: var(--bg-py);
 }
+.latest_title{
+    padding: 20px 10%;
+    color: var(--bg-py);
+}
 .filter_show{
     cursor: pointer;
     width: 200px;
@@ -40,6 +44,9 @@
 @media screen and (max-width:1360px) {
     .main{
         width: 90%;
+    }
+    .latest_title{
+        padding: 20px 5%;
     }
     .home_top{
         padding: 0 5%;

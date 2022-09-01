@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   height: auto;
-  padding: 3.125rem 6.25rem;
+  padding: 3.125rem 10%;
   background: var(--bg-dark);
   display: flex;
   justify-content: space-between;

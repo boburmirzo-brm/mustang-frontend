@@ -113,6 +113,15 @@
   height: 40px;
   background: linear-gradient(transparent, #fff 70%);
 }
+.filterShadow{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #0006;
+  z-index: 10;
+}
 /* Filter Body End */
 
 @media screen and (max-width: 1111px) {

@@ -31,6 +31,15 @@
     position: relative;
     z-index: 2;
     background: #fff;
+    animation: zoomImg .3s ease-in forwards;
+    transform: scale(.7);
+    opacity: 0;
+}
+@keyframes zoomImg {
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 .zoom_container img{
     width: 90%;

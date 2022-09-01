@@ -66,25 +66,23 @@
 .heart{
     height: 40px;
     width: 40px;
-    border-radius: 50%;
+    border-radius: 50% ;
     background-color: transparent;
     border: none;
     display: grid;
     place-items: center;
     color:  var(--bg-py);
     transition: background .3s;
-    background-color: #fff;
     cursor: pointer;
 }
 .heart svg{
-    font-size: 24px;
+    font-size: 26px;
 }
 .heart:hover{
     border: 1px solid var(--bg-py);
 }
 .heart.active{
-    background-color:var(--bg-py);
-    color:  #fff;
+    color:  var(--bg-py);
 }
 .view {
     display: flex;
@@ -118,8 +116,8 @@
 }
 .skeleton_desc,
 .skeleton_title{
-    height: 34px;
-    width: 60%;
+    height: 26px;
+    width: 70%;
     margin: 3% ;
     background: linear-gradient(90deg, #ddd,#eee, #ddd);
     background-size: 200%;
@@ -135,7 +133,6 @@
     height: 40px;
     display: flex; 
     align-items: center;
-    padding: 0 16px;
 }
 
 .quontity_action_btn
@@ -181,13 +178,6 @@
     .product{
         width: calc(50% - 6px);
         margin: 3px;
-    }
-    .heart{
-        height: 30px;
-        width: 30px;
-    }
-    .heart svg{
-        font-size: 18px;
     }
     .btn_shopping{
         height: 30px;

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import s from "./Product.module.css" 
-import {AiFillStar, AiOutlineStar, AiOutlineHeart, AiOutlineEye} from "react-icons/ai"
+import {AiFillStar, AiOutlineStar, AiOutlineHeart, AiFillHeart, AiOutlineEye} from "react-icons/ai"
 import {MdOutlineShoppingCart} from "react-icons/md"
 import {Link} from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
@@ -8,6 +8,8 @@ import {UseProduct} from "../../hooks/UseProducts"
 import {UseCart} from "../../hooks/UseCart"
 import {ADD_TO_CART, ADD_TO_HEART} from "../../context/action/actionTypes"
 import ZoomImage from '../zoom-image/ZoomImage'
+import { removeFromCart } from '../../context/action/action'
+
 
 function Product({data}) {
     const cart = useSelector(state => state.cart)
@@ -39,21 +41,29 @@ function Product({data}) {
 
     useEffect(() => {
         const pro = heart?.filter(item => item._id === data._id)
-
         if(pro.length) {
             setLiked(true)
         } else {
             setLiked(false)
         }
-
         return;
+    }, [])
+
+    useEffect(() => {
+        return setQuontityAction( cart?.filter(i => i._id === data._id).length ? true : false )
     }, [])
 
     const addToCart = () => {
         setQuontityAction(true)
         return UseCart(data, ADD_TO_CART,  cart, dispatch)
     }
-
+    const removeQuontity = ()=>{
+        if(thisPro.quontity <= 1){
+            setQuontityAction(false)
+            return dispatch(removeFromCart(cart?.filter(pro => pro._id !== thisPro._id)))
+        }
+        dispatch({type: ADD_TO_CART, payload: cart?.map((pro) => pro._id === thisPro._id ? {...pro, quontity: pro.quontity - 1} : pro)})
+    }
   return (
     <div className={s.product}>
         <Link to={`/products/${data._id}`}>
@@ -77,10 +87,10 @@ function Product({data}) {
                         <div className={s.quontity_actions}>
                             <button 
                             className={s.quontity_action_btn}
-                            disabled={thisPro.quontity <= 1}
-                            onClick={() => dispatch({type: ADD_TO_CART, payload: cart?.map((pro) => pro._id === thisPro._id ? {...pro, quontity: pro.quontity - 1} : pro)})}
+                            // disabled={thisPro.quontity <= 1}
+                            onClick={removeQuontity}
                             >-</button>
-                            <p>{thisPro.quontity}</p>
+                            <p>{thisPro?.quontity}</p>
                             <button 
                             className={s.quontity_action_btn}
                             onClick={() => UseCart(data, ADD_TO_CART,  cart, dispatch)}
@@ -88,9 +98,8 @@ function Product({data}) {
                         </div> 
                     }
                 <div className={s.heart_con}>
-                    <button onClick={AddToHeart}  className={`${s.heart} ${liked && s.active}`}><AiOutlineHeart/></button>
+                    <button onClick={AddToHeart}  className={`${s.heart} ${liked && s.active}`}>{liked ? <AiFillHeart/>:<AiOutlineHeart/>}</button>
                 </div>
-                {/* <button onClick={()=> setZoom(data.urls)}>view</button> */}
                 <div className={s.view}>
                     <AiOutlineEye/>
                     <p>78</p>

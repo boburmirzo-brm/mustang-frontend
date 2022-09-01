@@ -6,54 +6,54 @@ import filterIcon from "./utils/filterIcon";
 import FilterBtnPrice from "./utils/FilterBtnPrice";
 import { filterData } from "../../static/static";
 import FilterBtnColorSeasonType from "./utils/FilterBtnColorSeasonType";
+import { useDispatch } from "react-redux"
+import {filterShow} from "../../context/action/action"
 
-function FilterProduct({ filterShow }) {
+function FilterProduct({ filterShadow, setFilter, filter }) {
   const { types } = filterData;
-  const [filter, setFilter] = useState({
-    type: "barchasi",
-    season: "barchasi",
-    price: {
-      from: 0,
-      to: 0,
-    },
-    color: "barchasi",
-  });
-  return (
-    <main className={filterShow ? [s.filter, s.show].join(" ") : s.filter}>
-      {/* Filter Navbar Start */}
-      <div className={s.filterNavbar}>
-        <div>
-          <span>{filterIcon}</span> <span>Filter</span>
-        </div>
-      </div>
-      {/* Filter Navbar End */}
+  const dispatch = useDispatch();
 
-      {/* Filter Body Start */}
-      <div className={s.filterBody}>
-        {Object.keys(filter).map((key, inx) => (
-          <div key={inx} className={s.filterBodyRow}>
-            <p>{types[key]}</p>
-            <div className={s.filterBodyButtonsRow}>
-              {key === "price" ? (
-                <FilterBtnPrice setFilter={setFilter} filter={filter} />
-              ) : (
-                filterData[key].map((title, idx) => (
-                  <FilterBtnColorSeasonType
-                    key={idx}
-                    title={title}
-                    setFilter={setFilter}
-                    filter={filter}
-                    type={key}
-                  />
-                ))
-              )}
-            </div>
+
+  return (
+    <>
+      {filterShadow && <div onClick={()=> dispatch(filterShow())} className={s.filterShadow}></div>}
+      <main className={filterShadow ? [s.filter, s.show].join(" ") : s.filter}>
+        {/* Filter Navbar Start */}
+        <div className={s.filterNavbar}>
+          <div>
+            <span>{filterIcon}</span> <span>Filter</span>
           </div>
-        ))}
-      </div>
-      {/* Filter Body End */}
-      <div className={s.filter_bottom}></div>
-    </main>
+        </div>
+        {/* Filter Navbar End */}
+
+        {/* Filter Body Start */}
+        <div className={s.filterBody}>
+          {Object.keys(filter).map((key, inx) => (
+            <div key={inx} className={s.filterBodyRow}>
+              <p>{types[key]}</p>
+              <div className={s.filterBodyButtonsRow}>
+                {key === "price" ? (
+                  <FilterBtnPrice setFilter={setFilter} filter={filter} />
+                ) : (
+                  filterData[key].map((title, idx) => (
+                    <FilterBtnColorSeasonType
+                      key={idx}
+                      title={title}
+                      setFilter={setFilter}
+                      filter={filter}
+                      type={key}
+                    />
+                  ))
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* Filter Body End */}
+        <div className={s.filter_bottom}></div>
+      </main>
+    </>
+    
   );
 }
 

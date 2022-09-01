@@ -12,7 +12,7 @@ import { adminSidebar } from "../../static/static";
 
 function Sidebar() {
   const { owner, name } = useSelector((s) => s.auth);
-  const [sidebarShow, setSidebarShow] = useState(true)
+  const [sidebarShow, setSidebarShow] = useState(false)
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -25,6 +25,7 @@ function Sidebar() {
   return (
     <>
       <div onClick={()=>setSidebarShow(p=>!p)} className={s.menu}>{sidebarShow ? <IoMdClose/> : <MdMenu/> } </div>
+      {sidebarShow && <div onClick={()=>setSidebarShow(false)} className={s.sidebarShadow}></div>} 
       <div className={sidebarShow? [s.sidebar, s.show].join(" ") : s.sidebar}>
         <h1 className={s.logo}>
           <NavLink to="/"><FiArrowLeft/> <span>Mustang</span></NavLink>

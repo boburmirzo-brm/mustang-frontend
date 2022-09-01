@@ -13,6 +13,7 @@ import { UseCart } from "../../hooks/UseCart";
 import axios from "../../api/axios";
 import Loader from "../../components/loader/Loader";
 import { toast, ToastContainer } from "react-toastify";
+import Slides from "../../components/slides/Slides"
 
 const SinglePage = ({
   match: {
@@ -105,7 +106,7 @@ const SinglePage = ({
   };
 
   return (
-      <>
+      <div className={s.single_container}>
         {loading ? (
           <Loader config={{ size: "100px" }} />
         ) : (
@@ -248,8 +249,11 @@ const SinglePage = ({
             )
           )
         )}
+        <br />
+        <br />
+        <Slides/>
       <ToastContainer />
-    </>
+    </div>
   );
 };
 
