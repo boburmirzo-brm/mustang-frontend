@@ -18,7 +18,7 @@ const HeartComponent = ({ data, setData }) => {
   const dispatch = useDispatch();
   const [zoom, setZoom] = useState(null)
 
-  console.log(stars);
+  // console.log(stars);
 
   const removeItemFromHeart = () => {
     setData((e) => e.filter((i) => i._id !== _id));
@@ -34,7 +34,7 @@ const HeartComponent = ({ data, setData }) => {
           </a>
         </div>
         <div className={s.body}>
-          <Link to={`/product/${_id}`} title={title}>
+          <Link to={`/products/${_id}`} title={title}>
             <h1 className={s.title}>{title}</h1>
           </Link>
 

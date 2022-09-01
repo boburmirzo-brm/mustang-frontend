@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react'
 import s from './Cart.module.css'
 import EmptyCart from '../../components/empty-cart/EmptyCart'
