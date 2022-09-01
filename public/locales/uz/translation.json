@@ -1,3 +1,114 @@
 {
-    "search": "qidirish"
+    "search": "qidirish",
+    "cart": {
+        "shoppingCart": "Xarit savatchangiz",
+        "cartnav": {
+            "product": "mahsulot",
+            "size": "hajmi",
+            "quontity": "soni",
+            "price": "narxi"
+        },
+        "cartProducts": {
+            "size": "Hajmi",
+            "color": "Rangi",
+            "brand": "Brendi",
+            "forEach": "har biri",
+            "forEachComplect": "har complektga"
+        },
+        "cartActions": {
+            "completingPlace": "Iltimos bu yerni to'ldiring:",
+            "actionInputs": {
+                "name": "Sizning ismingiz",
+                "tel": "Sizning telefon raqamingiz",
+                "address": "Sizning manzilingiz",
+                "msg": "Sizning habaringiz"
+            },
+            "totalPrice": "Jami narx",
+            "actionButtons": {
+                "purchase": "sotib olish",
+                "cancellation": "Bekor qilish"
+            }
+        },
+        "emptyCart": {
+            "empty": "Sizning savatchangiz bo'sh.",
+            "fillCart": "Savatchani to'ldirish uchun, biror nima sotib oling",
+            "purchase": "sotib olish"
+        }
+    },
+    "heart": {
+        "heartNav": "Sevimli Mahsulotlar",
+        "emptyHeart": "Kechirasiz, siz yoqtirgan mahsulotlar yo'q.",
+        "product": {
+            "type": "turi",
+            "color": "rangi"
+        }
+    },
+    "singleProduct": {
+        "type": "turi",
+        "seasonality": "Mavsumiyligi",
+        "brand": "Brendi",
+        "sizes": "O'lchamlari",
+        "views": "Ko'rildi",
+        "join": "Ulanish:",
+        "addToCart": "Savatchaga qo'shish"
+    },
+    "orders": {
+        "orderNav": "Buyurtmalar",
+        "order": {
+            "time": "Buyurtma vaqti:",
+            "location": "Joylashuv:",
+            "totalPrice": "Jami narx:",
+            "orderBox": {
+                "orderWrapper": {
+                    "wrapperNav": "Mijozning buyurtmalari",
+                    "userOrder": {
+                        "size": "Hajmi",
+                        "color": "Rangi",
+                        "brand": "Brendi",
+                        "forEach": "har biri",
+                        "forEachComplect": "har complektga"
+                    }
+                },
+                "aboutOrder": {
+                    "user": {
+                        "userNav": "Haridor",
+                        "name": "Mijoz ismi:",
+                        "tel": "Mijoz telefon raqami:"
+                    },
+                    "quontity": "Mahsulotlar soni:",
+                    "totalPrice": "Jami narx:"
+                }
+            }
+        }
+    },
+    "sidebar": {
+        "owner": "Ega",
+        "admin": "Admin",
+        "pages": [
+            "Buyurtmalar",
+            "Mahsulot yaratish",
+            "Mahsulotlarni boshqarish",
+            "Admin qo'shish"
+        ],
+        "leave": "Chiqish"
+    },
+    "createPro": {
+        "createProNav": "Mahsulot yaratish",
+        "createProForm": {
+            "formInputs": {
+                "title": "Nomi: (Cabani shoes)",
+                "desc": "Ta'rifi: (Sifatli toza charmda  tayyorlangan...)",
+                "price": "Narxi: (420000)",
+                "size": "O'lchami: (39-44)",
+                "productId": "Mahsulot id: (45p7)",
+                "brand": "Brendi: (Mustang)",
+                "type": "Turi",
+                "season": "Mavsumiyligi: (Fasl)",
+                "stars": "yulduzi: ",
+                "color": "Rangi: "
+            },
+            "formBtn": "Mahsulot Yaratish",
+            "uploadImage": "Rasm yuklash"
+        }
+    }
 }

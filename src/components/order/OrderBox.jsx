@@ -23,7 +23,7 @@ function OrderBox({show, data}) {
 
   const {name, tel, address, message, orders} = order;
 
-  // console.log(orders);
+  console.log(orders);
 
   return (
     <>
@@ -62,7 +62,7 @@ function OrderBox({show, data}) {
                 <h3 className={s.pro_id}>{productId}</h3>
               </div>
               <div className={s.order_main_info}>
-                <h4 className={s.order_quontity}>4ta</h4>
+                <h4 className={s.order_quontity}>{orders.length && orders?.reduce((a,b) => a + b.quontity, 0)}ta</h4>
                 <div className={s.order_price}>
                   <p>{(price * quontity).brm()}sum</p>
                   <p>{price.brm()}sum har {orderType === 'complect' ? 'komplektiga' : 'biriga'}</p>

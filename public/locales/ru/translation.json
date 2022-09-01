@@ -1,3 +1,114 @@
 {
-    "search": "поиск"
+    "search": "поиск",
+    "cart": {
+        "shoppingcart": "Корзина покупателя",
+        "cartnav": {
+            "product": "продукт",
+            "size": "размер",
+            "quontity": "количество",
+            "price": "цена"
+        },
+        "cart_products": {
+            "size": "Размер",
+            "color": "Цвет",
+            "brand": "Бренд",
+            "forEach": "для каждого",
+            "forEachComplect": "для каждого комплекта"
+        },
+        "cartActions": {
+            "completingPlace": "Пожалуйста, заполните здесь:",
+            "actionInputs": {
+                "name": "Ваша имя",
+                "tel": "Ваша номер телефона",
+                "address": "Ваша адрес",
+                "msg": "Ваша сообщение"
+            },
+            "totalPrice": "Итоговая цена",
+            "actionButtons": {
+                "purchase": "купить",
+                "cancellation": "Отмемить"
+            }
+        },
+        "emptyCart": {
+            "empty": "Ваша карзинка пустая",
+            "fillCart": "Чтобы заполнить карзинку, купите что-нибудью",
+            "purchase": "купить"
+        }
+    },
+    "heart": {
+        "emptyHeart": "Извините, у вас нету любимого продуктаю",
+        "heartNav": "Любимые продукты",
+        "product": {
+            "type": "вид",
+            "color": "цвет"
+        }
+    },
+    "singleProduct": {
+        "type": "вид",
+        "seasonality": "Сезонность",
+        "brand": "Бренд",
+        "sizes": "Размеры",
+        "views": "Просмотрена",
+        "join": "Присоединиться:",
+        "addToCart": "Добавить в карзинку"
+    },
+    "orders": {
+        "orderNav": "Buyurtmalar",
+        "order": {
+            "time": "Buyurtma vaqti:",
+            "location": "Joylashuv:",
+            "totalPrice": "Jami narx:",
+            "orderBox": {
+                "orderWrapper": {
+                    "wrapperNav": "Mijozning buyurtmalari",
+                    "userOrder": {
+                        "size": "Hajmi",
+                        "color": "Rangi",
+                        "brand": "Brendi",
+                        "forEach": "har biri",
+                        "forEachComplect": "har complektga"
+                    }
+                },
+                "aboutOrder": {
+                    "user": {
+                        "userNav": "Haridor",
+                        "name": "Mijoz ismi:",
+                        "tel": "Mijoz telefon raqami:"
+                    },
+                    "quontity": "Mahsulotlar soni:",
+                    "totalPrice": "Jami narx:"
+                }
+            }
+        }
+    },
+    "sidebar": {
+        "owner": "Ega",
+        "admin": "Admin",
+        "pages": [
+            "Buyurtmalar",
+            "Mahsulot yaratish",
+            "Mahsulotlarni boshqarish",
+            "Admin qo'shish"
+        ],
+        "leave": "Chiqish"
+    },
+    "createPro": {
+        "createProNav": "Mahsulot yaratish",
+        "createProForm": {
+            "formInputs": {
+                "title": "Nomi: (Cabani shoes)",
+                "desc": "Ta'rifi: (Sifatli toza charmda  tayyorlangan...)",
+                "price": "Narxi: (420000)",
+                "size": "O'lchami: (39-44)",
+                "productId": "Mahsulot id: (45p7)",
+                "brand": "Brendi: (Mustang)",
+                "type": "Turi",
+                "season": "Mavsumiyligi: (Fasl)",
+                "stars": "yulduzi: ",
+                "color": "Rangi: "
+            },
+            "formBtn": "Mahsulot Yaratish",
+            "uploadImage": "Rasm yuklash"
+        }
+    }
 }
