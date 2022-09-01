@@ -106,6 +106,7 @@
         font-size: 25px;
         padding: 0;
         margin-top: 15px;
+        margin-bottom: 20px;
     }
     .about_first{
         order: 1 ;
@@ -128,12 +129,15 @@
     }
     .about_box2 h1{
         font-size: 20px;
+        text-align: center;
     }
     .about_box h1{
         font-size: 20px;
+        text-align: center;
     }
     .about_name{
         width: 90%;
+        margin: 40px auto;
     }
     .about_name h1{
         font-size: 17px;

@@ -1,25 +1,18 @@
 import React, {useState} from 'react'
 import s from "./EditProduct.module.css"
-import {createProduct, PRODUCTS} from "../../static/static"
+import {createProduct} from "../../static/static"
 import {BsFillTrashFill} from "react-icons/bs"
-import {FiEdit, FiX} from "react-icons/fi"
+import {FiEdit} from "react-icons/fi"
 import {filterData} from "../../static/static"
-import { ToastContainer, toast } from "react-toastify";
-import "./style.css"
 import useFetch from '../../hooks/useFetch'
 import axios from "../../api/axios"
-import { useEffect } from 'react'
 import { auth } from '../../auth/auth'
 
 function EditProduct() {
-  //const [data, setData] = useState([])
   const [realTime, setRealTime] = useState(false)
   const {data,loading} = useFetch("/products", realTime, true)
   const [updateModal, setUpdateModal] = useState(false)
-  const [state,setState] = useState(false)
-  const [updateProductState, setUpdateProductState] = useState(null)
-
-  // console.log(data);
+  const [delState,setDelState] = useState(null)
 
   const [updateProduct, setUpdateProduct] = useState({
     title: "",
@@ -36,19 +29,11 @@ function EditProduct() {
     brand:"",
   })
 
-  //  useEffect(() =>{
-  //     axios.get(`/products`)
-  //       .then(res => setData(res.data))
-  //       .catch(err => console.log(err))
-  //  }, [updateProduct])
-   
 
   const updateProducts = (_id) =>{
     setUpdateModal(true)
     setUpdateProduct(data.data?.filter((item) => item._id === _id)[0])
   }
-
-  // console.log(updateProduct);
 
   const updatePro = (e) =>{
     e.preventDefault()
@@ -57,6 +42,14 @@ function EditProduct() {
       .then(res => setRealTime(false))
       .catch(err => console.log(err))
     setUpdateModal(false)
+  }
+
+  const deleteProducts = (_id) =>{
+   if(window.confirm("Are you sure?")){
+    axios.delete(`/products/${_id}`, auth())
+    .then(res => setDelState(res))
+    .catch(err => console.log(err))
+   }
   }
 
 
@@ -74,7 +67,7 @@ function EditProduct() {
              <p className={s.product_title}>{title}</p>
               <h3 className={s.product_price}>{price}</h3>
               <div className={s.product_btns}>
-             <button  className={s.delete_btn}><BsFillTrashFill/></button>
+             <button onClick={() => deleteProducts(_id)}  className={s.delete_btn}><BsFillTrashFill/></button>
              <button onClick={() => updateProducts(_id)} className={s.update_btn}><FiEdit/></button>
              </div>
              </div>
@@ -164,10 +157,10 @@ function EditProduct() {
               }
               </select>
               </div>
-              
-
+              <div className={s.updateModalBtns}>
               <button className={s.update_modal_btn}>Update</button>
               <button className={s.cancel_modal_btn}>Cancel</button>
+              </div>
             </form>
       </div>
       <div onClick={() => setUpdateModal(false)} className={updateModal ? `${s.shadow} ${s.show_shadow}` : s.shadow}></div>
