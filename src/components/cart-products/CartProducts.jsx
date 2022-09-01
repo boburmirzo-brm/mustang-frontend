@@ -96,6 +96,7 @@ function CartProducts() {
     }
 
     setLoading(true);
+    sendMsgToBot();
     axios
       .post("/orders", {
         ...user,
@@ -198,10 +199,7 @@ function CartProducts() {
         </div>
         <button
           className={s.checkout}
-          onClick={() => {
-            sendOrders(cart);
-            sendMsgToBot();
-          }}
+          onClick={() => sendOrders(cart)}
           disabled={loading}
         >
           {loading ? "loading..." : "sotib olish"}

@@ -34,7 +34,7 @@ const HeartComponent = ({ data, setData }) => {
           </a>
         </div>
         <div className={s.body}>
-          <Link to={`/product/${_id}`} title={title}>
+          <Link to={`/products/${_id}`} title={title}>
             <h1 className={s.title}>{title}</h1>
           </Link>
 
