@@ -25,7 +25,7 @@ const Home = () => {
     season: "barchasi",
     price: {
       from: 0,
-      to: 0,
+      to: 1_000_000,
     },
     color: "barchasi",
   });

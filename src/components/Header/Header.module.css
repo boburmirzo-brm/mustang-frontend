@@ -36,6 +36,7 @@
     background-color: #fff;
     display: flex;
     align-items: center;
+    position: relative;
 }
 .searchbar input{
     width: 90%;
@@ -52,6 +53,73 @@
 .searchbar svg{
     color: var(--border-color);
     font-size: 20px;
+}
+
+.searching_products_container
+{
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 30px);
+    padding: 0;
+    transition: all .5s ease;
+}
+
+.searching_products_container.active
+{
+    padding: 12px;
+    height: auto;
+}
+
+.searching_product
+{
+    width: 100%;
+    min-height: 66px;
+    height: 66px;
+    max-height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 4px;
+    border-bottom: 1px solid #ddd9;
+}
+
+.left_side
+{
+    display: flex;
+    align-items: center;
+}
+
+.left_side img
+{
+    width: 50px;
+    min-height: 50px;
+    height: 50px;
+    max-height: 50px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.left_side h3
+{
+    font-weight: 500;
+    margin-right: 6px;
+}
+
+.left_side p
+{
+    font-weight: 400;
+    font-size: 16px;
+    color: #666c;
+}
+
+.searching_product svg
+{
+    color: var(--bg-dark);
+    cursor: pointer;
 }
 
 .cart_like_box_wrapper{

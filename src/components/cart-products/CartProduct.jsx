@@ -49,7 +49,7 @@ function CartProduct({all}) {
   return (
     <div key={_id} className={s.cart_product}>
               <div className={s.left_side}>
-                  <Link to={`/product/${_id}`}>
+                  <Link to={`/products/${_id}`}>
                     <img src={urls.length ? urls[0] : empty_url} alt="" className={s.cart_image}/>
                   </Link>
               <div className={s.text}>

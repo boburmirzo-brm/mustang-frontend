@@ -70,7 +70,7 @@ const HeartComponent = ({ data, setData }) => {
       {/* actions */}
       <div className={s.actions}>
         <div className={s.btns}>
-          <Link title="To'liq ma'lumot" to={`product/${_id}`}>
+          <Link title="To'liq ma'lumot" to={`products/${_id}`}>
             <button className={s.viewDetails}>
               <span>
                 <BiLinkExternal />
