@@ -1,3 +1,58 @@
 {
-    "search": "qidirish"
+    "search": "qidirish",
+    "navbar":{
+        "homeLink": "Asosiy sahifa",
+        "aboutLink":"Biz haqimizda"
+    },
+    "about":{
+        "bannerLogo":"Mustang haqida",
+        "bannerText":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum laborum assumenda vitae, obcaecati nihil quasi beatae placeat magnam quas quod, voluptates corrupti, accusantium adipisci quia atque numquam enim saepe voluptatem quae non? Ratione voluptas sapiente, ipsam suscipit quibusdam optio natus numquam itaque iusto laudantium eaque! Repudiandae corporis facere quo recusandae?",
+        "historyMustang":"Mustangning Tarixi",
+        "ourFounding":"Bizning kelib chiqishimiz",
+        "ourWork":"Bizning ishimiz",
+        "ourProducts":"Bizning maxsulotlarimiz",
+        "mustangName":"Mustang nomi qanday topilgan?"
+    },
+    "footer":{
+        "aboutUs":"Biz haqimizda",
+        "forCommunication":"Aloqa uchun",
+        "inMap":"Xaritada biz",
+        "ourStreet": "123-uy, Boburshox ko'cha Namangan shahar, 160100, Uzbekistan",
+        "ourGmail":"someone@gmail.com",
+        "namangan":"Namangan",
+        "viewLargerMap":"Xaritani kengroq ko'rish",
+        "copyright":"Mualliflik huquqi ©️ 2022 The Binary Inc. Barcha huquqlar himoyalangan"
+    },
+    "category":{
+        "categoryBox1":{
+            "credit":"Muddatli to'lovga sotib olish",
+            "toOrder":"Mustang qulay online buyurtma berish imkoniyati"
+        },
+        "categoryBox2":{
+            "guarantee":"Mahsulotlar uchun kafolat",
+            "control":"MUSTANG da mahsulotlar sifatli bo'lib biz o'z mahsulotimiz sifatini doim nazoratda tutamiz"
+        },
+        "categoryBox3":{
+            "bonus":"Bonus tizimi",
+            "availability":"Bonus tizimi mavjud:)"
+        },
+        "categoryBox4":{
+            "help":"Yordam",
+            "questions":"Ko'p beriladigan savollar"
+        }
+    },
+    "updateProducts":{
+        "updateProduct":"Maxsulotni taxrirlash",
+        "title":"Nomi",
+        "price":"Narxi",
+        "desc":"Ma'lumot",
+        "size":"O'lchami",
+        "color":"Rangi",
+        "stars":"Yulduzlar",
+        "seen":"Ko'rilganlar",
+        "id":"modeli",
+        "brand":"Marka",
+        "season":"Sezo'n",
+        "type":"Turi"
+    }
 }

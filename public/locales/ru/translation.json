@@ -1,3 +1,59 @@
 {
-    "search": "поиск"
+    "search": "поиск",
+    "navbar":{
+        "homeLink": "Главная страница",
+        "aboutLink":"о нас"
+    },
+    "about":{
+        "bannerLogo":"О Мустанге",
+        "bannerText":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum laborum assumenda vitae, obcaecati nihil quasi beatae placeat magnam quas quod, voluptates corrupti, accusantium adipisci quia atque numquam enim saepe voluptatem quae non? Ratione voluptas sapiente, ipsam suscipit quibusdam optio natus numquam itaque iusto laudantium eaque! Repudiandae corporis facere quo recusandae?",
+        "historyMustang":"История Мустанга",
+        "ourFounding":"Наш фон",
+        "ourWork":"Наша работа",
+        "ourProducts":"Наши продукты",
+        "mustangName":"Как появилось название Мустанг?"
+    },
+    "footer":{
+        "aboutUs":"о нас",
+        "forCommunication":"для общения",
+        "inMap":"мы на карте",
+        "ourStreet":"улица Бобуршох, 123 г. Наманган, 160100,Узбекистан",
+        "ourGmail":"кто-то@gmail.com",
+        "namangan":"Наманган",
+        "viewLargerMap":"Посмотреть большую карту",
+        "copyright":" Авторские права ©️ 2022 The Binary Inc. все права защищены"
+    },
+    "category":{
+        "categoryBox1":{
+            "credit":"Покупка в рассрочку",
+            "toOrder":"Мустанг удобный онлайн заказ"
+        },
+        "categoryBox2":{
+            "guarantee":"Гарантия на продукцию",
+            "control":"В MUSTANG продукция качественная, и мы всегда контролируем качество нашей продукции"
+        },
+        "categoryBox3":{
+            "bonus":"Бонусная система",
+            "availability":"Есть бонусная система :)"
+        },
+        "categoryBox4":{
+            "help":"Помощь",
+            "questions":"Часто задаваемые вопросы"
+        }
+    },
+
+    "updateProducts":{
+        "updateProduct":"Редактирование продукта",
+        "title":"Имя",
+        "price":"Цена",
+        "desc":"Информация",
+        "size":"Размер",
+        "color":"Цвет",
+        "stars":"Звезды",
+        "seen":"Видимый",
+        "id":"ID",
+        "brand":"Бренд",
+        "season":"Сезон",
+        "type":"Тип"
+    }
 }
