@@ -11,7 +11,7 @@ import { auth } from "../../auth/auth";
 import Loader from "../../components/loader/Loader";
 
 function CreateProduct() {
-  document.title = 'Create Product'
+  document.title = "Mahsulot yaratish";
   const [inputTypeTextData] = useState([
     "title",
     "desc",
@@ -70,7 +70,7 @@ function CreateProduct() {
         toast.error(
           `${
             allPlaceHolders[key].split(":")[0]
-          } ning qiymati 0 kichik bo'lmaydi`,
+          } ning qiymati 0 dan kichik bo'lmaydi`,
           {
             position: "top-right",
             autoClose: 7000,
@@ -203,7 +203,7 @@ function CreateProduct() {
     axios
       .post("/products", formData, auth())
       .then(({ data: { data, msg, state } }) => {
-        console.log(data);
+        // console.log(data);
         toast.success(msg, {
           position: "top-right",
           autoClose: 7000,

@@ -154,7 +154,9 @@
   margin-right: 10px;
   cursor: pointer;
   border: 1px solid var(--bg-py);
+  transition: all .23s ease-in-out;
 }
+
 
 .update_btn{
   padding: 10px 12px;
@@ -164,6 +166,11 @@
   border-radius: 3px;
   cursor: pointer;
   border: 1px solid var(--bg-py);
+  transition: all .23s ease-in-out;
+}
+.delete_btn:hover, .update_btn:hover {
+  color: #fff;
+  background-color: var(--bg-py);
 }
 
 

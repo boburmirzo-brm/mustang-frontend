@@ -7,6 +7,7 @@ import HeartComponent from "./HeartComponent";
 import { removeFromHeart } from "../../context/action/action";
 
 const Heart = () => {
+  document.title = "Sevimli mahsulotlar";
   const [data, setData] = useState(useSelector((state) => state.heart) || []);
   const dispatch = useDispatch();
 

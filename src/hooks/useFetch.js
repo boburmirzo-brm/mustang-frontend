@@ -4,7 +4,7 @@ import {auth} from "../auth/auth"
 
 const useFetch = (url, state, admin) => {
     const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setLoading(true);

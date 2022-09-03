@@ -23,7 +23,7 @@ function OrderBox({show, data}) {
 
   const {name, tel, address, message, orders} = order;
 
-  console.log(orders);
+  // console.log(orders);
 
   return (
     <>
