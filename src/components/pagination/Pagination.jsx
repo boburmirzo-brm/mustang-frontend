@@ -79,7 +79,7 @@ function Pagination({totalPage, setData, pageCount, setPageCount}) {
           
           {/* last button */}
           {
-            pageCount + 2 === totalPage ? <></> : <button
+            (pageCount + 2 === totalPage || totalPage === 1 || totalPage === 0) ? <></> : <button
             className={s.p_btn}
             onClick={()=> {
               setPageCount(totalPage)

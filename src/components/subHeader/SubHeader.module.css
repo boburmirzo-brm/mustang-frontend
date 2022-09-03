@@ -28,6 +28,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-right: 20px;
 }
 
 .language_box{
@@ -36,16 +37,15 @@
     background-color: var(--bg-light);
     border-radius: 50%;
     cursor: pointer;
+    opacity: .5;
 }
 .language_box img{
     width: 100%;
     height: 100%;
 }
-.language_box:first-child{
-    box-shadow: 0px 0px 5px;
-}
-.language_box:last-child{
-    opacity: 0.7;
+.active{
+    box-shadow: 0px 0px 5px #fff;
+    opacity: 1;
 }
 
 @media screen and (max-width: 700px) {

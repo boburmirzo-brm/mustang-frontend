@@ -16,7 +16,8 @@ import { useParams } from "react-router-dom"
 const Home = () => {
   const filterHide = useSelector(state=> state.filterShow)
   const dispatch = useDispatch();
-  const [{products}, setData] = useState([])
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(false)
   const {id} = useParams()
   const [pageCount, setPageCount] = useState(()=> id ? +id : 1)
   const [totalPage, setTotalPage] = useState(0)
@@ -30,8 +31,9 @@ const Home = () => {
     color: "barchasi",
   });
 
-  const pageSize = 3
+  const pageSize = 8
   useEffect(()=>{
+    setLoading(true)
     axios.get(`/products/page`, {
       method: "GET",
       params: {
@@ -41,10 +43,11 @@ const Home = () => {
       }
     })
     .then(res => {
-      setData(res.data.data)
+      setData(res.data.data.products)
       setTotalPage(res.data.data.btnCount)
+      setLoading(false)
     })
-    .catch(err => console.log(err))
+    .catch(err => setLoading(false))
   },[pageCount, filter])
   // console.log(filter);
   document.title = "Asosiy sahifa";
@@ -61,13 +64,15 @@ const Home = () => {
         <FilterProduct 
           filterShadow={filterHide}
           filter={filter}
+          setData={setData}
           setFilter={setFilter}/>
         <ProductWrapper 
           setPageCount={setPageCount} 
-          products={products} 
+          products={data} 
           pageCount={pageCount} 
           totalPage={totalPage} 
           pageSize={pageSize}
+          loading={loading}
           setData={setData}/>
       </div>
       <ExtraInfo/>

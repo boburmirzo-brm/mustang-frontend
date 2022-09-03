@@ -2,11 +2,14 @@
 import React from "react";
 import s from "../FilterProduct.module.css";
 
-const FilterBtnColorSeasonType = ({ title, filter, setFilter, type }) => {
+const FilterBtnColorSeasonType = ({ title, filter, setFilter, type, setData }) => {
   return (
     <>
       <button
-        onClick={() => setFilter({ ...filter, [type]: title })}
+        onClick={() => {
+          setFilter({ ...filter, [type]: title })
+          setData([])
+        }}
         className={
           filter[type] === title
             ? [s.filterBodyButtonsRowBtn, s.active].join(" ")

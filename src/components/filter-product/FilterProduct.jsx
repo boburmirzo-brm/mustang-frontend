@@ -9,7 +9,7 @@ import FilterBtnColorSeasonType from "./utils/FilterBtnColorSeasonType";
 import { useDispatch } from "react-redux"
 import {filterShow} from "../../context/action/action"
 
-function FilterProduct({ filterShadow, setFilter, filter }) {
+function FilterProduct({ filterShadow, setFilter, filter, setData }) {
   const { types } = filterData;
   const dispatch = useDispatch();
 
@@ -42,6 +42,7 @@ function FilterProduct({ filterShadow, setFilter, filter }) {
                       setFilter={setFilter}
                       filter={filter}
                       type={key}
+                      setData={setData}
                     />
                   ))
                 )}

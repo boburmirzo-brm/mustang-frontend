@@ -9,6 +9,30 @@
   gap: 15px;
 }
 /* Images Container started */
+.skeleton_image{
+  width: 40%;
+  height: 400px;
+  background: linear-gradient(90deg, #ddd,#eee, #ddd);
+  background-size: 200%;
+  animation: singleSkeleton 1s linear  infinite ;
+  border-radius: 20px;
+}
+.skeleton_item{
+  width: 80%;
+  height: 40px;
+  background: linear-gradient(90deg, #ddd,#eee, #ddd);
+  background-size: 200%;
+  animation: singleSkeleton 1s linear  infinite ;
+  margin-bottom: 16px;
+}
+@keyframes singleSkeleton {
+  to{
+      background-position: 200%;
+  }
+}
+.skeleton_bady{
+  width: 70%;
+}
 .imagesContainer {
   width: 40%;
   display: flex;
@@ -191,7 +215,6 @@
 }
 .cart_btn {
   padding: .6rem 1.5rem;
-  border-radius: 3rem;
   border: 1px solid var(--bg-sy);
   color: var(--bg-sy);
   background: #fff;
@@ -200,15 +223,46 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: all 0.23s ease-in-out;
+  transition: background 0.3s;
 }
 .cart_btn:hover {
-  box-shadow: 3px 3px 10px rgba(0, 4, 219, 0.133);
+  color: #fff;
+  background: var(--bg-sy);
 }
 .addToCartIcon {
   display: flex;
   font-size: var(--font-lg);
   margin-right: 0.3rem;
+}
+.quontity_actions
+{
+    height: 40px;
+    display: flex; 
+    align-items: center;
+}
+
+.quontity_action_btn
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    outline: none;
+    background: none;
+    user-select: none;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: var(--bg-sy);
+    color: #fff;
+    border: none;
+}
+.quontity_action_btn:active
+{
+    opacity: .6;
+}
+.quontity_actions p
+{
+    font-size: 18px;
+    margin: 0 12px;
 }
 @media screen and (max-width: 1220px){
     .container{
@@ -219,6 +273,13 @@
     .container {
         flex-direction: column;
         padding: 1.5rem 5% 5rem;
+    }
+    .skeleton_image{
+      width: 100%;
+      height: 300px;
+    }
+    .skeleton_bady{
+      width: 100%;
     }
     .imagesContainer {
         width: 100%;

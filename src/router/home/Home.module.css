@@ -59,13 +59,18 @@
     }
 }
 @media screen and (max-width:700px){
+    
     .filter_show{
         display: none;
     }
     .main{
         width: 98%;
     }
+    .latest_title{
+        font-size: 20px;
+        padding: 20px 3%;
+    }
     .title{
-        font-size: 24px;
+        font-size: 20px;
     }
 }
