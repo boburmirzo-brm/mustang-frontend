@@ -128,9 +128,7 @@ function EditProduct() {
     setUpdateModal(true);
   };
 
-  const updatePro = (e) => {
-    e.preventDefault();
-
+  const updatePro = () => {
     // checking allData before update
     let { state, error } = checkingAllDataBeforeSumbit(updateProduct);
 
@@ -223,7 +221,7 @@ function EditProduct() {
             updateModal ? `${s.update_modal} ${s.show_modal}` : s.update_modal
           }
         >
-          <form className={s.updateForm} onSubmit={updatePro}>
+          <div className={s.updateForm}>
             <div className={s.update_form_left}>
               <div className={s.update_images}>
                 {updateProduct.urls?.map((el, idx) => (
@@ -355,10 +353,10 @@ function EditProduct() {
               </select>
             </div>
             <div className={s.updateModalBtns}>
-              <button type="submit" className={s.update_modal_btn}>Update</button>
-              <button type="" onClick={()=> updateModal(false)} className={s.cancel_modal_btn}>Cancel</button>
+              <button onClick={updatePro} className={s.update_modal_btn}>Update</button>
+              <button onClick={()=> setUpdateModal(false)} className={s.cancel_modal_btn}>Cancel</button>
             </div>
-          </form>
+          </div>
         </div>
         <div
           onClick={() => setUpdateModal(false)}

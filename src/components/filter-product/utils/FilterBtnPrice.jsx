@@ -31,7 +31,7 @@ let FilterBtnPrice = ({ setFilter, filter }) => {
         value={changedValue}
       >
         {isMax ? (
-          <option value={changedValue}>{changedValue}</option>
+          <option value={+maxPrice}>{maxPrice}</option>
         ) : (
           <option value="0">0</option>
         )}

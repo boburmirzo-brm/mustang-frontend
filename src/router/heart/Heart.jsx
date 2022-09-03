@@ -22,7 +22,7 @@ const Heart = () => {
         <div className={s.container}>
           <h1 className={s.h1}>Sevimli Mahsulotlar</h1>
           <div className={s.heartedProducts}>
-            {data?.map((data, idx) => (
+            {[...data].reverse()?.map((data, idx) => (
               <HeartComponent data={data} key={idx} setData={setData} />
             ))}
           </div>

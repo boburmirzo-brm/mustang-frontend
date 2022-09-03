@@ -11,9 +11,10 @@ import { BsTelegram, BsFacebook, BsTwitter, BsInstagram } from "react-icons/bs";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { UseCart } from "../../hooks/UseCart";
 import axios from "../../api/axios";
-import Loader from "../../components/loader/Loader";
 import { toast, ToastContainer } from "react-toastify";
 import Slides from "../../components/slides/Slides"
+import SingeleSkeleton from "./skeleton/SingeleSkeleton";
+import {removeFromCart} from "../../context/action/action"
 
 const SinglePage = ({
   match: {
@@ -30,14 +31,21 @@ const SinglePage = ({
       brand: "",
       type: "",
       season: "",
+      productId: "",
       stars: 5,
       view: 1,
       urls: [],
     },
   ]);
   const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+  const heart = useSelector((state) => state.heart);
+  const cart = useSelector((state) => state.cart);
+  const [quontity, setQuontity] = useState([])
+  const [zoom, setZoom] = useState(null);
 
   useEffect(() => {
+    setQuontity([])
     axios
       .get(`/products/${id}`)
       .then(({ data: { data } }) => {
@@ -51,15 +59,26 @@ const SinglePage = ({
   }, [id]);
 
   const { title, desc, urls } = data[0];
+  const [mainImage, setMainImage] = useState(urls[0] || "");
 
   document.title = title;
+  useEffect(()=>{
+    setQuontity(cart.filter(i => i._id === data[0]._id))
+  },[loading, cart])
 
-  const heart = useSelector((state) => state.heart);
-  const cart = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
+  const addToCartProduct = ()=>{
+    setQuontity([{...data[0], quontity:1}])
+    UseCart(data[0], ADD_TO_CART, cart, dispatch)
+  }
+  const removeQuontity = ()=>{
+    if(quontity[0].quontity <= 1){
+      setQuontity([])
+      return dispatch(removeFromCart(cart?.filter(pro => pro._id !== data[0]._id)))
+    }
+    dispatch({type: ADD_TO_CART, payload: cart.map(p=> p._id === data[0]._id ? {...p, quontity: p.quontity - 1}: p)})
+  }
 
-  const [zoom, setZoom] = useState(null);
-  const [mainImage, setMainImage] = useState(urls[0] || "");
+
 
   useEffect(() => {
     setMainImage(urls[0]);
@@ -105,10 +124,11 @@ const SinglePage = ({
     window.navigator.share(shareData);
   };
 
+
   return (
       <div className={s.single_container}>
         {loading ? (
-          <Loader config={{ size: "100px" }} />
+          <div className={s.container}><SingeleSkeleton/></div>
         ) : (
           data?.map(
             (
@@ -123,6 +143,7 @@ const SinglePage = ({
                 stars,
                 view,
                 urls,
+                productId
               },
               idx
             ) => (
@@ -203,6 +224,9 @@ const SinglePage = ({
                     <p className={s.brand}>
                       brandi: <span title={brand}>{brand}</span>
                     </p>
+                    <p className={s.brand}>
+                      Model: <span title={brand}>{productId}</span>
+                    </p>
 
                     <div className={s.size}>
                       O'lchamlari: <span title={size}>{size}</span>
@@ -231,10 +255,8 @@ const SinglePage = ({
                   </div>
 
                   <div className={s.buttonsAction}>
-                    <button
-                      onClick={() =>
-                        UseCart(data[0], ADD_TO_CART, cart, dispatch)
-                      }
+                    {!quontity.length && <button
+                      onClick={addToCartProduct}
                       className={s.cart_btn}
                     >
                       {" "}
@@ -242,7 +264,23 @@ const SinglePage = ({
                         <MdOutlineShoppingCart />
                       </span>
                       <span className={s.addToCart}>Savatchaga qo'shish</span>
-                    </button>
+                    </button> }
+                    { 
+                        quontity.length ? 
+                        <div className={s.quontity_actions}>
+                            <button 
+                            className={s.quontity_action_btn}
+                            // disabled={thisPro.quontity <= 1}
+                            onClick={removeQuontity}
+                            >-</button>
+                            <p>{quontity[0].quontity}</p>
+                            <button 
+                            className={s.quontity_action_btn}
+                            onClick={() => UseCart(data[0], ADD_TO_CART,  cart, dispatch)}
+                            >+</button>
+                        </div> : <></>
+                    }
+                 
                   </div>
                 </div>
               </div>

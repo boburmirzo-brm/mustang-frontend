@@ -64,6 +64,7 @@
   max-width: 5rem;
   height: 5rem;
   cursor: pointer;
+  border-radius: 10px;
 }
 .heartNav {
   display: flex;
@@ -210,6 +211,12 @@
   .heartNav {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .heartedInfo,
+  .body {
+    width: 100%;
+    align-items: center;
   }
   .imageContainer {
     margin-right: 0;
@@ -223,10 +230,7 @@
     border-radius: 1rem;
     box-shadow: 0 0.625rem 1.875rem var(--boxShadowColor);
   }
-  .heartedInfo,
-  .body {
-    width: 49%;
-  }
+ 
 }
 @media (max-width: 500px) {
   .actions {

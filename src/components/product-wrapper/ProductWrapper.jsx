@@ -5,14 +5,18 @@ import s from "./ProductWrapper.module.css"
 import Product from '../product/Product'
 import Skeleton from '../product/skeleton/Skeleton'
 import Pagination from '../pagination/Pagination'
+import {TbMoodSad} from "react-icons/tb"
 
 
-function ProductWrapper({totalPage, setData, pageCount, setPageCount, products, pageSize}) {
+function ProductWrapper({totalPage, setData, pageCount, setPageCount, products, pageSize, loading}) {
   return (
     <div className={s.product_wrapper}>
       <div className={s.product_container}> 
       {
-        !products && <Skeleton count={pageSize}/>
+        loading && <Skeleton count={pageSize}/>
+      }
+      {
+        (!products.length && !loading) && <div className={s.empty}><TbMoodSad/> <p>Hech narsa topilmadi</p></div>
       }
       {
         products?.map((pro, inx)=> <Product data={pro} key={inx}/>)
