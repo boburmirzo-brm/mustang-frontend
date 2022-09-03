@@ -6,6 +6,7 @@ import Loader from '../loader/Loader'
 import axios from '../../api/axios'
 
 function Order() {
+  document.title = "Buyurtmalar";
   const [box, setBox] = useState('')
   const [data, setData] = useState([])
   const [skip, setSkip] = useState(0)

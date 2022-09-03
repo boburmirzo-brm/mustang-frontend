@@ -102,7 +102,7 @@ function Product({data}) {
                 </div>
                 <div className={s.view}>
                     <AiOutlineEye/>
-                    <p>78</p>
+                    <p>{data.view}</p>
                 </div>
                 {zoom && <ZoomImage urls={zoom} setZoom={setZoom}/> } 
             </div>

@@ -4,12 +4,13 @@ import React, { useState, useEffect } from "react";
 import s from "../FilterProduct.module.css";
 import { filterData } from "../../../static/static";
 
-const FilterBtnPrice = ({ setFilter, filter }) => {
+let FilterBtnPrice = ({ setFilter, filter }) => {
   const { prices } = filterData;
   let len = prices.length;
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(prices[len - 2] || 0);
   const [isMaxPriceInput] = useState(true);
+
 
   useEffect(() => {
     if (minPrice > maxPrice) {
@@ -22,18 +23,15 @@ const FilterBtnPrice = ({ setFilter, filter }) => {
     setFilter({ ...filter, price: { from: minPrice, to: maxPrice } });
   }, [minPrice, maxPrice]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
   const showingPrices = (str, getChange, changedValue, isMax) => (
-    <form onSubmit={handleSubmit}>
+    <form>
       <select
         className={s.filterInput}
-        onChange={(e) => getChange(e.target.value)}
+        onChange={(e) => getChange(+e.target.value)}
         value={changedValue}
       >
         {isMax ? (
-          <option value={maxPrice}>{maxPrice}</option>
+          <option value={changedValue}>{changedValue}</option>
         ) : (
           <option value="0">0</option>
         )}
@@ -61,4 +59,5 @@ const FilterBtnPrice = ({ setFilter, filter }) => {
   );
 };
 
+FilterBtnPrice = React.memo(FilterBtnPrice);
 export default FilterBtnPrice;

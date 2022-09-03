@@ -9,6 +9,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 import useFetch from "../../hooks/useFetch";
 
 function CreateAdmin() {
+  document.title = "Admin qo'shish"
   const [adminState, setAdminState] = useState({
     name: "",
     username: "",

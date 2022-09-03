@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import Sidebar from "../../components/sidebar/Sidebar";
 
 function Admin() {
+  document.title = "Admin Panel"
   return (
     <div className={s.admin}>
       <Sidebar/>

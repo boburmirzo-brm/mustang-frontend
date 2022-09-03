@@ -6,6 +6,7 @@ import CartProducts from '../../components/cart-products/CartProducts'
 import { useSelector } from 'react-redux'
 
 function Cart() {
+  document.title = 'Harit savatcha'
   const cart = useSelector(s => s.cart)
 
   // console.log(cart);

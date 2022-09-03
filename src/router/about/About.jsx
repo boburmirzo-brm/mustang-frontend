@@ -6,11 +6,13 @@ import img3 from "../../assets/img3.jpg"
 import s from "./About.module.css"
 
 function About() {
+   let title = "Biz haqimizda";
+   document.title = title;
   return (
     <div className={s.about}>
        <div className={s.about_start}>
         <div className={s.about_page_blur}>
-          <h1  className='about_text'>About Mustang</h1>
+          <h1  className='about_text'>{title}</h1>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum laborum assumenda vitae, obcaecati nihil quasi beatae placeat magnam quas quod, voluptates corrupti, accusantium adipisci quia atque numquam enim saepe voluptatem quae non? Ratione voluptas sapiente, ipsam suscipit quibusdam optio natus numquam itaque iusto laudantium eaque! Repudiandae corporis facere quo recusandae?</p>
         </div>
        </div>
