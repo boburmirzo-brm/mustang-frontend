@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react'
 import img6 from "../../assets/img6.jpg"
 import img5 from "../../assets/img5.jpg"

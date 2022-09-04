@@ -10,18 +10,28 @@ import axios from "../../api/axios";
 import { auth } from "../../auth/auth";
 import { ToastContainer, toast } from "react-toastify";
 import { useEffect } from "react";
+import Skeleton from "./skeleton/Skeleton";
 
 function EditProduct() {
   document.title = "Mahsulotlarni boshqarish";
   const [realTime, setRealTime] = useState(false);
   const [getId, setGetId] = useState("");
-  const { data, loading } = useFetch("/products", realTime, true);
+  const { data } = useFetch("/products", realTime, true);
   const [updateModal, setUpdateModal] = useState(false);
+  const [isloading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (data) {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 300);
+    }
+  }, [data]);
 
   useEffect(() => {
     axios
       .get(`/products/${getId}`, auth())
-      .then(({data:{data}}) => setUpdateProduct(data[0]))
+      .then(({ data: { data } }) => setUpdateProduct(data[0]))
       .catch((e) => console.log(e));
   }, [getId]);
 
@@ -168,10 +178,31 @@ function EditProduct() {
         .delete(`/products/${_id}`, auth())
         .then((res) => {
           setRealTime((e) => !e);
+          toast.success("Successfully deleted");
         })
         .catch((err) => console.log(err));
     }
   };
+
+  // clearing inputs in edit
+  useEffect(() => {
+    if (!updateModal) {
+      setUpdateProduct({
+        title: "",
+        price: 0,
+        desc: "",
+        season: "",
+        type: "",
+        color: "",
+        stars: 0,
+        view: 1,
+        size: "",
+        urls: [],
+        productId: "",
+        brand: "",
+      });
+    }
+  }, [updateModal]);
 
   return (
     <>
@@ -179,43 +210,50 @@ function EditProduct() {
         <div className={s.editTitle}>
           <h1>Mahsulotlarni Taxrirlash</h1>
         </div>
-        <div className={s.pro_wrapper}>
-          {data.data?.map(({ _id, urls, title, price, stars }, inx) => (
-            <div key={inx} className={s.product}>
-              <img src={urls[0]} alt={title} title={title} />
-              <div className={s.product_body}>
-                <p title={title} className={s.product_title}>
-                  {title}
-                </p>
-                <h3 title={price.brm() + " so'm"} className={s.product_price}>
-                  {price.brm()} so'm
-                </h3>
-                <div className={s.product_btns}>
-                  <button
-                    title="O'chirish"
-                    onClick={() => {
-                      deleteProducts(_id);
-                      setGetId(_id);
-                    }}
-                    className={s.delete_btn}
-                  >
-                    <BsFillTrashFill />
-                  </button>
-                  <button
-                    title="Tahrilash"
-                    onClick={() => {
-                      updateProducts(_id);
-                      setGetId(_id);
-                    }}
-                    className={s.update_btn}
-                  >
-                    <FiEdit />
-                  </button>
+        {isloading ? (
+          <div className={s.pro_wrapper}>
+            <Skeleton count={data.data?.length || 10} />
+          </div>
+        ) : (
+          <div className={s.pro_wrapper}>
+            {data.data?.map(({ _id, urls, title, price, stars }, inx) => (
+              <div key={inx} className={s.product}>
+                <img src={urls[0]} alt={title} title={title} />
+                <div className={s.product_body}>
+                  <p title={title} className={s.product_title}>
+                    {title}
+                  </p>
+                  <h3 title={price.brm() + " so'm"} className={s.product_price}>
+                    {price.brm()} so'm
+                  </h3>
+                  <div className={s.product_btns}>
+                    <button
+                      title="O'chirish"
+                      onClick={() => {
+                        deleteProducts(_id);
+                        setGetId(_id);
+                      }}
+                      className={s.delete_btn}
+                    >
+                      <BsFillTrashFill />
+                    </button>
+                    <button
+                      title="Tahrilash"
+                      onClick={() => {
+                        updateProducts(_id);
+                        setGetId(_id);
+                      }}
+                      className={s.update_btn}
+                    >
+                      <FiEdit />
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
+
         <div
           className={
             updateModal ? `${s.update_modal} ${s.show_modal}` : s.update_modal
@@ -353,8 +391,15 @@ function EditProduct() {
               </select>
             </div>
             <div className={s.updateModalBtns}>
-              <button onClick={updatePro} className={s.update_modal_btn}>Update</button>
-              <button onClick={()=> setUpdateModal(false)} className={s.cancel_modal_btn}>Cancel</button>
+              <button onClick={updatePro} className={s.update_modal_btn}>
+                Update
+              </button>
+              <button
+                onClick={() => setUpdateModal(false)}
+                className={s.cancel_modal_btn}
+              >
+                Cancel
+              </button>
             </div>
           </div>
         </div>
