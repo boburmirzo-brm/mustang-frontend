@@ -22,7 +22,8 @@ const InputTypeFileImage = ({ handleChangeImage, imgs }) => {
             onChange={handleChangeImage}
             type="file"
             className={s.typeFile}
-            multiple
+            multiple="multiple"
+            accept="image/jpeg, image/png, image/jpg"
           />
         </label>
       </div>
