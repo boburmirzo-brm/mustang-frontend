@@ -109,62 +109,62 @@
         "addToCart": "Добавить в карзинку"
     },
     "orders": {
-        "orderNav": "Buyurtmalar",
+        "orderNav": "Заказы",
         "order": {
-            "time": "Buyurtma vaqti:",
-            "location": "Joylashuv:",
-            "totalPrice": "Jami narx:",
+            "time": "Время заказа:",
+            "location": "Местоположения",
+            "totalPrice": "Итоговая цена:",
             "orderBox": {
                 "orderWrapper": {
-                    "wrapperNav": "Mijozning buyurtmalari",
+                    "wrapperNav": "Заказы клиентов",
                     "userOrder": {
-                        "size": "Hajmi",
-                        "color": "Rangi",
-                        "brand": "Brendi",
-                        "forEach": "har biri",
-                        "forEachComplect": "har complektga"
+                        "size": "Размер",
+                        "color": "Цвет",
+                        "brand": "Бренд",
+                        "forEach": "для каждого",
+                        "forEachComplect": "для каждого комплекта"
                     }
                 },
                 "aboutOrder": {
                     "user": {
-                        "userNav": "Haridor",
-                        "name": "Mijoz ismi:",
-                        "tel": "Mijoz telefon raqami:"
+                        "userNav": "Покупатель",
+                        "name": "Имя Клиента:",
+                        "tel": "Номер телефона клиента:"
                     },
-                    "quontity": "Mahsulotlar soni:",
-                    "totalPrice": "Jami narx:"
+                    "quontity": "Количество продуктов:",
+                    "totalPrice": "Итоговая цена:"
                 }
             }
         }
     },
     "sidebar": {
-        "owner": "Ega",
-        "admin": "Admin",
+        "owner": "Владелец",
+        "admin": "Администратор",
         "pages": [
-            "Buyurtmalar",
-            "Mahsulot yaratish",
-            "Mahsulotlarni boshqarish",
-            "Admin qo'shish"
+            "Заказы",
+            "Создание продукта",
+            "Управление продуктоми",
+            "Добавить администратора"
         ],
-        "leave": "Chiqish"
+        "leave": "Выход"
     },
     "createPro": {
-        "createProNav": "Mahsulot yaratish",
+        "createProNav": "Создание продукта",
         "createProForm": {
             "formInputs": {
-                "title": "Nomi: (Cabani shoes)",
-                "desc": "Ta'rifi: (Sifatli toza charmda  tayyorlangan...)",
-                "price": "Narxi: (420000)",
-                "size": "O'lchami: (39-44)",
-                "productId": "Mahsulot id: (45p7)",
-                "brand": "Brendi: (Mustang)",
-                "type": "Turi",
-                "season": "Mavsumiyligi: (Fasl)",
-                "stars": "yulduzi: ",
-                "color": "Rangi: "
+                "title": "Название: (Обувь Cabani)",
+                "desc": "Описание: (Выполнен из качественной чистой кожи...)",
+                "price": "Цена: (420000)",
+                "size": "Размер: (39-44)",
+                "productId": "ID продукта: (45p7)",
+                "brand": "Бренд: (Mustang)",
+                "type": "Вид",
+                "season": "Сезонность: (Сезон)",
+                "stars": "звезды: ",
+                "color": "Цвет: "
             },
-            "formBtn": "Mahsulot Yaratish",
-            "uploadImage": "Rasm yuklash"
+            "formBtn": "Создание продукта",
+            "uploadImage": "Загрузить изображение"
         }
     }
 }

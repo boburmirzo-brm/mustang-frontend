@@ -89,6 +89,7 @@
 
 .left_side
 {
+    width: 235px;
     display: flex;
     align-items: center;
 }
