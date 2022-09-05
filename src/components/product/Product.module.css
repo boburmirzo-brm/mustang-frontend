@@ -82,7 +82,7 @@
     border: 1px solid var(--bg-py);
 }
 .heart.active{
-    color:  var(--bg-py);
+    color: crimson;
 }
 .view {
     display: flex;

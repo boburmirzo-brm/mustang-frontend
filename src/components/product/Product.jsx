@@ -72,7 +72,7 @@ function Product({data}) {
         <div className={s.product_body}>
             <p className={s.product_title}>
                 {
-                    data.title.length > 50 ? data.title.slice(0,50)+"...":data.title
+                    data.title.length > 40 ? data.title.slice(0,40)+"...":data.title
                 }
             </p>
             <h3 className={s.product_price}>{data.price.brm()} so'm</h3>

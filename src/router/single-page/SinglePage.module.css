@@ -184,6 +184,7 @@
 .miniInfo {
   font-size: 12px;
   text-transform: lowercase;
+  color: #999;
 }
 
 /* buttons */
@@ -251,18 +252,18 @@
     user-select: none;
     cursor: pointer;
     font-size: 18px;
-    background-color: var(--bg-sy);
-    color: #fff;
-    border: none;
+    color: var(--bg-sy);
+    border: 1px solid var(--bg-sy);
 }
 .quontity_action_btn:active
 {
-    opacity: .6;
+    background: #b3d9ff;
 }
 .quontity_actions p
 {
     font-size: 18px;
     margin: 0 12px;
+    color: var(--bg-sy);
 }
 @media screen and (max-width: 1220px){
     .container{

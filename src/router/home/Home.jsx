@@ -10,7 +10,7 @@ import {filterShow} from "../../context/action/action"
 import {AiOutlineFilter} from "react-icons/ai"
 import Slides from '../../components/slides/Slides'
 import axios from '../../api/axios'
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 
 
 const Home = () => {
@@ -21,6 +21,7 @@ const Home = () => {
   const {id} = useParams()
   const [pageCount, setPageCount] = useState(()=> id ? +id : 1)
   const [totalPage, setTotalPage] = useState(0)
+  const history = useHistory()
   const [filter, setFilter] = useState({
     type: "barchasi",
     season: "barchasi",
@@ -31,9 +32,14 @@ const Home = () => {
     color: "barchasi",
   });
 
+  useEffect(()=>{
+    history.push("/page/1")
+    setPageCount(1)
+  },[filter])
   const pageSize = 8
   useEffect(()=>{
     setLoading(true)
+
     axios.get(`/products/page`, {
       method: "GET",
       params: {
