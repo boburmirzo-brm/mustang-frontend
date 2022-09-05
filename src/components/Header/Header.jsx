@@ -7,20 +7,30 @@ import {useSelector} from "react-redux"
 import { AiOutlineHeart,AiFillHeart, AiOutlineUser} from "react-icons/ai";
 import {BsCart, BsFillCartFill, } from "react-icons/bs"
 import axios from '../../api/axios'
+import Loader from '../loader/Loader'
 
 function Header(props) {
   const cart = useSelector(s => s.cart)
   const {pathname} = useLocation()
 
   const [searchingProducts, setSearchingProducts] = useState([])
+  const [value, setValue] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const searchData = (value) => {
-    axios.get(`/products/search?title=${value}`)
-    .then(({data}) => setSearchingProducts(data))
-    .catch((err) => console.log(err))
-  }
-  
-  console.log(searchingProducts);
+  useEffect(() => {
+    if(value.length) {
+      setLoading(true)
+      axios.get(`/products/search?searchingValue=${value}`)
+      .then((res) => {
+        setSearchingProducts(res.data.data)
+        setLoading(false)
+      })
+      .catch((err) => console.log(err))
+      return;
+    } else {
+      return;
+    }
+  }, [value])
 
   return (
     <div className={s.header}>
@@ -37,22 +47,25 @@ function Header(props) {
         </NavLink>
       </ul>
       <div className={s.searchbar}>
-        <input type="text" placeholder="Qidirish..." onChange={({target}) => searchData(target.value)}/>
+        <input type="text" placeholder="Qidirish..." value={value} onChange={({target}) => setValue(target.value)}/>
         <FiSearch />
-        {/* {
-          searchingProducts && <div className={`${s.searching_products_container} ${searchingProducts.length && s.active}`}>
+        {
+          value && <div className={`${s.searching_products_container} ${searchingProducts.length && s.active}`}>
           {
-            searchingProducts?.map(({_id, title, price, urls}) => <div key={_id} className={s.searching_product}>
+            searchingProducts.length && searchingProducts?.map(({_id, title, productId, urls}) => <div key={_id} className={s.searching_product}>
             <div className={s.left_side}>
               <img src={urls[0]} alt="" />
-              <h3>{title}</h3>
-              <p>{price}sum</p>
+              <h3>{title.length > 17 ? title.slice(0,17) + "..." : title}</h3>
             </div>
+              <p>{productId}</p>
             <FiX/>
           </div>)
           }
+        {
+          loading && <Loader/>
+        }
         </div>
-        } */}
+        }
       </div>
       <div className={s.cart_like_box_wrapper}>
         <NavLink className={s.cart_admin} to="/admin/order">
