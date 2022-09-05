@@ -145,7 +145,10 @@
     top: -8px;
     width: 70%;
     left: -70%;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 60px);
+  }
+  .filterBody{
+    padding-bottom: 150px;
   }
   .show {
     left: 0;

@@ -3,7 +3,7 @@
     "search": "поиск",
     "navbar":{
         "homeLink": "Главная страница",
-        "aboutLink":"о нас"
+        "aboutLink":"О нас"
     },
     "about":{
         "bannerLogo":"О Мустанге",

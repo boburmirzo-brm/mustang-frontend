@@ -73,4 +73,13 @@
     .slides{
         width: 98%;
     }
+    .swiper_item{
+        height: 200px;
+    }
+    .swiper_wrapper{
+        padding-top: 50px;
+    }
+    .swiper_item:hover .swiper_wrapper{
+        padding-top: 0;
+    }
 }

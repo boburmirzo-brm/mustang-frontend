@@ -9,7 +9,8 @@ import {UseCart} from "../../hooks/UseCart"
 import {ADD_TO_CART, ADD_TO_HEART} from "../../context/action/actionTypes"
 import ZoomImage from '../zoom-image/ZoomImage'
 import { removeFromCart } from '../../context/action/action'
-
+import {useTranslation} from "react-i18next"
+import {BiRuble} from "react-icons/bi"
 
 function Product({data}) {
     const cart = useSelector(state => state.cart)
@@ -17,6 +18,7 @@ function Product({data}) {
     const heart = useSelector(state => state.heart)
     const dispatch = useDispatch()
     const [zoom, setZoom] = useState(null)
+    const {t} = useTranslation()
     // console.log("cart>>", cart);
     // console.log("heart>>", heart);
 
@@ -75,7 +77,7 @@ function Product({data}) {
                     data.title.length > 40 ? data.title.slice(0,40)+"...":data.title
                 }
             </p>
-            <h3 className={s.product_price}>{data.price.brm()} so'm</h3>
+            <h3 className={s.product_price}>{t("l")==="ru" ? Math.round(data.price / 180).brm() : data.price.brm() + " so'm" } {t("l")==="ru"&&<BiRuble/>} </h3>
             <div className={s.product_stars}> 
                 {new Array(data.stars).fill("").map((_, inx)=><AiFillStar key={inx}/>)} 
                 {new Array(5 - data.stars).fill("").map((_,inx)=><AiOutlineStar key={inx}/>)}
