@@ -5,9 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import HeartEmpty from "./HeartEmpty";
 import HeartComponent from "./HeartComponent";
 import { removeFromHeart } from "../../context/action/action";
+import { useTranslation } from 'react-i18next'
 
 const Heart = () => {
-  document.title = "Sevimli mahsulotlar";
+  const { t } = useTranslation()
+  document.title = t('heart.heartNav');
   const [data, setData] = useState(useSelector((state) => state.heart) || []);
   const dispatch = useDispatch();
 
@@ -20,7 +22,7 @@ const Heart = () => {
     <>
       {data.length ? (
         <div className={s.container}>
-          <h1 className={s.h1}>Sevimli Mahsulotlar</h1>
+          <h1 className={s.h1}>{t('heart.heartNav')}</h1>
           <div className={s.heartedProducts}>
             {[...data].reverse()?.map((data, idx) => (
               <HeartComponent data={data} key={idx} setData={setData} />

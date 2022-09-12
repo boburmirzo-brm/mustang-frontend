@@ -69,14 +69,12 @@ function Header(props) {
                 <p>{productId}</p>
               </div>
 
-          </Link>) : <div className={s.search_empty}>
+          </Link>) : loading ? <Loader config={{size:"30px"}}/> : 
+          <div className={s.search_empty}>
               <TbMoodSad/>
               <p>Hech narsa topilmadi</p>
            </div>
           }
-        {
-          loading && <Loader config={{size:"30px"}}/>
-        }
         </div>
         }
       </div>

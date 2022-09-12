@@ -8,6 +8,7 @@ import axios from "../../api/axios";
 import { ADD_TO_CART } from "../../context/action/actionTypes";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslation } from 'react-i18next'
 
 function CartProducts() {
   const cart = useSelector((s) => s.cart);
@@ -20,6 +21,8 @@ function CartProducts() {
     message: "",
     tel: 998,
   });
+
+  const { t } = useTranslation()
 
   const sendMsgToBot = async () => {
     let myText = `<b>BUYURTMA</b>%0A%0A`;
@@ -119,21 +122,35 @@ function CartProducts() {
       })
       .catch((err) => console.log(err));
   };
+
+  const cancelTheOrder = () => {
+    if(window.confirm(t('cart.cartActions.actionButtons.cancelTheOrderQuestion'))) {
+      toast.success('Buyurtma bekor qilindi.', {
+        position: 'top-right',
+        autoClose: 5000
+      })
+      
+      setTimeout(() => {
+        dispatch(removeFromCart([]))
+      }, 5000)
+    }
+  }
+
   return (
     <>
       <div className={s.cart_header}>
-        <h1>Harit savatchangiz</h1>
+        <h1>{t('cart.shoppingcart')}</h1>
       </div>
       <div className={s.shopping_cart}>
         <ToastContainer />
         <div className={s.cart_products}>
           <div className={s.cart_nav}>
             <div className={s.nav_box}>
-              <h2>mahsulot</h2>
-              <h2>hajm</h2>
+              <h2>{t('cart.cartnav.product')}</h2>
+              <h2>{t('cart.cartnav.size')}</h2>
             </div>
-            <h2>soni</h2>
-            <h2>narx</h2>
+            <h2>{t('cart.cartnav.quontity')}</h2>
+            <h2>{t('cart.cartnav.price')}</h2>
           </div>
           <div className={s.cart_wrapper}>
             {cart?.map(
@@ -169,36 +186,36 @@ function CartProducts() {
           </div>
         </div>
         <div className={s.cart_actions}>
-          <h3>Iltimos bu yerni to'ldiring:</h3>
+          <h3>{t('cart.cartActions.completingPlace')}</h3>
           <input
             value={user.name}
             onChange={({ target }) => setUser({ ...user, name: target.value })}
             type="text"
             className={s.cart_inp}
-            placeholder="Sizning Ismingiz..."
+            placeholder={`${t('cart.cartActions.actionInputs.name')}...`}
           />
           <input
             value={user.tel}
             onChange={({ target }) => setUser({ ...user, tel: target.value })}
             type="number"
             className={s.cart_inp}
-            placeholder="Sizning telefon raqamingiz..."
+            placeholder={`${t('cart.cartActions.actionInputs.tel')}...`}
           />
           <input
             value={user.address}
             onChange={({ target }) => setUser({ ...user, address: target.value })}
             type="text"
             className={s.cart_inp}
-            placeholder="Sizning manzilingiz..."
+            placeholder={`${t('cart.cartActions.actionInputs.address')}...`}
           />
           <textarea
             value={user.message}
             onChange={({ target }) => setUser({ ...user, message: target.value })}
             className={s.cart_inp}
-            placeholder="Sizning habaringiz..."
+            placeholder={`${t('cart.cartActions.actionInputs.msg')}...`}
           />
           <div className={s.total_price}>
-            <h3>Jami narx:</h3>
+            <h3>{t('cart.cartActions.totalPrice')}</h3>
             <p>{cart?.reduce((a, b) => a + b.price * b.quontity, 0).brm()}</p>
           </div>
           <button
@@ -206,13 +223,13 @@ function CartProducts() {
             onClick={() => sendOrders(cart)}
             disabled={loading}
           >
-            {loading ? "loading..." : "sotib olish"}
+            {loading ? "loading..." : t('cart.cartActions.actionButtons.purchase')}
           </button>
           <button
             className={s.del_btn}
-            onClick={() => dispatch(removeFromCart([]))}
+            onClick={cancelTheOrder}
           >
-            Bekor qilish
+            {t('cart.cartActions.actionButtons.cancellation')}
           </button>
         </div>
       </div>

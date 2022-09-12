@@ -82,7 +82,8 @@
             "totalPrice": "Jami narx",
             "actionButtons": {
                 "purchase": "sotib olish",
-                "cancellation": "Bekor qilish"
+                "cancellation": "Bekor qilish",
+                "cancelTheOrderQuestion": "Ishonchingiz komilmi?"
             }
         },
         "emptyCart": {
@@ -149,6 +150,8 @@
         "leave": "Chiqish"
     },
     "createPro": {
+        "toastError": "uzur faqatgina 5 dona rasm yuklay olasiz holos:(",
+        "toastErr": "Iltimos rasm ni yuklang",
         "createProNav": "Mahsulot yaratish",
         "createProForm": {
             "formInputs": {

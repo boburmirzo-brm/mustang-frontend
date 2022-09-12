@@ -65,7 +65,7 @@
             "quontity": "количество",
             "price": "цена"
         },
-        "cart_products": {
+        "cartProducts": {
             "size": "Размер",
             "color": "Цвет",
             "brand": "Бренд",
@@ -83,7 +83,8 @@
             "totalPrice": "Итоговая цена",
             "actionButtons": {
                 "purchase": "купить",
-                "cancellation": "Отмемить"
+                "cancellation": "Отмемить",
+                "cancelTheOrderQuestion": "Вы уверены?"
             }
         },
         "emptyCart": {
@@ -114,7 +115,7 @@
         "order": {
             "time": "Время заказа:",
             "location": "Местоположения",
-            "totalPrice": "Итоговая цена:",
+            "totalPrice": "Итогая:",
             "orderBox": {
                 "orderWrapper": {
                     "wrapperNav": "Заказы клиентов",
@@ -132,7 +133,7 @@
                         "name": "Имя Клиента:",
                         "tel": "Номер телефона клиента:"
                     },
-                    "quontity": "Количество продуктов:",
+                    "quontity": "Кол-во продуктов:",
                     "totalPrice": "Итоговая цена:"
                 }
             }
@@ -150,6 +151,8 @@
         "leave": "Выход"
     },
     "createPro": {
+        "toastError": "Извините, вы можете загрузить только 5 изображения:(",
+        "toastErr": "Пожалуйста загрузите изображение",
         "createProNav": "Создание продукта",
         "createProForm": {
             "formInputs": {
@@ -161,7 +164,7 @@
                 "brand": "Бренд: (Mustang)",
                 "type": "Вид",
                 "season": "Сезонность: (Сезон)",
-                "stars": "звезды: ",
+                "stars": "звёзды: ",
                 "color": "Цвет: "
             },
             "formBtn": "Создание продукта",

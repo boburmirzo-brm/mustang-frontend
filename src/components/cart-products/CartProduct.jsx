@@ -9,10 +9,13 @@ import { removeFromCart } from '../../context/action/action'
 import {UseProduct} from "../../hooks/UseProducts"
 import {ADD_TO_HEART} from "../../context/action/actionTypes"
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 function CartProduct({all}) {
     const {cart, heart} = useSelector(s=>s)
     const dispatch = useDispatch()
+
+    const { t } = useTranslation()
 
     const {_id, title, urls, size, color, price, brand, quontity, orderType} = all;
 
@@ -56,10 +59,10 @@ function CartProduct({all}) {
                 <h3 className={s.cartpro_title}>{title.length > 20 ? title.slice(0,20) + "..." : title}</h3>
                 <div className={s.desc}>
                   <div className={s.extra}>
-                    <p>Size: {orderType === 'complect' ? size : orderType}</p>
-                    <p>Color: {color}</p>
+                    <p>{t('cart.cartProducts.size')}: {orderType === 'complect' ? size : orderType}</p>
+                    <p>{t('cart.cartProducts.color')}: {color}</p>
                   </div>
-                  <p>Brand: {brand}</p>
+                  <p>{t('cart.cartProducts.brand')}: {brand}</p>
                 </div>
               </div>
               </div>
@@ -94,7 +97,7 @@ function CartProduct({all}) {
                   </div>
                  <div className={s.prices}>
                    <h4>{(price * quontity).brm()}</h4>
-                   <p>{(price * (orderType === 'complect' ? (+size.replace('-', ' ').split(' ')[1] - +size.replace('-', ' ').split(' ')[0] + 1) : 1)).brm()} har {orderType === 'complect' ? 'complektga' : 'biri'}</p>
+                   <p>{(price * (orderType === 'complect' ? (+size.replace('-', ' ').split(' ')[1] - +size.replace('-', ' ').split(' ')[0] + 1) : 1)).brm()}{orderType === 'complect' ? t('cart.cartProducts.forEachComplect') : t('cart.cartProducts.forEach')}</p>
                  </div>
                 </div>
                 <div className={s.pro_actions}>
