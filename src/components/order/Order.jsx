@@ -44,7 +44,7 @@ function Order() {
       onScroll={handleScroll}
       >
         {
-          [...data]?.reverse().map(({_id, tel, name, address, orders}) => <div key={_id} className={s.order}>
+          [...data]?.map(({_id, tel, name, address, orders}) => <div key={_id} className={s.order}>
           <div  className={s.order_box}>
             <div className={s.user_circle}>
               <h1>{name.slice(0, 1)}</h1>

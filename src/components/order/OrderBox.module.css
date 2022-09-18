@@ -27,17 +27,17 @@
 .main
 {
     width: 80%;
-    height: 80%;
+    min-height: 80%;
     background: var(--bg-light);
     display: flex;
+    flex-wrap: wrap;
     position: absolute;
     left: 50%;
-    bottom: -80%;
+    bottom: -200%;
     transform: translateX(-50%);
     transition: all .5s ease;
     z-index: 15;
     border-radius: 5px;
-    overflow: hidden;
 }
 
 .order_box.active + .main
@@ -49,17 +49,20 @@
 .orders
 {
     width: 65%;
+    min-width: 900px;
     height: 100%;
-    padding: 45px 40px 20px;
+    padding: 15px;
+    overflow: auto;
 }
 
 .user
 {
     width: 35%;
-    height: 100%;
+    min-height: 100%;
     overflow: auto;
     padding: 20px 40px;
     background: #ddd;
+    border-radius: 0 5px 5px 0;
 }
 
 .user_header
@@ -195,9 +198,9 @@
 
 .order
 {
-    width: 100%;
     min-height: 140px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-bottom: 14px;
@@ -292,29 +295,20 @@
     font-weight: 400;
 }
 
-@media screen and (max-width: 1600px) {
-    .main
-    {
-        flex-direction: column-reverse;
-        overflow: auto;
-        border-radius: none !important;
-    }
-
+@media screen and (max-width: 1735px) {
     .orders
     {
         width: 100%;
     }
 
+    .main
+    {
+        border-radius: none;
+    }
+
     .user
     {
         width: 100%;
-        height: 600px !important;
-    }
-}
-
-@media screen and (max-width: 1060px) {
-    .order_extra_info
-    {
-        justify-content: start;
+        border-radius: none;
     }
 }
