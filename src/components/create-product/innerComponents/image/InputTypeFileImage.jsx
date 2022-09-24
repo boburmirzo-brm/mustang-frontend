@@ -2,9 +2,10 @@
 import React from "react";
 import s from "./InputTypeFileImage.module.css";
 import cameraIcon from "../../../../assets/camera.png";
-import { t } from "i18next";
+import { useTranslation } from 'react-i18next'
 
 const InputTypeFileImage = ({ handleChangeImage, imgs }) => {
+  const { t } = useTranslation()
   return (
     <>
       <div className={s.imageReceiver}>

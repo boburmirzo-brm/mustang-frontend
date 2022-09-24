@@ -38,22 +38,25 @@ const Home = () => {
   },[filter])
   const pageSize = 8
   useEffect(()=>{
-    setLoading(true)
+    const cleanUp = ()=>{
+      setLoading(true)
 
-    axios.get(`/products/page`, {
-      method: "GET",
-      params: {
-        pageSize,
-        pageNumber: pageCount,
-        filter
-      }
-    })
-    .then(res => {
-      setData(res.data.data.products)
-      setTotalPage(res.data.data.btnCount)
-      setLoading(false)
-    })
-    .catch(err => setLoading(false))
+      axios.get(`/products/page`, {
+        method: "GET",
+        params: {
+          pageSize,
+          pageNumber: pageCount,
+          filter
+        }
+      })
+      .then(res => {
+        setData(res.data.data.products)
+        setTotalPage(res.data.data.btnCount)
+        setLoading(false)
+      })
+      .catch(err => setLoading(false))
+    }
+    return cleanUp()
   },[pageCount, filter])
   // console.log(filter);
   document.title = "Asosiy sahifa";

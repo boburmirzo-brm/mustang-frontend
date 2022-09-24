@@ -5,9 +5,10 @@ import { AiOutlineEye } from 'react-icons/ai'
 import Loader from '../loader/Loader'
 import axios from '../../api/axios'
 import { useTranslation } from 'react-i18next'
-
+import {auth} from "../../auth/auth"
 function Order() {
   const { t } = useTranslation()
+
   document.title = t('orders.orderNav');
   const [box, setBox] = useState('')
   const [data, setData] = useState([])
@@ -17,7 +18,7 @@ function Order() {
 
   useEffect(() => {
     setLoading(true)
-    axios.get(`/orders?skip=${skip}`)
+    axios.get(`/orders?skip=${skip}`, auth())
          .then((res) => {
             setData([...data, ...res.data.orders])
             setLoading(false)
