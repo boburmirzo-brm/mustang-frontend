@@ -3,32 +3,35 @@ import s from "./ExtraInfo.module.css";
 import { IoIosPaper, IoMdChatboxes } from "react-icons/io";
 import { AiOutlineFileProtect, AiFillGift } from "react-icons/ai";
 import EachItem from "./EachItem";
+import { useTranslation } from "react-i18next";
 
 function ExtraInfo() {
+
+  const {t} = useTranslation()
   const [staticData] = useState([
     {
       id: 1,
       icon: <IoIosPaper />,
-      p1: "Muddatli to'lovga sotib olish",
-      p2: "Mustang qulay online buyurtma berish imkoniyati",
+      p1: t("category.categoryBox1.credit"),
+      p2: t("category.categoryBox1.toOrder"),
     },
     {
       id: 2,
       icon: <AiOutlineFileProtect />,
-      p1: "Mahsulotlar uchun kafolat",
-      p2: "MUSTANG da mahsulotlar sifatli bo'lib biz o'z mahsulotimiz sifatini doim nazoratda tutamiz",
+      p1: t("category.categoryBox2.guarantee"),
+      p2: t("category.categoryBox2.control"),
     },
     {
       id: 3,
       icon: <AiFillGift />,
-      p1: "Bonus tizimi",
-      p2: "Bonus tizimi mavjud:)",
+      p1: t("category.categoryBox3.bonus"),
+      p2: t("category.categoryBox3.availability"),
     },
     {
       id: 4,
       icon: <IoMdChatboxes />,
-      p1: "Yordam",
-      p2: "Ko'p beriladigan savollar",
+      p1: t("category.categoryBox4.help"),
+      p2: t("category.categoryBox4.questions"),
     },
   ]);
 

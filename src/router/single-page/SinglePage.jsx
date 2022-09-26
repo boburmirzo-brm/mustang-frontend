@@ -15,12 +15,14 @@ import { toast, ToastContainer } from "react-toastify";
 import Slides from "../../components/slides/Slides"
 import SingeleSkeleton from "./skeleton/SingeleSkeleton";
 import {removeFromCart} from "../../context/action/action"
+import { useTranslation } from "react-i18next";
 
 const SinglePage = ({
   match: {
     params: { id },
   },
 }) => {
+  const {t} = useTranslation()
   const [data, setData] = useState([
     {
       _id: "",
@@ -222,29 +224,29 @@ const SinglePage = ({
                       </span>
                     </p>
                     <p className={s.type}>
-                      turi: <span title={type}>{type} </span>
+                      {t("updateProducts.title")}: <span title={type}>{type} </span>
                     </p>
                     <p className={s.season}>
-                      mavsumiyligi: <span title={season}>{season}</span>
+                      {t("updateProducts.season")}: <span title={season}>{season}</span>
                     </p>
                     <p className={s.brand}>
-                      brandi: <span title={brand}>{brand}</span>
+                    {t("updateProducts.brand")}: <span title={brand}>{brand}</span>
                     </p>
                     <p className={s.brand}>
-                      Model: <span title={brand}>{productId}</span>
+                    {t("updateProducts.id")}: <span title={brand}>{productId}</span>
                     </p>
 
                     <div className={s.size}>
-                      O'lchamlari: <span title={size}>{size}</span>
+                    {t("updateProducts.size")}: <span title={size}>{size}</span>
                       <p className={s.miniInfo}>
-                        savatchada razmerlarini o'zgartirishingiz mumkin
+                       {t("updateProducts.change")}
                       </p>
                     </div>
                     <p className={s.view}>
-                      ko'rildi: <span>{view + 1} </span>{" "}
+                    {t("updateProducts.seen")}  : <span>{view + 1} </span>{" "}
                     </p>
                     <div className={s.share}>
-                      ulashish:{" "}
+                    {t("updateProducts.share")}  :{" "}
                       <span onClick={handleShare} className={s.telegram}>
                         <BsTelegram />
                       </span>

@@ -83,7 +83,7 @@ function Product({data}) {
                 {new Array(5 - data.stars).fill("").map((_,inx)=><AiOutlineStar key={inx}/>)}
             </div>
             <div className={s.product_btns}>
-                {!quontityAction && <button onClick={addToCart} className={s.btn_shopping}><MdOutlineShoppingCart/><span>Savatchaga qo'shish</span></button>}
+                {!quontityAction && <button onClick={addToCart} className={s.btn_shopping}><MdOutlineShoppingCart/><span>{t("addToCart")}</span></button>}
                     { 
                         quontityAction && 
                         <div className={s.quontity_actions}>

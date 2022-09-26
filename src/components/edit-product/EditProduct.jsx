@@ -10,8 +10,10 @@ import axios from "../../api/axios";
 import { auth } from "../../auth/auth";
 import { ToastContainer, toast } from "react-toastify";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 function EditProduct() {
+  const {t} = useTranslation()
   document.title = "Mahsulotlarni boshqarish";
   const [realTime, setRealTime] = useState(false);
   const [getId, setGetId] = useState("");
@@ -177,7 +179,7 @@ function EditProduct() {
     <>
       <div className={s.editProducts}>
         <div className={s.editTitle}>
-          <h1>Mahsulotlarni Taxrirlash</h1>
+          <h1>{t("updateProducts.updateProduct")}</h1>
         </div>
         <div className={s.pro_wrapper}>
           {data.data?.map(({ _id, urls, title, price, stars }, inx) => (
@@ -240,7 +242,7 @@ function EditProduct() {
                   </a>
                 ))}
               </div>
-              <label>Nomi</label>
+              <label>{t("updateProducts.title")}</label>
               <input
                 type="text"
                 value={updateProduct.title}
@@ -248,7 +250,7 @@ function EditProduct() {
                 onChange={handleChangeInput}
                 onBlur={focusOut}
               />
-              <label>Ta'rifi</label>
+              <label>{t("updateProducts.desc")}</label>
               <input
                 type="text"
                 name="desc"
@@ -257,7 +259,7 @@ function EditProduct() {
                 onBlur={focusOut}
               />
 
-              <label>Narxi</label>
+              <label>{t("updateProducts.price")}</label>
               <input
                 type="number"
                 name="price"
@@ -266,7 +268,7 @@ function EditProduct() {
                 onBlur={focusOut}
               />
 
-              <label>O'lchami</label>
+              <label>{t("updateProducts.size")}</label>
               <input
                 minLength={4}
                 maxLength={5}
@@ -277,7 +279,7 @@ function EditProduct() {
                 onBlur={focusOut}
               />
 
-              <label>Rangi</label>
+              <label>{t("updateProducts.color")}</label>
               <select
                 value={updateProduct.color}
                 name="color"
@@ -292,7 +294,7 @@ function EditProduct() {
                 ))}
               </select>
 
-              <label>Yulduzlar</label>
+              <label>{t("updateProducts.stars")}</label>
               <select
                 value={updateProduct.stars}
                 name="stars"
@@ -306,7 +308,7 @@ function EditProduct() {
                   </option>
                 ))}
               </select>
-              <label>Mahsulot id</label>
+              <label>{t("updateProducts.id")}</label>
               <input
                 type="text"
                 name="productId"
@@ -314,7 +316,7 @@ function EditProduct() {
                 onChange={handleChangeInput}
               />
 
-              <label>Brend</label>
+              <label>{t("updateProducts.brand")}</label>
               <input
                 type="text"
                 name="brand"
@@ -322,7 +324,7 @@ function EditProduct() {
                 onChange={handleChangeInput}
               />
 
-              <label>Fasl</label>
+              <label>{t("updateProducts.season")}</label>
               <select
                 name="season"
                 value={updateProduct.season}
@@ -337,7 +339,7 @@ function EditProduct() {
                 ))}
               </select>
 
-              <label>Turi</label>
+              <label>{t("updateProducts.type")}</label>
               <select
                 name="type"
                 value={updateProduct.type}
@@ -353,8 +355,8 @@ function EditProduct() {
               </select>
             </div>
             <div className={s.updateModalBtns}>
-              <button onClick={updatePro} className={s.update_modal_btn}>Update</button>
-              <button onClick={()=> setUpdateModal(false)} className={s.cancel_modal_btn}>Cancel</button>
+              <button onClick={updatePro} className={s.update_modal_btn}>{t("updateBtn")}</button>
+              <button onClick={()=> setUpdateModal(false)} className={s.cancel_modal_btn}>{t("closeBtn")}</button>
             </div>
           </div>
         </div>

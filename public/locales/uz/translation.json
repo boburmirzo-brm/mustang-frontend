@@ -5,6 +5,11 @@
         "homeLink": "Asosiy sahifa",
         "aboutLink":"Biz haqimizda"
     },
+    "bannerProducts":"Eng so'ngi qo'shilganlar",
+    "products":"Maxsulotlar",
+    "addToCart":"Savatchaga qo'shish",
+    "closeBtn":"Ortga",
+    "updateBtn":"Yangilash",
     "about":{
         "bannerLogo":"Mustang haqida",
         "bannerText":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum laborum assumenda vitae, obcaecati nihil quasi beatae placeat magnam quas quod, voluptates corrupti, accusantium adipisci quia atque numquam enim saepe voluptatem quae non? Ratione voluptas sapiente, ipsam suscipit quibusdam optio natus numquam itaque iusto laudantium eaque! Repudiandae corporis facere quo recusandae?",
@@ -54,7 +59,9 @@
         "id":"modeli",
         "brand":"Marka",
         "season":"Sezo'n",
-        "type":"Turi"
+        "type":"Turi",
+        "share":"Ulashish",
+        "change":"savatchada razmerlarini o'zgartirishingiz mumkin"
     },
         "cart": {
         "shoppingCart": "Xarit savatchangiz",

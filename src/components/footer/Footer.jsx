@@ -5,10 +5,12 @@ import { AiOutlineTwitter, AiOutlineMail } from "react-icons/ai";
 import { BsInstagram, BsTelegram, BsYoutube } from "react-icons/bs";
 import { BiMap, BiPhoneCall } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
   const [isAbout, setIsAbout] = useState(false);
   const { pathname } = useLocation();
+  const {t} = useTranslation()
 
   useEffect(() => {
     setIsAbout(pathname === "/about");
@@ -23,7 +25,7 @@ const Footer = () => {
       <footer className={s.footer}>
         <div className={s.footer_container}>
           <div className={`${s.sec} ${s.aboutus}`}>
-            <h2>Biz haqimizda</h2>
+            <h2>{t("footer.aboutUs")}</h2>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
@@ -69,18 +71,14 @@ const Footer = () => {
             </ul>
           </div>
           <div className={`${s.sec} ${s.contact}`}>
-            <h2>Aloqa uchun</h2>
+            <h2>{t("footer.forCommunication")}</h2>
             <ul className={s.info}>
               <li>
                 <span>
                   <BiMap />
                 </span>
                 <span>
-                  123-uy, Boburshox ko'cha
-                  <br />
-                  Namangan shahar, 160100,
-                  <br />
-                  Uzbekistan
+                  {t("footer.ourStreet")}
                 </span>
               </li>
               <li>
@@ -98,13 +96,13 @@ const Footer = () => {
                   <AiOutlineMail />{" "}
                 </span>
                 <p>
-                  <a href="mailto:someone@gmail.com">someone@gmail.com</a>
+                  <a href="mailto:someone@gmail.com">{t("footer.ourGmail")}</a>
                 </p>
               </li>
             </ul>
           </div>
           <div className={`${s.sec} ${s.map}`}>
-            <h2>Xaritada biz</h2>
+            <h2>{t("footer.inMap")}</h2>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9782.950250986414!2d71.67283784138014!3d40.99843782546042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb4dba0d667c2f%3A0xf12782376ea39733!2sNamangan!5e0!3m2!1suz!2skr!4v1661172157731!5m2!1suz!2skr"
               width="600"
@@ -120,8 +118,10 @@ const Footer = () => {
       </footer>
       <div className={s.copyrightText}>
         <p>
-          Copyright ©️ {new Date().getFullYear()} The Binary Inc. All Rights
-          Reserved
+          {/* Copyright ©️ {new Date().getFullYear()} The Binary Inc. All Rights
+          Reserved */}
+
+          {t(`footer.copyright`)}
         </p>
       </div>
     </div>

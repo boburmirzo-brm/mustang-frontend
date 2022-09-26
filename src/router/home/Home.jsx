@@ -10,10 +10,12 @@ import {filterShow} from "../../context/action/action"
 import {AiOutlineFilter} from "react-icons/ai"
 import Slides from '../../components/slides/Slides'
 import axios from '../../api/axios'
-import { useParams, useHistory } from "react-router-dom"
+import { useParams, useHistory, useLocation } from "react-router-dom"
+import { useTranslation } from 'react-i18next'
 
 
 const Home = () => {
+  const {t} = useTranslation()
   const filterHide = useSelector(state=> state.filterShow)
   const dispatch = useDispatch();
   const [data, setData] = useState([])
@@ -63,10 +65,10 @@ const Home = () => {
   return (
     <div>
       <Banner/>
-      <h1 className={s.latest_title}>Eng so'ngi qoshilganlar</h1>
+      <h1 className={s.latest_title}>{t("bannerProducts")}</h1>
       <Slides/>
       <div className={s.home_top}>
-          <h1 className={s.title}>Mahsulotlar</h1>
+          <h1 className={s.title}>{t("products")}</h1>
           <button className={filterHide? [s.filter_show, s.active].join(" ") : s.filter_show} onClick={()=> dispatch(filterShow())}><AiOutlineFilter/> <span>Filter</span></button>
       </div>
       <div className={s.main}>
