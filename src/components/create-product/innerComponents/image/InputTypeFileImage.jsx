@@ -2,8 +2,10 @@
 import React from "react";
 import s from "./InputTypeFileImage.module.css";
 import cameraIcon from "../../../../assets/camera.png";
+import { useTranslation } from 'react-i18next'
 
 const InputTypeFileImage = ({ handleChangeImage, imgs }) => {
+  const { t } = useTranslation()
   return (
     <>
       <div className={s.imageReceiver}>
@@ -16,7 +18,7 @@ const InputTypeFileImage = ({ handleChangeImage, imgs }) => {
           className={s.customUpload}
         >
           <img src={cameraIcon} alt="camera icon" />
-          <p>Rasm yuklash</p>
+          <p>{t('createPro.createProForm.uploadImage')}</p>
           <p className={s.colorBrown}>.jpg / .png / .jpeg</p>
           <input
             onChange={handleChangeImage}

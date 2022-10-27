@@ -44,18 +44,21 @@ const SinglePage = ({
   const [quontity, setQuontity] = useState([])
   const [zoom, setZoom] = useState(null);
 
+
   useEffect(() => {
     setQuontity([])
+    setLoading(true)
     axios
-      .get(`/products/${id}`)
-      .then(({ data: { data } }) => {
-        setData(data);
-        setLoading(false);
-      })
-      .catch((e) => {
-        console.log("error: ", e);
-        setLoading(false);
-      });
+    .get(`/products/${id}`)
+    .then(({ data: { data } }) => {
+      setData(data);
+      setLoading(false);
+    })
+    .catch((e) => {
+      console.log("error: ", e);
+      setLoading(false);
+    });
+    axios.patch(`/products/view/${id}`)
   }, [id]);
 
   const { title, desc, urls } = data[0];
@@ -64,6 +67,8 @@ const SinglePage = ({
   document.title = title;
   useEffect(()=>{
     setQuontity(cart.filter(i => i._id === data[0]._id))
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[loading, cart])
 
   const addToCartProduct = ()=>{
@@ -105,6 +110,9 @@ const SinglePage = ({
 
     setLiked(pro.length);
   }, [data, heart]);
+
+  
+
 
   const handleShare = async () => {
     let shareData = {
@@ -235,7 +243,7 @@ const SinglePage = ({
                       </p>
                     </div>
                     <p className={s.view}>
-                      ko'rildi: <span>{view} </span>{" "}
+                      ko'rildi: <span>{view + 1} </span>{" "}
                     </p>
                     <div className={s.share}>
                       ulashish:{" "}

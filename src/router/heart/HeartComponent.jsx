@@ -11,8 +11,12 @@ import { UseCart } from "../../hooks/UseCart";
 import { ADD_TO_CART } from "../../context/action/actionTypes";
 import { useSelector, useDispatch } from "react-redux";
 import ZoomImage from "../../components/zoom-image/ZoomImage";
+import { useTranslation } from 'react-i18next'
+
 
 const HeartComponent = ({ data, setData }) => {
+  const { t } = useTranslation()
+
   const { _id, title, urls, price, stars, type, color } = data;
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -40,10 +44,10 @@ const HeartComponent = ({ data, setData }) => {
 
           <div className={s.typeContainerBody}>
           <p className={s.type} title={type}>
-            turi: {type}
+            {t('heart.product.type')}: {type}
           </p>
           <p className={s.type} title={color}>
-            rangi: {color}
+            {t('heart.product.color')}: {color}
           </p>
           </div>
         </div>

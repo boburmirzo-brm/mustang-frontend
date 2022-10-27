@@ -26,6 +26,8 @@
 .product_price{
     padding: 6px 0;
     color:  var(--bg-py);
+    display: flex;
+    align-items: center;
 }
 .product_stars{
     color: var(--bg-gold);
@@ -82,7 +84,7 @@
     border: 1px solid var(--bg-py);
 }
 .heart.active{
-    color:  var(--bg-py);
+    color: crimson;
 }
 .view {
     display: flex;

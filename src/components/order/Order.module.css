@@ -39,7 +39,7 @@
 .order
 {
     width: 100%;
-    height: 100px;
+    min-height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -67,13 +67,14 @@
 .order_box
 {
     width: 90%;
-    height: 100%;
+    min-height: 100%;
     border-radius: 10px;
     box-shadow: 0 0 3px #3334;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 30px;
+    padding: 12px 30px;
 }
 
 .user_circle
@@ -101,6 +102,7 @@
 .order_time
 {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;    
     width: 320px;
@@ -110,6 +112,7 @@
 {
     width: 570px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
@@ -118,6 +121,7 @@
 {
     height: 100%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
     padding: 20px 0;
@@ -126,6 +130,7 @@
 .order_other_infos
 {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -133,6 +138,7 @@
 {
     width: 200px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     margin-right: 12px;
@@ -199,38 +205,60 @@
     display: none;
 }
 
-@media screen and (max-width: 1800px) {
-    .order_show
+@media screen and (max-width: 1648px) {
+    .order
     {
-        width: 50px;
-    }
-
-    .order_box
-    {
-        width: calc(100% - 70px);
         justify-content: start;
     }
-
-    .user_circle
+    
+    .order_box
     {
+        padding-top: 20px;
         margin-right: 20px;
+    }
+
+    .order_extra
+    {
+        width: 500px;
+    }
+    
+    .user_address
+    {
+        justify-content: flex-start;
+    }
+
+    .user_address .infoText
+    {
+        margin-left: 30px;
     }
 }
 
-@media screen and (max-width: 1670px) {
+@media screen and (max-width: 714px) {
+    .order_time
+    {
+        margin-top: 20px;
+    }
+
+    .order_show
+    {
+        padding: 0 12px;
+    }
+}
+
+@media screen and (max-width: 700px) {
     .order_info
     {
         display: none;
     }
 
-    .info:last-child
+    .order_extra
     {
-        display: flex;
+        display: none;
     }
 
-    .user_info
+    .order_box
     {
-        width: 200px;
-        margin-right: 20px;
+        padding: 12px;
+        margin-right: 15px;
     }
 }

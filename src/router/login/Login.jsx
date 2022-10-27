@@ -5,7 +5,7 @@ import axios from "../../api/axios"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 import {SIGN_IN} from "../../context/action/actionTypes"
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
@@ -41,7 +41,7 @@ function Login() {
           })
           if(res.data.user.token){
             dispatch({type:SIGN_IN, payload: res.data.user })
-            history.push("/admin/order")
+            history.push("/admin")
             return;
           }
       }
@@ -51,10 +51,6 @@ function Login() {
         setLoading(false)
         return;
       })
-      setTimeout(()=> {
-        setLoading(false)
-        toast.error("Internet juda past", {autoClose: 5000});
-      }, 10000)
   }
   return (
     <div className={s.login}>
@@ -67,7 +63,7 @@ function Login() {
           <label htmlFor="inp_name" className={s.input_text}>Sizning usernamingiz:</label>
           <input 
           value={admin.username}
-          onChange={({target}) => setAdmin({...admin, username: target.value})}
+          onChange={({target}) => setAdmin({...admin, username: target.value.trim()})}
           type="text" 
           id='inp_name' 
           className={s.inp} 
@@ -75,7 +71,7 @@ function Login() {
           <label htmlFor="inp_pw" className={s.input_text}>Sizning parolingiz:</label>
           <input 
           value={admin.password}
-          onChange={({target}) => setAdmin({...admin, password: target.value})}
+          onChange={({target}) => setAdmin({...admin, password: target.value.trim()})}
           type="password" 
           id='inp_pw' 
           className={s.inp} 

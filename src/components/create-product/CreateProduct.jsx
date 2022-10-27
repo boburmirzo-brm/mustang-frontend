@@ -9,8 +9,10 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "../../api/axios";
 import { auth } from "../../auth/auth";
 import Loader from "../../components/loader/Loader";
+import { useTranslation } from 'react-i18next'
 
 function CreateProduct() {
+  const { t } = useTranslation()
   document.title = "Mahsulot yaratish";
   const [inputTypeTextData] = useState([
     "title",
@@ -22,16 +24,16 @@ function CreateProduct() {
   ]);
   const [inputTypeSelectData] = useState(["type", "season", "stars", "color"]);
   const [allPlaceHolders] = useState({
-    title: "Nomi: (Cabani shoes)",
-    desc: "Ta'rifi: (Sifatli toza charmda  tayyorlangan...)",
-    price: "Narxi: (420000)",
-    size: "O'lchami: (39-44)",
-    productId: "Mahsulot id: (45p7)",
-    brand: "Brandi: (Mustang)",
-    type: "Mahsulot turi: ",
-    season: "Mavsumiyligi: (Fasl)",
-    stars: "yulduzi: ",
-    color: "Rangi: ",
+    title: t('createPro.createProForm.formInputs.title'),
+    desc: t('createPro.createProForm.formInputs.desc'),
+    price: t('createPro.createProForm.formInputs.price'),
+    size: t('createPro.createProForm.formInputs.size'),
+    productId: t('createPro.createProForm.formInputs.productId'),
+    brand: t('createPro.createProForm.formInputs.brand'),
+    type: t('createPro.createProForm.formInputs.type'),
+    season: t('createPro.createProForm.formInputs.season'),
+    stars: t('createPro.createProForm.formInputs.stars'),
+    color: t('createPro.createProForm.formInputs.color'),
   });
 
   // <Barcha Ma'lumotlar shu state da shuni backendga yuboriladi>
@@ -128,6 +130,10 @@ function CreateProduct() {
       }
     } else {
       toast.warn("uzur siz rasm yuklamadingiz!");
+      toast.error(t('createPro.toastError'), {
+        position: "top-right",
+        autoClose: 7000,
+      });
     }
   };
 
@@ -192,7 +198,7 @@ function CreateProduct() {
 
     // Checking image before submit
     if (!imgs.length) {
-      return toast.error("Iltimos rasm ni yuklang", {
+      return toast.error(t('createPro.toastErr'), {
         position: "top-right",
         autoClose: 7000,
       });
@@ -239,7 +245,7 @@ function CreateProduct() {
   return (
     <div className={s.container}>
       <div className={s.title}>
-        <h1>Mahsulot yaratish</h1>
+        <h1>{t('createPro.createProNav')}</h1>
       </div>
       <div className={s.row}>
         <form onSubmit={handleSubmit} className={s.form}>
@@ -285,7 +291,7 @@ function CreateProduct() {
             ) : (
               <>
                 <AiOutlineCheckCircle className={s.btnIcon} />{" "}
-                <span>Mahsulot Yaratish</span>
+                <span>{t('createPro.createProForm.formBtn')}</span>
               </>
             )}
           </button>
