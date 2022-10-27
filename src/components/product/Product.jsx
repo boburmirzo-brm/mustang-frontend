@@ -49,11 +49,11 @@ function Product({data}) {
             setLiked(false)
         }
         return;
-    }, [])
+    }, [data._id, heart])
 
     useEffect(() => {
         return setQuontityAction( cart?.filter(i => i._id === data._id).length ? true : false )
-    }, [])
+    }, [cart, data._id])
 
     const addToCart = () => {
         setQuontityAction(true)

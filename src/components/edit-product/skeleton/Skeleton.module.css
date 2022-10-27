@@ -1,0 +1,45 @@
+.product {
+  /* width: 300px; */
+  min-height: 390px;
+  box-shadow: 0 0 10px #2222;
+  margin: 15px;
+  transition: 0.3s;
+  padding: 10px;
+  position: relative;
+}
+.product:hover {
+  box-shadow: 0 0 20px #3333;
+}
+/* skeleton */
+.skeleton_image {
+  width: 94%;
+  height: 55%;
+  margin: auto;
+  margin-top: 10px;
+  background: linear-gradient(90deg, #ddd, #eee, #ddd);
+  background-size: 200%;
+  animation: skeleton 1s linear infinite;
+}
+@keyframes skeleton {
+  to {
+    background-position: 200%;
+  }
+}
+
+.skeleton_desc,
+.skeleton_title {
+  height: 26px;
+  width: 70%;
+  margin: 3%;
+  background: linear-gradient(90deg, #ddd, #eee, #ddd);
+  background-size: 200%;
+  animation: skeleton 1s linear infinite;
+}
+.skeleton_desc {
+  width: 94%;
+  margin: 0 auto;
+}
+
+.skeleton_title {
+    margin-top: 8%;
+}

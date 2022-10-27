@@ -69,6 +69,7 @@
     justify-content: center;
     flex-direction: column;
     color: var(--bg-light);
+    margin-bottom: 3%;
 }
 
 .about_name h1{

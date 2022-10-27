@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import s from "./Header.module.css";
 import logo from "../../assets/Mustang.svg";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { FiSearch, FiX } from "react-icons/fi";
+import { FiSearch } from "react-icons/fi";
 import {useSelector} from "react-redux"
 import { AiOutlineHeart,AiFillHeart, AiOutlineUser} from "react-icons/ai";
 import {BsCart, BsFillCartFill, } from "react-icons/bs"

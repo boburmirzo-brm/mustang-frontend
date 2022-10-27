@@ -35,6 +35,7 @@ const Home = () => {
   useEffect(()=>{
     history.push("/page/1")
     setPageCount(1)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[filter])
   const pageSize = 8
   useEffect(()=>{

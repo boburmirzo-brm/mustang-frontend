@@ -24,7 +24,7 @@ function Order() {
             setLoading(false)
           })
          .catch((err) => console.log(err))
-  }, [skip])
+  }, [data, skip])
 
   const handleScroll = (e) => {
     const { offsetHeight, scrollTop, scrollHeight} = e.target

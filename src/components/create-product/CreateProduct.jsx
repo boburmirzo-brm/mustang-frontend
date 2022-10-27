@@ -110,21 +110,26 @@ function CreateProduct() {
 
   const handleChangeImage = ({ target: { files } }) => {
     const MAX_COUNT_OF_IMAGES = 5;
-    if (files.length <= MAX_COUNT_OF_IMAGES) {
-      setMultipleFileImages(files);
-      setImgs([]);
-      Object.values(files).forEach((i) => {
-        let source = {
-          src: URL.createObjectURL(i),
-          name: i.name,
-          size: i.size,
-          date: i.lastModifiedDate,
-        };
-        if (imgs.length <= MAX_COUNT_OF_IMAGES) {
-          setImgs((e) => [...e, source]);
-        }
-      });
+    if (files) {
+      if (files.length <= MAX_COUNT_OF_IMAGES) {
+        setMultipleFileImages(files);
+        setImgs([]);
+        Object.values(files).forEach((i) => {
+          let source = {
+            src: URL.createObjectURL(i),
+            name: i.name,
+            size: i.size,
+            date: i.lastModifiedDate,
+          };
+          if (imgs.length <= MAX_COUNT_OF_IMAGES) {
+            setImgs((e) => [...e, source]);
+          }
+        });
+      } else {
+        toast.error("uzur faqatgina 5 dona rasm yuklay olasiz holos:(");
+      }
     } else {
+      toast.warn("uzur siz rasm yuklamadingiz!");
       toast.error(t('createPro.toastError'), {
         position: "top-right",
         autoClose: 7000,
