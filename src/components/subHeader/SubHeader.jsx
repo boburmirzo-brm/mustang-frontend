@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import s from "./SubHeader.module.css"
 import {BsTelephone} from "react-icons/bs"
 import uzb from "../../assets/language_uzb.png"

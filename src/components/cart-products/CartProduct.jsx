@@ -48,7 +48,7 @@ function CartProduct({all}) {
         }
 
         return;
-    }, [])
+    }, [_id, heart])
   return (
     <div key={_id} className={s.cart_product}>
               <div className={s.left_side}>

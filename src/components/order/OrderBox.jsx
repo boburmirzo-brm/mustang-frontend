@@ -23,7 +23,7 @@ function OrderBox({show, data}) {
 
   useEffect(() => {
     box.length && setOrder(data?.filter(i=> i._id === box)[0])
-  }, [box])
+  }, [box, data])
 
   const {name, tel, address, message, orders} = order;
 

@@ -5,7 +5,7 @@ import axios from "../../api/axios"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 import {SIGN_IN} from "../../context/action/actionTypes"
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Login() {

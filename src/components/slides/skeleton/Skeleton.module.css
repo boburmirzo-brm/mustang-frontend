@@ -1,0 +1,38 @@
+.product {
+    position: relative;
+    height: 250px;
+    
+}
+.product:hover {
+  box-shadow: 0 0 20px #3333;
+}
+/* skeleton */
+.skeleton_image {
+  width: 94%;
+  height: 55%;
+  margin: auto;
+  margin-top: 10px;
+  background: linear-gradient(90deg, #ddd, #eee, #ddd);
+  background-size: 200%;
+  animation: skeleton 1s linear infinite;
+  margin: 2%;
+}
+@keyframes skeleton {
+  to {
+    background-position: 200%;
+  }
+}
+
+.skeleton_desc,
+.skeleton_title {
+  height: 26px;
+  width: 70%;
+  margin: 2%;
+  background: linear-gradient(90deg, #ddd, #eee, #ddd);
+  background-size: 200%;
+  animation: skeleton 1s linear infinite;
+}
+.skeleton_desc {
+  width: 94%;
+}
+
