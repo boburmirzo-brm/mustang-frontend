@@ -63,6 +63,8 @@ function CartProducts() {
       "5757354348:AAE54BulXxWlczUiPqIDUztSqBwtDBO3-nI",
     ];
 
+
+    
     let tempUrl = `https://api.telegram.org/bot${tokenBot}/sendMessage?chat_id=${chatId}&text=${myText}&parse_mode=html`;
 
     let api = new XMLHttpRequest();

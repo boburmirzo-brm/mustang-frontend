@@ -9,7 +9,7 @@ function Cart() {
   document.title = 'Harit savatcha'
   const cart = useSelector(s => s.cart)
 
-  // console.log(cart);
+  
 
   return (
     <div className={s.cart}>
