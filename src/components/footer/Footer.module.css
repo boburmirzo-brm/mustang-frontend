@@ -156,6 +156,9 @@
   text-align: center;
   color: var(--gray);
 }
+.copyrightText a{
+  color: #fff;
+}
 .link {
   color: var(--gray);
   text-decoration: underline;
