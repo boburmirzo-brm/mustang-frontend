@@ -120,7 +120,7 @@ const Footer = () => {
       </footer>
       <div className={s.copyrightText}>
         <p>
-          Copyright ©️ {new Date().getFullYear()} The Binary Inc. All Rights
+          Copyright ©️ {new Date().getFullYear()} The <a href="https://namtech.uz">NamTech Solution</a> Inc. All Rights
           Reserved
         </p>
       </div>
