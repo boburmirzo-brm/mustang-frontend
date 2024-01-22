@@ -59,7 +59,7 @@ function CartProducts() {
     myText += `%0A%0AUMUMIY NARXI💰: <b>${umumiyNarx.brm()} so'm</b>%0A`;
 
     let [chatId, tokenBot] = [
-      "-1001711898378",
+      "-1001798281214",
       "5757354348:AAGShoSS88iCNOnJf170z0PH0W998Pj8zIU",
     ];
 
